@@ -1,6 +1,6 @@
 /* ==========================================================================
-   runyte.com — motyw terminalowy (paleta GitHub Plus)
-   Wersja minimalna: samo logo ASCII na środku strony.
+   runyte.com — terminal theme (GitHub Plus palette)
+   Minimal version: just the ASCII logo, centered.
    ========================================================================== */
 
 /* ---- Font ---------------------------------------------------------------- */
@@ -19,7 +19,7 @@
   font-display: swap;
 }
 
-/* ---- Paleta (GitHub Plus) — https://github.com/thenikso/github-plus-theme - */
+/* ---- Palette (GitHub Plus) — https://github.com/thenikso/github-plus-theme */
 :root {
   --white: #ffffff;
   --fg-dark: #24292e;
@@ -32,7 +32,7 @@
   --fs: 16px;
 }
 
-/* ---- Reset / podstawy ---------------------------------------------------- */
+/* ---- Reset / basics ------------------------------------------------------ */
 *,
 *::before,
 *::after {
@@ -51,18 +51,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---- Scena: logo wyśrodkowane w pionie i poziomie ------------------------ */
+/* ---- Stage: logo centered both vertically and horizontally --------------- */
 .stage {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  min-height: 100dvh; /* mobile: bez skoku przy chowaniu paska adresu */
+  min-height: 100dvh; /* mobile: no jump when the address bar hides */
   padding: 1.5rem;
 }
 
-/* Blok jest wyśrodkowany, ale linie w środku zostają wyrównane do lewej —
-   inaczej rozjechałby się romb. */
+/* The block is centered, but the lines inside stay left-aligned — otherwise
+   the diamond falls apart. */
 .logo {
   margin: 0;
   font-size: 1.125rem;

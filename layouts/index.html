@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
 <body>
-  {{- /* Logo ASCII: jedno źródło prawdy w assets/ascii/logo.txt
-         (kopia runyte/logo/ascii/logo.txt) */ -}}
+  {{- /* ASCII logo: single source of truth in assets/ascii/logo.txt
+         (a copy of runyte/logo/ascii/logo.txt) */ -}}
   <main class="stage">
     <pre class="logo" role="img" aria-label="Runyte">{{ (resources.Get "ascii/logo.txt").Content }}</pre>
   </main>

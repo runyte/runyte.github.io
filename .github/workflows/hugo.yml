@@ -11,7 +11,7 @@ permissions:
   pages: write
   id-token: write
 
-# Pozwól tylko na jeden równoległy deploy; nie przerywaj trwających.
+# Allow only one concurrent deployment; do not cancel runs in progress.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -40,9 +40,9 @@ jobs:
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
-        # Budujemy z baseURL z hugo.yaml (https://runyte.com/), zamiast
-        # steps.pages.outputs.base_url, który bywa http:// dopóki Enforce HTTPS
-        # jest wyłączone — to powoduje mixed-content i utratę stylów.
+        # Build with the baseURL from hugo.yaml (https://runyte.com/) rather
+        # than steps.pages.outputs.base_url, which stays http:// while Enforce
+        # HTTPS is off — that causes mixed content and drops the stylesheet.
         run: |
           hugo --gc --minify
       - name: Upload artifact

@@ -3,7 +3,7 @@ languageCode: "en-us"
 title: "Runyte"
 
 enableRobotsTXT: true
-# Placeholder nie ma treści taksonomicznej — bez pustych /categories/ i /tags/.
+# The placeholder has no taxonomy content — skip empty /categories/ and /tags/.
 disableKinds: ["taxonomy", "term"]
 buildDrafts: false
 buildFuture: false
