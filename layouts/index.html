@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Site.Title }}</title>
+  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+  <meta name="robots" content="all,follow">
+  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+
+  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{ with .Site.Params.description }}<meta property="og:description" content="{{ . }}">{{ end }}
+
+  {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body>
+  {{- /* Logo ASCII: jedno źródło prawdy w assets/ascii/logo.txt
+         (kopia runyte/logo/ascii/logo.txt) */ -}}
+  <main class="stage">
+    <pre class="logo" role="img" aria-label="Runyte">{{ (resources.Get "ascii/logo.txt").Content }}</pre>
+  </main>
+</body>
+</html>

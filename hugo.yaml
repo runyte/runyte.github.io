@@ -1,0 +1,13 @@
+baseURL: "https://runyte.com/"
+languageCode: "en-us"
+title: "Runyte"
+
+enableRobotsTXT: true
+# Placeholder nie ma treści taksonomicznej — bez pustych /categories/ i /tags/.
+disableKinds: ["taxonomy", "term"]
+buildDrafts: false
+buildFuture: false
+
+params:
+  description: "Runyte - a fast modal terminal editor written in Rust."
+  author: "Krzysztof Arendt"

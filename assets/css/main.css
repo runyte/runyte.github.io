@@ -1,0 +1,78 @@
+/* ==========================================================================
+   runyte.com — motyw terminalowy (paleta GitHub Plus)
+   Wersja minimalna: samo logo ASCII na środku strony.
+   ========================================================================== */
+
+/* ---- Font ---------------------------------------------------------------- */
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/RobotoMono-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/RobotoMono-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ---- Paleta (GitHub Plus) — https://github.com/thenikso/github-plus-theme - */
+:root {
+  --white: #ffffff;
+  --fg-dark: #24292e;
+
+  --bg: var(--white);
+  --fg: var(--fg-dark);
+
+  --font: "Roboto Mono", Menlo, Monaco, "Liberation Mono",
+    "DejaVu Sans Mono", "Courier New", monospace;
+  --fs: 16px;
+}
+
+/* ---- Reset / podstawy ---------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--fs);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Scena: logo wyśrodkowane w pionie i poziomie ------------------------ */
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh; /* mobile: bez skoku przy chowaniu paska adresu */
+  padding: 1.5rem;
+}
+
+/* Blok jest wyśrodkowany, ale linie w środku zostają wyrównane do lewej —
+   inaczej rozjechałby się romb. */
+.logo {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  text-align: left;
+  white-space: pre;
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 0.875rem;
+  }
+}
