@@ -98,13 +98,17 @@ body::before {
 }
 
 .workspace-bar {
-  justify-content: space-between;
+  gap: 0.55rem;
   padding: 0 1rem;
   border-bottom: 1px solid var(--border-soft);
 }
 
-.workspace-mark {
+.workspace-kind {
   color: var(--accent);
+}
+
+.workspace-readonly {
+  color: #707780;
 }
 
 .workspace-body {
@@ -115,8 +119,7 @@ body::before {
 }
 
 .workspace-status {
-  gap: 0.8rem;
-  padding-right: 1rem;
+  padding: 0 0.85rem 0 0;
   border-top: 1px solid var(--border-soft);
 }
 
@@ -130,8 +133,18 @@ body::before {
   font-weight: 700;
 }
 
+.status-mode--command {
+  background: #d2a8ff;
+}
+
 .status-path {
   flex: 1;
+}
+
+.workspace-status > span + span::before {
+  margin: 0 0.7rem;
+  color: #5f656e;
+  content: "|";
 }
 
 .site-header {
@@ -300,18 +313,27 @@ pre:not(.logo) code {
     padding: 0 0.75rem;
   }
 
-  .workspace-bar span:last-child {
-    display: none;
-  }
-
   .workspace-body {
     padding: 2.5rem 1rem 3rem;
   }
 
   .workspace-status {
-    gap: 0.55rem;
-    padding-right: 0.75rem;
+    padding: 0 0.65rem 0 0;
     font-size: 0.68rem;
+  }
+
+  .status-session,
+  .status-percent,
+  .status-workspace-label {
+    display: none;
+  }
+
+  .workspace-status > span + span::before {
+    margin: 0 0.45rem;
+  }
+
+  .status-path::before {
+    margin-left: 0 !important;
   }
 
   .logo {
