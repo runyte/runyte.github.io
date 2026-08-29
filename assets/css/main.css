@@ -20,13 +20,15 @@
 
 :root {
   color-scheme: dark;
-  --bg: #101012;
+  --bg: #090a0d;
+  --surface: #16181d;
   --fg: #b9b9be;
   --muted: #8b8b90;
-  --accent: #c45a63;
+  --accent: #c96870;
   --accent-hover: #d06a73;
-  --border: #303034;
-  --code-bg: #1b1b1f;
+  --border: #343840;
+  --border-soft: #272a31;
+  --code-bg: #20232a;
   --font: "Roboto Mono", Menlo, Monaco, "Liberation Mono",
     "DejaVu Sans Mono", "Courier New", monospace;
 }
@@ -42,18 +44,94 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
   margin: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 50% -8rem, rgb(115 34 43 / 32%), transparent 38rem),
+    linear-gradient(180deg, #111318 0, var(--bg) 44rem);
   color: var(--fg);
   font-family: var(--font);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 1.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 1.5%) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  content: "";
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 75%);
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+  pointer-events: none;
+}
+
 .site-shell {
-  width: min(100% - 3rem, 48rem);
+  width: min(100% - 3rem, 60rem);
   margin: 0 auto;
-  padding: clamp(3rem, 9vh, 6rem) 0 4rem;
+  padding: clamp(2rem, 6vh, 4.5rem) 0;
+}
+
+.workspace-frame {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 0.625rem;
+  background: var(--surface);
+  box-shadow:
+    0 2rem 6rem rgb(0 0 0 / 55%),
+    0 0 0 1px rgb(255 255 255 / 2%) inset;
+}
+
+.workspace-bar,
+.workspace-status {
+  display: flex;
+  align-items: center;
+  min-height: 2.375rem;
+  background: #111318;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.workspace-bar {
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.workspace-mark {
+  color: var(--accent);
+}
+
+.workspace-body {
+  padding: clamp(2.75rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5.5rem) 4.5rem;
+  background:
+    radial-gradient(circle at 50% 7rem, rgb(196 90 99 / 8%), transparent 22rem),
+    var(--surface);
+}
+
+.workspace-status {
+  gap: 0.8rem;
+  padding-right: 1rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.status-mode {
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.85rem;
+  background: var(--accent);
+  color: #151518;
+  font-weight: 700;
+}
+
+.status-path {
+  flex: 1;
 }
 
 .site-header {
@@ -73,6 +151,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.25;
   text-align: left;
+  text-shadow: 0 0 2rem rgb(196 90 99 / 28%);
   white-space: pre;
 }
 
@@ -82,6 +161,10 @@ body {
   justify-content: center;
   gap: 0.7rem;
   margin-top: 2rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 0.3rem;
+  background: rgb(9 10 13 / 45%);
   color: var(--muted);
   font-size: 0.9375rem;
 }
@@ -100,7 +183,10 @@ body {
 }
 
 .content {
+  max-width: 48rem;
   margin-top: clamp(3rem, 7vh, 5rem);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .page > :first-child {
@@ -113,6 +199,9 @@ h2 {
 }
 
 h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   margin: 0 0 1.75rem;
   font-size: 1.35rem;
 }
@@ -126,6 +215,13 @@ h1::before,
 h2::before {
   color: var(--accent);
   content: "# ";
+}
+
+h1::after {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+  content: "";
 }
 
 p,
@@ -176,6 +272,7 @@ pre:not(.logo) {
   border: 1px solid var(--border);
   border-radius: 0.375rem;
   background: var(--code-bg);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 2%) inset;
   line-height: 1.55;
 }
 
@@ -191,8 +288,30 @@ pre:not(.logo) code {
 
 @media (max-width: 520px) {
   .site-shell {
-    width: min(100% - 2rem, 48rem);
-    padding-top: 2.5rem;
+    width: min(100% - 1rem, 60rem);
+    padding: 0.5rem 0;
+  }
+
+  .workspace-frame {
+    border-radius: 0.4rem;
+  }
+
+  .workspace-bar {
+    padding: 0 0.75rem;
+  }
+
+  .workspace-bar span:last-child {
+    display: none;
+  }
+
+  .workspace-body {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .workspace-status {
+    gap: 0.55rem;
+    padding-right: 0.75rem;
+    font-size: 0.68rem;
   }
 
   .logo {

@@ -26,11 +26,27 @@
 </head>
 <body>
   <div class="site-shell">
-    {{ partial "header.html" . }}
+    <div class="workspace-frame">
+      <div class="workspace-bar" aria-hidden="true">
+        <span><span class="workspace-mark">◆</span> runyte</span>
+        <span>runyte.com{{ .RelPermalink }}</span>
+      </div>
 
-    <main class="content">
-      {{ block "main" . }}{{ end }}
-    </main>
+      <div class="workspace-body">
+        {{ partial "header.html" . }}
+
+        <main class="content">
+          {{ block "main" . }}{{ end }}
+        </main>
+      </div>
+
+      <div class="workspace-status" aria-hidden="true">
+        <span class="status-mode">NOR</span>
+        <span>website</span>
+        <span class="status-path">runyte.com{{ .RelPermalink }}</span>
+        <span>UTF-8</span>
+      </div>
+    </div>
   </div>
 </body>
 </html>
