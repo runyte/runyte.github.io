@@ -4,7 +4,14 @@ Source of the [Runyte](https://github.com/runyte/runyte) website, built with
 [Hugo](https://gohugo.io/) and deployed to GitHub Pages by GitHub Actions on
 every push to `main`.
 
-Currently a placeholder: the ASCII logo, centered.
+The site is a small three-page introduction to Runyte:
+
+- About
+- Installation
+- Help
+
+Content lives in `content/`, layouts in `layouts/`, and styles in
+`assets/css/main.css`. The ASCII logo remains the shared header on every page.
 
 ```sh
 hugo server   # local preview at http://localhost:1313/

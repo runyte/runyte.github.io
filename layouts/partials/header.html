@@ -1,0 +1,13 @@
+<header class="site-header">
+  <a class="logo-link" href="{{ .Site.Home.RelPermalink }}" aria-label="Runyte home">
+    <pre class="logo" role="img" aria-label="Runyte">{{ (resources.Get "ascii/logo.txt").Content }}</pre>
+  </a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="{{ .Site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>About</a>
+    <span aria-hidden="true">|</span>
+    <a href="{{ "installation/" | relURL }}"{{ if eq .RelPermalink ("installation/" | relURL) }} aria-current="page"{{ end }}>Installation</a>
+    <span aria-hidden="true">|</span>
+    <a href="{{ "help/" | relURL }}"{{ if eq .RelPermalink ("help/" | relURL) }} aria-current="page"{{ end }}>Help</a>
+  </nav>
+</header>

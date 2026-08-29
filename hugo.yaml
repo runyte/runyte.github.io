@@ -1,5 +1,5 @@
 baseURL: "https://runyte.com/"
-languageCode: "en-us"
+locale: "en-US"
 title: "Runyte"
 
 enableRobotsTXT: true
@@ -9,5 +9,5 @@ buildDrafts: false
 buildFuture: false
 
 params:
-  description: "Runyte - a fast modal terminal editor written in Rust."
+  description: "Runyte - an editor-first, agent-ready terminal workspace for software development."
   author: "Krzysztof Arendt"

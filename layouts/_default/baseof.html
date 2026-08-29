@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {{- $title := .Site.Title -}}
+  {{- if not .IsHome -}}
+    {{- $title = printf "%s | %s" .Title .Site.Title -}}
+  {{- end -}}
+  {{- $description := .Description | default .Site.Params.description -}}
+
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta name="robots" content="all,follow">
+  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:description" content="{{ $description }}">
+
+  {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body>
+  <div class="site-shell">
+    {{ partial "header.html" . }}
+
+    <main class="content">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+</body>
+</html>
