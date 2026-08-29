@@ -361,10 +361,6 @@ td:first-child strong {
   color: var(--accent-hover);
 }
 
-.page--home > p:first-of-type {
-  font-size: 1.075rem;
-}
-
 @media (max-width: 520px) {
   .site-shell {
     width: min(100% - 1rem, 60rem);
