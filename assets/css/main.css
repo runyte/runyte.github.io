@@ -105,9 +105,34 @@ body::before {
 }
 
 .workspace-bar {
-  gap: 0.55rem;
   padding: 0 1rem;
   border-bottom: 1px solid var(--border-soft);
+}
+
+.workspace-context {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.workspace-github {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  color: var(--muted);
+}
+
+.workspace-github:hover,
+.workspace-github:focus-visible {
+  color: var(--accent-hover);
+}
+
+.workspace-github svg {
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .workspace-kind {
