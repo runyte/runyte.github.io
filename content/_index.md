@@ -1,13 +1,14 @@
 ---
 title: About
-description: Runyte is an editor-first, agent-ready terminal workspace for software development.
+description: Runyte is an editor-first terminal workspace built around a modal, selection-first editor.
 ---
 
 # About Runyte
 
-Runyte is an **editor-first, agent-ready terminal workspace** for software
-development. It combines modal text editing, an editable file explorer,
-terminal multiplexing, and Git workflows in one coherent interface.
+Runyte is an **editor-first terminal workspace** built around a **modal,
+selection-first editor**. It brings text editing, file management, terminal
+sessions, Git workflows, and language tooling into one integrated environment
+designed for both human and agent-assisted development.
 
 At its core is a fast terminal editor written in Rust. Many motion keybindings
 will feel familiar to users of both Vim and Helix. Its multiple-selection model

@@ -5,10 +5,11 @@ description: A short guide to Runyte's modal editor, command discovery, workspac
 
 # Help
 
-Runyte is a **modal, selection-first editor**. Normal mode is for selecting and
-navigating; Insert mode is for typing. Select what you want to change first,
-then apply an action. If that model is new to you, start with `:tutorial`—it
-opens a guided, hands-on introduction inside the editor.
+Runyte is an **editor-first terminal workspace** built around a **modal,
+selection-first editor**. Normal mode is for selecting and navigating; Insert
+mode is for typing. Select what you want to change first, then apply an action.
+If that model is new to you, start with `:tutorial`—it opens a guided, hands-on
+introduction inside the editor.
 
 ## Discover commands as you work
 

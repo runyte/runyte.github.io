@@ -9,5 +9,5 @@ buildDrafts: false
 buildFuture: false
 
 params:
-  description: "Runyte - an editor-first, agent-ready terminal workspace for software development."
+  description: "Runyte - an editor-first terminal workspace built around a modal, selection-first editor."
   author: "Krzysztof Arendt"
