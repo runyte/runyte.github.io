@@ -6,11 +6,21 @@ wide: true
 
 # Performance
 
-Startup time in milliseconds, shown as **first output / settled frame**. Each
-value is the median of 10 runs in a 120×40 pseudo-terminal with an empty editor
-configuration. The fastest value in each fixture and measurement category is
-highlighted in green, the intermediate value in yellow, and the slowest in red.
-Ties are highlighted equally.
+The benchmark opens generated documents at 500, 5,000, and 50,000 lines. Each
+size is written twice with byte-identical content: the `.txt` file measures
+reading and drawing without language processing, while the `.lua` file makes
+all three editors parse the same document with a single Tree-sitter Lua grammar.
+
+Startup time is shown in milliseconds as **first output / settled frame**. The
+first value records the first byte written to the terminal; the second records
+when drawing goes quiet. Each result is the median of 10 runs in a 120×40
+pseudo-terminal with an empty editor configuration. See the
+[full benchmark methodology](https://github.com/runyte/runyte/blob/main/benchmarks/README.md)
+for details.
+
+The fastest value in each fixture and measurement category is highlighted in
+green, the intermediate value in yellow, and the slowest in red. Ties are
+highlighted equally.
 
 | Fixture | LOC | Size | Neovim first / ready | Helix first / ready | Runyte first / ready |
 | --- | ---: | --- | ---: | ---: | ---: |
