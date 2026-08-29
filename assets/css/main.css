@@ -385,8 +385,7 @@ td:first-child strong {
   }
 
   .status-session,
-  .status-percent,
-  .status-workspace-label {
+  .status-percent {
     display: none;
   }
 

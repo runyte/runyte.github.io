@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
 <body>
-  {{- $displayPath := .RelPermalink -}}
+  {{- $displayPath := strings.TrimSuffix "/" .RelPermalink -}}
   {{- if .IsHome -}}
     {{- $displayPath = "/about" -}}
   {{- end -}}
@@ -33,7 +33,7 @@
     <div class="workspace-frame">
       <div class="workspace-bar" aria-hidden="true">
         <span class="workspace-kind">[www]</span>
-        <span>runyte</span>
+        <span>runyte.com{{ $displayPath }}</span>
         <span class="workspace-readonly">[read-only]</span>
       </div>
 
@@ -56,7 +56,7 @@
         <span class="status-mode">INS</span>
         {{- end }}
         <span class="status-session">persistent</span>
-        <span class="status-path"><span class="status-workspace-label">Workspace: </span>runyte.com{{ $displayPath }}</span>
+        <span class="status-path"><span class="status-workspace-label">Workspace: </span>runyte.com/</span>
         <span class="status-percent">100%</span>
         <span class="status-branch">main</span>
       </div>
