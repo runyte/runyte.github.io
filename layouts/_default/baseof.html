@@ -25,6 +25,10 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
 <body>
+  {{- $displayPath := .RelPermalink -}}
+  {{- if .IsHome -}}
+    {{- $displayPath = "/about" -}}
+  {{- end -}}
   <div class="site-shell">
     <div class="workspace-frame">
       <div class="workspace-bar" aria-hidden="true">
@@ -50,7 +54,7 @@
         <span class="status-mode">NOR</span>
         {{- end }}
         <span class="status-session">persistent</span>
-        <span class="status-path"><span class="status-workspace-label">Workspace: </span>runyte.com{{ .RelPermalink }}</span>
+        <span class="status-path"><span class="status-workspace-label">Workspace: </span>runyte.com{{ $displayPath }}</span>
         <span class="status-percent">100%</span>
         <span class="status-branch">main</span>
       </div>
