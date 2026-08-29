@@ -400,6 +400,16 @@ td:first-child strong {
   line-height: 1.5;
 }
 
+@media (max-width: 760px) {
+  .site-nav {
+    flex-wrap: wrap;
+  }
+
+  .site-nav span {
+    display: none;
+  }
+}
+
 @media (max-width: 520px) {
   .site-shell {
     width: min(100% - 1rem, 60rem);
@@ -441,15 +451,10 @@ td:first-child strong {
   }
 
   .site-nav {
-    flex-wrap: wrap;
     gap: 0.4rem;
     padding-right: 0.65rem;
     padding-left: 0.65rem;
     font-size: 0.75rem;
-  }
-
-  .site-nav span {
-    display: none;
   }
 
   .content {
@@ -520,5 +525,41 @@ td:first-child strong {
 
   td:nth-child(3)::before {
     content: "Integration";
+  }
+
+  .content--performance table:nth-of-type(1) td:nth-child(1)::before {
+    content: "Editor";
+  }
+
+  .content--performance table:nth-of-type(1) td:nth-child(2)::before {
+    content: "Version";
+  }
+
+  .content--performance table:nth-of-type(1) td:nth-child(3)::before {
+    content: "First output";
+  }
+
+  .content--performance table:nth-of-type(1) td:nth-child(4)::before {
+    content: "Settled frame";
+  }
+
+  .content--performance table:nth-of-type(2) td:nth-child(1)::before {
+    content: "Workspace";
+  }
+
+  .content--performance table:nth-of-type(2) td:nth-child(2)::before {
+    content: "Window";
+  }
+
+  .content--performance table:nth-of-type(2) td:nth-child(3)::before {
+    content: "Idle CPU";
+  }
+
+  .content--performance table:nth-of-type(2) td:nth-child(4)::before {
+    content: "Screen writes";
+  }
+
+  .content--performance table:nth-of-type(2) td:nth-child(5)::before {
+    content: "Git subprocesses";
   }
 }

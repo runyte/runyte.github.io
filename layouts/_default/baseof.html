@@ -40,7 +40,7 @@
       <div class="workspace-body">
         {{ partial "header.html" . }}
 
-        <main class="content{{ if .Params.wide }} content--wide{{ end }}">
+        <main class="content{{ if .Params.wide }} content--wide{{ end }}{{ if eq .Title "Performance" }} content--performance{{ end }}">
           {{ block "main" . }}{{ end }}
         </main>
       </div>
@@ -50,7 +50,7 @@
         <span class="status-mode status-mode--command">CMD</span>
         {{- else if eq .Title "Help" }}
         <span class="status-mode status-mode--select">SEL</span>
-        {{- else if or (eq .Title "Features") (eq .Title "Screenshots") }}
+        {{- else if or (eq .Title "Features") (eq .Title "Screenshots") (eq .Title "Performance") }}
         <span class="status-mode status-mode--normal">NOR</span>
         {{- else }}
         <span class="status-mode">INS</span>
