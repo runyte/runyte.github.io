@@ -29,7 +29,7 @@
   {{- if .IsHome -}}
     {{- $displayPath = "/about" -}}
   {{- end -}}
-  <div class="site-shell">
+  <div class="site-shell{{ if .Params.wide }} site-shell--wide{{ end }}">
     <div class="workspace-frame">
       <div class="workspace-bar" aria-hidden="true">
         <span class="workspace-kind">[www]</span>
@@ -40,7 +40,7 @@
       <div class="workspace-body">
         {{ partial "header.html" . }}
 
-        <main class="content">
+        <main class="content{{ if .Params.wide }} content--wide{{ end }}">
           {{ block "main" . }}{{ end }}
         </main>
       </div>
@@ -50,7 +50,7 @@
         <span class="status-mode status-mode--command">CMD</span>
         {{- else if eq .Title "Help" }}
         <span class="status-mode status-mode--select">SEL</span>
-        {{- else if eq .Title "Features" }}
+        {{- else if or (eq .Title "Features") (eq .Title "Screenshots") }}
         <span class="status-mode status-mode--normal">NOR</span>
         {{- else }}
         <span class="status-mode">INS</span>

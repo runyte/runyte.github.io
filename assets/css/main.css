@@ -77,6 +77,10 @@ body::before {
   padding: clamp(2rem, 6vh, 4.5rem) 0;
 }
 
+.site-shell--wide {
+  width: min(100% - 3rem, 86rem);
+}
+
 .workspace-frame {
   overflow: hidden;
   border: 1px solid var(--border);
@@ -208,6 +212,10 @@ body::before {
   margin-top: clamp(3rem, 7vh, 5rem);
   margin-right: auto;
   margin-left: auto;
+}
+
+.content--wide {
+  max-width: 76rem;
 }
 
 .page > :first-child {
@@ -361,6 +369,37 @@ td:first-child strong {
   color: var(--accent-hover);
 }
 
+.screenshot {
+  margin: 2.5rem 0 3.5rem;
+}
+
+.screenshot a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: #101217;
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 25%);
+}
+
+.screenshot a:hover,
+.screenshot a:focus-visible {
+  border-color: var(--accent);
+}
+
+.screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.screenshot figcaption {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 520px) {
   .site-shell {
     width: min(100% - 1rem, 60rem);
@@ -402,10 +441,15 @@ td:first-child strong {
   }
 
   .site-nav {
+    flex-wrap: wrap;
     gap: 0.4rem;
     padding-right: 0.65rem;
     padding-left: 0.65rem;
     font-size: 0.75rem;
+  }
+
+  .site-nav span {
+    display: none;
   }
 
   .content {
@@ -476,15 +520,5 @@ td:first-child strong {
 
   td:nth-child(3)::before {
     content: "Integration";
-  }
-}
-
-@media (max-width: 340px) {
-  .site-nav {
-    flex-wrap: wrap;
-  }
-
-  .site-nav span {
-    display: none;
   }
 }

@@ -1,0 +1,9 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+<figure class="screenshot">
+  <a href="{{ $src | relURL }}" aria-label="View full-size screenshot: {{ $caption }}">
+    <img src="{{ $src | relURL }}" alt="{{ $alt }}" width="1920" height="1080" loading="lazy" decoding="async">
+  </a>
+  <figcaption>{{ $caption }}</figcaption>
+</figure>
