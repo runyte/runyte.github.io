@@ -26,6 +26,7 @@
   --muted: #8b8b90;
   --accent: #c96870;
   --accent-hover: #d06a73;
+  --success: #7fc8a9;
   --border: #343840;
   --border-soft: #272a31;
   --code-bg: #20232a;
@@ -367,6 +368,15 @@ tbody tr:hover {
 
 td:first-child strong {
   color: var(--accent-hover);
+}
+
+.content--performance table strong {
+  display: inline-block;
+  padding: 0.05rem 0.28rem;
+  border-radius: 0.2rem;
+  background: var(--success);
+  color: #101713;
+  line-height: 1.25;
 }
 
 .screenshot {
