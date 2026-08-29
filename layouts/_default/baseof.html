@@ -55,7 +55,7 @@
       <div class="workspace-status" aria-hidden="true">
         {{- if eq .Title "Installation" }}
         <span class="status-mode status-mode--command">CMD</span>
-        {{- else if eq .Title "Help" }}
+        {{- else if .IsHome }}
         <span class="status-mode status-mode--select">SEL</span>
         {{- else if or (eq .Title "Features") (eq .Title "Screenshots") (eq .Title "Performance") }}
         <span class="status-mode status-mode--normal">NOR</span>

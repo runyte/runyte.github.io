@@ -314,6 +314,15 @@ strong {
   font-weight: 700;
 }
 
+.search-match {
+  padding: 0.06rem 0.18rem;
+  border-radius: 0.18rem;
+  background: #f0a868;
+  box-decoration-break: clone;
+  color: #17120f;
+  -webkit-box-decoration-break: clone;
+}
+
 code {
   padding: 0.12rem 0.3rem;
   border-radius: 0.25rem;
