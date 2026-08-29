@@ -27,6 +27,8 @@
   --accent: #c96870;
   --accent-hover: #d06a73;
   --success: #7fc8a9;
+  --warning: #e3b95f;
+  --danger: #dc6f78;
   --border: #343840;
   --border-soft: #272a31;
   --code-bg: #20232a;
@@ -370,13 +372,25 @@ td:first-child strong {
   color: var(--accent-hover);
 }
 
-.content--performance table strong {
+.benchmark-result {
   display: inline-block;
   padding: 0.05rem 0.28rem;
   border-radius: 0.2rem;
-  background: var(--success);
-  color: #101713;
+  color: #17120f;
+  font-weight: 700;
   line-height: 1.25;
+}
+
+.benchmark-result--fastest {
+  background: var(--success);
+}
+
+.benchmark-result--middle {
+  background: var(--warning);
+}
+
+.benchmark-result--slowest {
+  background: var(--danger);
 }
 
 .screenshot {
@@ -542,18 +556,22 @@ td:first-child strong {
   }
 
   .content--performance table:nth-of-type(1) td:nth-child(2)::before {
-    content: "Size";
+    content: "LOC";
   }
 
   .content--performance table:nth-of-type(1) td:nth-child(3)::before {
-    content: "Neovim — first / ready";
+    content: "Size";
   }
 
   .content--performance table:nth-of-type(1) td:nth-child(4)::before {
-    content: "Helix — first / ready";
+    content: "Neovim — first / ready";
   }
 
   .content--performance table:nth-of-type(1) td:nth-child(5)::before {
+    content: "Helix — first / ready";
+  }
+
+  .content--performance table:nth-of-type(1) td:nth-child(6)::before {
     content: "Runyte — first / ready";
   }
 }
