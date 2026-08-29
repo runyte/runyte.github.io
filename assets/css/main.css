@@ -317,9 +317,9 @@ strong {
 .search-match {
   padding: 0.06rem 0.18rem;
   border-radius: 0.18rem;
-  background: #f0a868;
+  background: rgb(240 168 104 / 28%);
   box-decoration-break: clone;
-  color: #17120f;
+  color: inherit;
   -webkit-box-decoration-break: clone;
 }
 
