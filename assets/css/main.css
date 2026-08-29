@@ -137,6 +137,10 @@ body::before {
   background: #d2a8ff;
 }
 
+.status-mode--select {
+  background: #f0a868;
+}
+
 .status-path {
   flex: 1;
 }

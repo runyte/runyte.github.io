@@ -44,6 +44,8 @@
       <div class="workspace-status" aria-hidden="true">
         {{- if eq .Title "Installation" }}
         <span class="status-mode status-mode--command">CMD</span>
+        {{- else if eq .Title "Help" }}
+        <span class="status-mode status-mode--select">SEL</span>
         {{- else }}
         <span class="status-mode">NOR</span>
         {{- end }}
