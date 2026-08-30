@@ -206,6 +206,7 @@ body::before {
 
 .site-nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
