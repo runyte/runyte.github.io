@@ -32,6 +32,7 @@
   --border: #343840;
   --border-soft: #272a31;
   --code-bg: #20232a;
+  --measure: 57.6rem;
   --font: "Roboto Mono", Menlo, Monaco, "Liberation Mono",
     "DejaVu Sans Mono", "Courier New", monospace;
 }
@@ -75,7 +76,7 @@ body::before {
 }
 
 .site-shell {
-  width: min(100% - 3rem, 60rem);
+  width: min(100% - 3rem, 72rem);
   margin: 0 auto;
   padding: clamp(2rem, 6vh, 4.5rem) 0;
 }
@@ -209,6 +210,8 @@ body::before {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: var(--measure);
   gap: 0.7rem;
   margin-top: 2rem;
   padding: 0.45rem 0.85rem;
@@ -233,7 +236,7 @@ body::before {
 }
 
 .content {
-  max-width: 48rem;
+  max-width: var(--measure);
   margin-top: clamp(3rem, 7vh, 5rem);
   margin-right: auto;
   margin-left: auto;
@@ -606,7 +609,7 @@ td:first-child strong {
 
 @media (max-width: 520px) {
   .site-shell {
-    width: min(100% - 1rem, 60rem);
+    width: min(100% - 1rem, 72rem);
     padding: 0.5rem 0;
   }
 
