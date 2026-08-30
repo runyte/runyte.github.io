@@ -383,6 +383,21 @@ table {
   border-radius: 0;
 }
 
+.features-table-scroll {
+  overflow-x: auto;
+  width: 100%;
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: #13151a;
+}
+
+.features-table-scroll .features-table {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
 thead {
   background: #101217;
 }
@@ -408,6 +423,34 @@ td:first-child {
 }
 
 @media (min-width: 521px) {
+  .features-table {
+    display: table;
+    overflow: visible;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .features-table th,
+  .features-table td {
+    min-width: 0;
+  }
+
+  .features-table__area {
+    width: 20%;
+  }
+
+  .features-table__built-in {
+    width: 42%;
+  }
+
+  .features-table__environment {
+    width: 38%;
+  }
+
+  .features-table__shared {
+    vertical-align: middle;
+  }
+
   .content--performance .benchmark-table-scroll {
     width: fit-content;
     max-width: 100%;
@@ -599,6 +642,12 @@ td:first-child strong {
   }
 
   .benchmark-table-scroll {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .features-table-scroll {
     overflow: visible;
     border: 0;
     background: transparent;

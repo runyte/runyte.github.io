@@ -10,14 +10,55 @@ workspace. These are not separate plugins with separate interaction models:
 the editor, files, terminals, Git, and language tools share the same panes,
 commands, workspace, and visual language.
 
-| Area | Built into Runyte | How it works as one environment |
-| --- | --- | --- |
-| **Modal editor** | Selection-first editing, multiple selections, counts, named registers, macros, transactional undo, jumplists, structural text objects, folds, and Unicode-aware wrapping. | The same selection and command model extends into explorers, generated views, and terminal review. |
-| **File management** | An editable directory explorer, project finder, fuzzy file and content search, buffer picker, and filesystem operations with trash support. | Rename, move, copy, create, and delete with normal editor commands, then review one explicit plan before disk changes. |
-| **Terminal sessions** | Workspace-scoped terminal multiplexing for shells, full-screen TUIs, development tools, and coding agents, with scrollback and review mode. | Terminals live in ordinary splits beside files. Review uses editor motions, search, selection, and copy while the child process keeps running. |
-| **Git workflows** | Status, gutter marks, diffs, staging, commits, pull and push, branches, worktrees, history, blame, and stashes. | Git data opens as native Runyte views rather than shell output. Worktrees and terminals create isolated workspaces for parallel tasks. |
-| **Language tooling** | Statically linked Tree-sitter highlighting for 18 languages plus asynchronous LSP diagnostics, completion, navigation, symbols, rename, actions, and formatting. | Syntax and language servers belong to the workspace and remain responsive while editing, searching, using Git, or running terminals. |
-| **Workspace sessions** | Standalone operation by default and optional persistent sessions with detachable clients. | Persistent mode keeps unsaved buffers, selections, registers, Git state, language servers, and terminal processes alive together while the TUI is detached. |
+{{< features-table >}}
+<colgroup>
+  <col class="features-table__area">
+  <col class="features-table__built-in">
+  <col class="features-table__environment">
+</colgroup>
+<thead>
+  <tr>
+    <th scope="col">Area</th>
+    <th scope="col">Built in Runyte</th>
+    <th scope="col">How it works as one environment</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>Modal editor</strong></td>
+    <td>Selection-first, multicursor, Vim and Helix bindings</td>
+    <td class="features-table__shared" rowspan="6">
+      <ul>
+        <li>Same keybindings</li>
+        <li>Shared clipboard</li>
+        <li>Fuzzy-search anything</li>
+        <li>Jump anywhere</li>
+        <li>Switch between worktrees</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>File management</strong></td>
+    <td>Editable directory explorer</td>
+  </tr>
+  <tr>
+    <td><strong>Terminal sessions</strong></td>
+    <td>Multiplexing, scrollback</td>
+  </tr>
+  <tr>
+    <td><strong>Git</strong></td>
+    <td>Status, diffs, staging, commits, pull, push, branches, worktrees, blame, stashes</td>
+  </tr>
+  <tr>
+    <td><strong>Language</strong></td>
+    <td>Tree-sitter for 18 languages, asynchronous LSP</td>
+  </tr>
+  <tr>
+    <td><strong>Sessions</strong></td>
+    <td>Optional client–server mode, detachable clients</td>
+  </tr>
+</tbody>
+{{< /features-table >}}
 
 Run `:tutorial` for a guided tour, or open [Help](/help/) to learn how Runyte
 exposes commands as you work.
