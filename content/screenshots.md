@@ -32,3 +32,9 @@ image.
   alt="Runyte displaying the persistent-session picker with session and Git worktree details."
   caption="The persistent-session picker with session details and worktree metadata."
 >}}
+
+{{< screenshot
+  src="images/screenshots/runyte_5.webp"
+  alt="Runyte displaying the command palette filtered to Git commands, above a terminal pane, an open Markdown file, and Rust source."
+  caption="The searchable command palette, narrowed to the Git namespace."
+>}}
