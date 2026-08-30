@@ -19,8 +19,8 @@ in parallel, but it does not depend on them. If your current
 setup combines separate tools or plugins for text editing, terminal
 multiplexing, file management, and Git, {{< search-match >}}Runyte{{< /search-match >}} may be for you.
 
-At its core is a fast terminal editor written in Rust. Many motion keybindings
-will feel familiar to users of both Vim and Helix. Its multiple-selection model
+At its core is a fast terminal editor written in Rust. Common motion
+keybindings will feel familiar to users of both Vim and Helix. Its multiple-selection model
 and selection-first editing are closer to Helix than Vim, while some commands
 and workflows are distinctly {{< search-match >}}Runyte{{< /search-match >}}'s own.
 
