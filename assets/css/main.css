@@ -398,6 +398,25 @@ table {
   border-radius: 0;
 }
 
+.language-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.language-list li {
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 0.3rem;
+  background: var(--code-bg);
+  color: var(--fg);
+  font-size: 0.95rem;
+}
+
 thead {
   background: #101217;
 }

@@ -51,7 +51,7 @@ commands, workspace, and visual language.
   </tr>
   <tr>
     <td><strong>Language</strong></td>
-    <td>Tree-sitter for 18 languages, asynchronous LSP</td>
+    <td>Tree-sitter for 26 languages, asynchronous LSP</td>
   </tr>
   <tr>
     <td><strong>Sessions</strong></td>
@@ -59,6 +59,16 @@ commands, workspace, and visual language.
   </tr>
 </tbody>
 {{< /features-table >}}
+
+Tree-sitter grammars for these 26 languages are statically linked into the
+binary, so highlighting, indentation, and structural selection work with no
+grammar download and no plugin manager:
+
+{{< language-list >}}
+Bash, C, C#, C++, CMake, CSS, Go, HTML, INI, Java, JavaScript, JSON,
+Kotlin, Lua, Make, Markdown, Protocol Buffers, Python, Rust, SQL, Swift,
+TOML, TSX, TypeScript, YAML, Zig
+{{< /language-list >}}
 
 Run `:tutorial` for a guided tour, or open [Help](/help/) to learn how Runyte
 exposes commands as you work.

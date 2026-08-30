@@ -1,0 +1,6 @@
+{{- /* Comma-separated language names in the shortcode body, one chip each. */ -}}
+<ul class="language-list">
+  {{- range split .Inner "," }}
+  <li>{{ trim . " \n\r\t" }}</li>
+  {{- end }}
+</ul>
