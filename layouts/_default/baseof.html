@@ -27,9 +27,9 @@
 <body>
   {{- $displayPath := strings.TrimSuffix "/" .RelPermalink -}}
   {{- if .IsHome -}}
-    {{- $displayPath = "/about" -}}
+    {{- $displayPath = "/intro" -}}
   {{- end -}}
-  <div class="site-shell{{ if .Params.wide }} site-shell--wide{{ end }}">
+  <div class="site-shell">
     <div class="workspace-frame">
       <div class="workspace-bar">
         <div class="workspace-context" aria-hidden="true">
@@ -47,7 +47,7 @@
       <div class="workspace-body">
         {{ partial "header.html" . }}
 
-        <main class="content{{ if .Params.wide }} content--wide{{ end }}{{ if eq .Title "Performance" }} content--performance{{ end }}">
+        <main class="content{{ if eq .Title "Performance" }} content--performance{{ end }}">
           {{ block "main" . }}{{ end }}
         </main>
       </div>

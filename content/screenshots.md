@@ -1,7 +1,6 @@
 ---
 title: Screenshots
 description: See Runyte's editor, file explorer, terminals, Git tools, help, and persistent sessions in action.
-wide: true
 ---
 
 # Screenshots

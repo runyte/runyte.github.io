@@ -1,1 +1,4 @@
-<mark class="search-match">{{ .Inner }}</mark>
+{{- $text := strings.TrimSpace .Inner -}}
+{{- $lastCharacter := substr $text -1 1 -}}
+{{- $selection := strings.TrimSuffix $lastCharacter $text -}}
+<mark class="search-match"><span class="search-match__selection">{{ $selection }}</span><span class="search-match__cursor">{{ $lastCharacter }}</span></mark>

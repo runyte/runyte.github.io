@@ -80,10 +80,6 @@ body::before {
   padding: clamp(2rem, 6vh, 4.5rem) 0;
 }
 
-.site-shell--wide {
-  width: min(100% - 3rem, 86rem);
-}
-
 .workspace-frame {
   overflow: hidden;
   border: 1px solid var(--border);
@@ -242,10 +238,6 @@ body::before {
   margin-left: auto;
 }
 
-.content--wide {
-  max-width: 76rem;
-}
-
 .page > :first-child {
   margin-top: 0;
 }
@@ -315,12 +307,27 @@ strong {
 }
 
 .search-match {
-  padding: 0.06rem 0.18rem;
-  border-radius: 0.18rem;
-  background: rgb(240 168 104 / 28%);
-  box-decoration-break: clone;
+  background: transparent;
   color: inherit;
-  -webkit-box-decoration-break: clone;
+  white-space: nowrap;
+}
+
+.search-match__selection,
+.search-match__cursor {
+  padding-top: 0.06rem;
+  padding-bottom: 0.06rem;
+}
+
+.search-match__selection {
+  padding-left: 0.18rem;
+  border-radius: 0.18rem 0 0 0.18rem;
+  background: rgb(240 168 104 / 14%);
+}
+
+.search-match__cursor {
+  padding-right: 0.18rem;
+  border-radius: 0 0.18rem 0.18rem 0;
+  background: rgb(240 168 104 / 28%);
 }
 
 code {
@@ -361,6 +368,21 @@ table {
   line-height: 1.55;
 }
 
+.benchmark-table-scroll {
+  overflow-x: auto;
+  width: 100%;
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: #13151a;
+}
+
+.benchmark-table-scroll .benchmark-table {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
 thead {
   background: #101217;
 }
@@ -383,6 +405,57 @@ th {
 th:first-child,
 td:first-child {
   min-width: 9rem;
+}
+
+@media (min-width: 521px) {
+  .content--performance .benchmark-table-scroll {
+    width: fit-content;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .benchmark-table {
+    display: table;
+    overflow: visible;
+    width: 44.25rem;
+    table-layout: fixed;
+  }
+
+  .benchmark-table th,
+  .benchmark-table td {
+    min-width: 0;
+    padding: 0.8rem 0.6rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .benchmark-table th:first-child,
+  .benchmark-table td:first-child {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .benchmark-table__fixture {
+    width: 7.25rem;
+  }
+
+  .benchmark-table__loc {
+    width: 4rem;
+  }
+
+  .benchmark-table__size {
+    width: 4.5rem;
+  }
+
+  .benchmark-table__result {
+    width: 4.75rem;
+  }
+
+  .benchmark-table__metrics th {
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
 }
 
 th:last-child,
@@ -525,6 +598,12 @@ td:first-child strong {
     background: transparent;
   }
 
+  .benchmark-table-scroll {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
   thead {
     position: absolute;
     overflow: hidden;
@@ -597,15 +676,27 @@ td:first-child strong {
     content: "Size";
   }
 
-  .content--performance table:nth-of-type(1) td:nth-child(4)::before {
-    content: "Neovim — first / ready";
+  .content--performance .benchmark-table td:nth-child(4)::before {
+    content: "Neovim — first";
   }
 
-  .content--performance table:nth-of-type(1) td:nth-child(5)::before {
-    content: "Helix — first / ready";
+  .content--performance .benchmark-table td:nth-child(5)::before {
+    content: "Neovim — ready";
   }
 
-  .content--performance table:nth-of-type(1) td:nth-child(6)::before {
-    content: "Runyte — first / ready";
+  .content--performance .benchmark-table td:nth-child(6)::before {
+    content: "Helix — first";
+  }
+
+  .content--performance .benchmark-table td:nth-child(7)::before {
+    content: "Helix — ready";
+  }
+
+  .content--performance .benchmark-table td:nth-child(8)::before {
+    content: "Runyte — first";
+  }
+
+  .content--performance .benchmark-table td:nth-child(9)::before {
+    content: "Runyte — ready";
   }
 }

@@ -1,7 +1,6 @@
 ---
 title: Performance
 description: Startup performance measurements for Runyte, Neovim, and Helix across text and Lua files of three sizes.
-wide: true
 ---
 
 # Performance
@@ -22,11 +21,67 @@ The fastest value in each fixture and measurement category is highlighted in
 green, the intermediate value in yellow, and the slowest in red. Ties are
 highlighted equally.
 
-| Fixture | LOC | Size | Neovim first / ready | Helix first / ready | Runyte first / ready |
-| --- | ---: | --- | ---: | ---: | ---: |
-| `short.txt` | 500 | 17 kB | {{< result rank="middle" >}}6{{< /result >}} / {{< result rank="slowest" >}}18{{< /result >}} ms | {{< result rank="slowest" >}}17{{< /result >}} / {{< result rank="slowest" >}}18{{< /result >}} ms | {{< result rank="fastest" >}}5{{< /result >}} / {{< result rank="fastest" >}}6{{< /result >}} ms |
-| `medium.txt` | 5,000 | 171 kB | {{< result rank="fastest" >}}6{{< /result >}} / {{< result rank="middle" >}}17{{< /result >}} ms | {{< result rank="slowest" >}}19{{< /result >}} / {{< result rank="slowest" >}}20{{< /result >}} ms | {{< result rank="fastest" >}}6{{< /result >}} / {{< result rank="fastest" >}}7{{< /result >}} ms |
-| `long.txt` | 50,000 | 1.7 MB | {{< result rank="fastest" >}}6{{< /result >}} / {{< result rank="middle" >}}22{{< /result >}} ms | {{< result rank="slowest" >}}22{{< /result >}} / {{< result rank="slowest" >}}23{{< /result >}} ms | {{< result rank="middle" >}}16{{< /result >}} / {{< result rank="fastest" >}}17{{< /result >}} ms |
-| `short.lua` | 500 | 17 kB | {{< result rank="fastest" >}}6{{< /result >}} / {{< result rank="slowest" >}}30{{< /result >}} ms | {{< result rank="slowest" >}}22{{< /result >}} / {{< result rank="middle" >}}23{{< /result >}} ms | {{< result rank="middle" >}}10{{< /result >}} / {{< result rank="fastest" >}}12{{< /result >}} ms |
-| `medium.lua` | 5,000 | 171 kB | {{< result rank="fastest" >}}6{{< /result >}} / {{< result rank="middle" >}}46{{< /result >}} ms | {{< result rank="slowest" >}}48{{< /result >}} / {{< result rank="slowest" >}}50{{< /result >}} ms | {{< result rank="middle" >}}28{{< /result >}} / {{< result rank="fastest" >}}29{{< /result >}} ms |
-| `long.lua` | 50,000 | 1.7 MB | {{< result rank="fastest" >}}6{{< /result >}} / {{< result rank="middle" >}}175{{< /result >}} ms | {{< result rank="slowest" >}}214{{< /result >}} / {{< result rank="slowest" >}}215{{< /result >}} ms | {{< result rank="middle" >}}150{{< /result >}} / {{< result rank="fastest" >}}152{{< /result >}} ms |
+{{< benchmark-table >}}
+<colgroup>
+  <col class="benchmark-table__fixture">
+  <col class="benchmark-table__loc">
+  <col class="benchmark-table__size">
+  <col span="6" class="benchmark-table__result">
+</colgroup>
+<thead>
+  <tr>
+    <th rowspan="2" scope="col">Fixture</th>
+    <th rowspan="2" scope="col">LOC</th>
+    <th rowspan="2" scope="col">Size</th>
+    <th colspan="2" scope="colgroup">Neovim</th>
+    <th colspan="2" scope="colgroup">Helix</th>
+    <th colspan="2" scope="colgroup">Runyte</th>
+  </tr>
+  <tr class="benchmark-table__metrics">
+    <th scope="col">First</th>
+    <th scope="col">Ready</th>
+    <th scope="col">First</th>
+    <th scope="col">Ready</th>
+    <th scope="col">First</th>
+    <th scope="col">Ready</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><code>short.txt</code></td><td>0.5k</td><td>17 kB</td>
+    <td>{{< result rank="middle" >}}6{{< /result >}}</td><td>{{< result rank="slowest" >}}18{{< /result >}}</td>
+    <td>{{< result rank="slowest" >}}17{{< /result >}}</td><td>{{< result rank="slowest" >}}18{{< /result >}}</td>
+    <td>{{< result rank="fastest" >}}5{{< /result >}}</td><td>{{< result rank="fastest" >}}6{{< /result >}}</td>
+  </tr>
+  <tr>
+    <td><code>medium.txt</code></td><td>5k</td><td>171 kB</td>
+    <td>{{< result rank="fastest" >}}6{{< /result >}}</td><td>{{< result rank="middle" >}}17{{< /result >}}</td>
+    <td>{{< result rank="slowest" >}}19{{< /result >}}</td><td>{{< result rank="slowest" >}}20{{< /result >}}</td>
+    <td>{{< result rank="fastest" >}}6{{< /result >}}</td><td>{{< result rank="fastest" >}}7{{< /result >}}</td>
+  </tr>
+  <tr>
+    <td><code>long.txt</code></td><td>50k</td><td>1.7 MB</td>
+    <td>{{< result rank="fastest" >}}6{{< /result >}}</td><td>{{< result rank="middle" >}}22{{< /result >}}</td>
+    <td>{{< result rank="slowest" >}}22{{< /result >}}</td><td>{{< result rank="slowest" >}}23{{< /result >}}</td>
+    <td>{{< result rank="middle" >}}16{{< /result >}}</td><td>{{< result rank="fastest" >}}17{{< /result >}}</td>
+  </tr>
+  <tr>
+    <td><code>short.lua</code></td><td>0.5k</td><td>17 kB</td>
+    <td>{{< result rank="fastest" >}}6{{< /result >}}</td><td>{{< result rank="slowest" >}}30{{< /result >}}</td>
+    <td>{{< result rank="slowest" >}}22{{< /result >}}</td><td>{{< result rank="middle" >}}23{{< /result >}}</td>
+    <td>{{< result rank="middle" >}}10{{< /result >}}</td><td>{{< result rank="fastest" >}}12{{< /result >}}</td>
+  </tr>
+  <tr>
+    <td><code>medium.lua</code></td><td>5k</td><td>171 kB</td>
+    <td>{{< result rank="fastest" >}}6{{< /result >}}</td><td>{{< result rank="middle" >}}46{{< /result >}}</td>
+    <td>{{< result rank="slowest" >}}48{{< /result >}}</td><td>{{< result rank="slowest" >}}50{{< /result >}}</td>
+    <td>{{< result rank="middle" >}}28{{< /result >}}</td><td>{{< result rank="fastest" >}}29{{< /result >}}</td>
+  </tr>
+  <tr>
+    <td><code>long.lua</code></td><td>50k</td><td>1.7 MB</td>
+    <td>{{< result rank="fastest" >}}6{{< /result >}}</td><td>{{< result rank="middle" >}}175{{< /result >}}</td>
+    <td>{{< result rank="slowest" >}}214{{< /result >}}</td><td>{{< result rank="slowest" >}}215{{< /result >}}</td>
+    <td>{{< result rank="middle" >}}150{{< /result >}}</td><td>{{< result rank="fastest" >}}152{{< /result >}}</td>
+  </tr>
+</tbody>
+{{< /benchmark-table >}}
