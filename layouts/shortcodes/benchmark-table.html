@@ -1,5 +1,6 @@
+{{- $variant := .Get "variant" -}}
 <div class="benchmark-table-scroll">
-  <table class="benchmark-table">
+  <table class="benchmark-table{{ with $variant }} benchmark-table--{{ . }}{{ end }}">
     {{ .Inner | safeHTML }}
   </table>
 </div>

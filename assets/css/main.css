@@ -484,7 +484,7 @@ td:first-child {
   .benchmark-table {
     display: table;
     overflow: visible;
-    width: 44.25rem;
+    width: 35.25rem;
     table-layout: fixed;
   }
 
@@ -515,12 +515,15 @@ td:first-child {
   }
 
   .benchmark-table__result {
-    width: 4.75rem;
+    width: 6.5rem;
   }
 
-  .benchmark-table__metrics th {
-    color: var(--muted);
-    font-size: 0.78rem;
+  .benchmark-table__editor {
+    width: 7.25rem;
+  }
+
+  .benchmark-table__idle {
+    width: 14rem;
   }
 }
 
@@ -736,39 +739,39 @@ td:first-child strong {
     content: "Integration";
   }
 
-  .content--performance table:nth-of-type(1) td:nth-child(1)::before {
+  .benchmark-table--fixtures td:nth-child(1)::before {
     content: "Fixture";
   }
 
-  .content--performance table:nth-of-type(1) td:nth-child(2)::before {
+  .benchmark-table--fixtures td:nth-child(2)::before {
     content: "LOC";
   }
 
-  .content--performance table:nth-of-type(1) td:nth-child(3)::before {
+  .benchmark-table--fixtures td:nth-child(3)::before {
     content: "Size";
   }
 
-  .content--performance .benchmark-table td:nth-child(4)::before {
-    content: "Neovim — first";
+  .benchmark-table--fixtures td:nth-child(4)::before {
+    content: "Neovim";
   }
 
-  .content--performance .benchmark-table td:nth-child(5)::before {
-    content: "Neovim — ready";
+  .benchmark-table--fixtures td:nth-child(5)::before {
+    content: "Helix";
   }
 
-  .content--performance .benchmark-table td:nth-child(6)::before {
-    content: "Helix — first";
+  .benchmark-table--fixtures td:nth-child(6)::before {
+    content: "Runyte";
   }
 
-  .content--performance .benchmark-table td:nth-child(7)::before {
-    content: "Helix — ready";
+  .benchmark-table--idle td:nth-child(1)::before {
+    content: "Editor";
   }
 
-  .content--performance .benchmark-table td:nth-child(8)::before {
-    content: "Runyte — first";
+  .benchmark-table--idle td:nth-child(2)::before {
+    content: "Idle CPU";
   }
 
-  .content--performance .benchmark-table td:nth-child(9)::before {
-    content: "Runyte — ready";
+  .benchmark-table--idle td:nth-child(3)::before {
+    content: "Screen writes";
   }
 }
