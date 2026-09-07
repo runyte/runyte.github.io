@@ -28,6 +28,10 @@ Milliseconds, median of 10 warm-cache launches. AMD Ryzen AI 9 365, Linux,
 120×40 terminal, isolated configuration. One edit near the file start;
 background parsing may still differ between editors.
 
+Neovim is much faster to the first visible edit on the large Lua file because
+it can display the edit before syntax parsing finishes, while this Runyte build
+waits for the initial parse; plain text skips syntax parsing, so timings are closer.
+
 [Ranges, samples, and methodology](https://github.com/runyte/runyte/blob/main/context/reference/startup-performance.md#2026-09-05--readiness-loading-and-syntax)
 
 ## Persistent sessions
