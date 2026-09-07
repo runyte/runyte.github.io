@@ -15,7 +15,8 @@ The site is a small seven-page introduction to Runyte:
 - Acknowledgements
 
 Content lives in `content/`, layouts in `layouts/`, and styles in
-`assets/css/main.css`. The ASCII logo remains the shared header on every page.
+`assets/css/main.css`. The shared header renders `assets/ascii/logo.txt` as
+plain text, matching the logo in Runyte’s `:about` page.
 
 ```sh
 hugo server   # local preview at http://localhost:1313/
@@ -23,7 +24,9 @@ hugo --gc --minify
 ```
 
 The theme is custom (no `theme` key in `hugo.yaml`); layouts live in
-`layouts/`, styles in `assets/css/main.css`.
+`layouts/`, styles in `assets/css/main.css`. Its colors follow Runyte’s
+`ocean-dark` palette in `src/config/core_themes.rs`. Secondary text uses the
+palette’s brighter muted color to stay readable at small browser font sizes.
 
 Screenshots live in `static/images/screenshots/` and open in a shared dialog
 controlled by `assets/js/screenshot-viewer.js`. All eight gallery images were
