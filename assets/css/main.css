@@ -600,6 +600,68 @@ td:first-child strong {
   line-height: 1.5;
 }
 
+.screenshot a[aria-haspopup="dialog"] {
+  cursor: zoom-in;
+}
+
+html.screenshot-viewer-open {
+  overflow: hidden;
+}
+
+.screenshot-viewer {
+  width: min(120rem, calc(100% - 2rem));
+  max-width: none;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: 0 1rem 4rem rgb(0 0 0 / 55%);
+}
+
+.screenshot-viewer::backdrop {
+  background: rgb(0 0 0 / 85%);
+}
+
+.screenshot-viewer__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.screenshot-viewer__close {
+  min-height: 2.75rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background: var(--code-bg);
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+}
+
+.screenshot-viewer__close:hover {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.screenshot-viewer__image {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 12rem);
+  max-height: calc(100dvh - 12rem);
+  object-fit: contain;
+}
+
+.screenshot-viewer__caption {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 760px) {
   .site-nav {
     flex-wrap: wrap;

@@ -6,8 +6,8 @@ description: See Runyte's editor, file explorer, terminals, Git tools, themes, c
 # Screenshots
 
 Runyte keeps editing, files, terminals, Git, coding agents, and persistent sessions in
-one coherent terminal workspace. Select any screenshot to open the full-size
-image.
+one coherent terminal workspace. Select any screenshot to enlarge it. Close the
+overlay or press Escape to return to the page.
 
 {{< screenshot
   src="images/screenshots/about.webp"

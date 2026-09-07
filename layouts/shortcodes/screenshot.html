@@ -2,7 +2,7 @@
 {{- $alt := .Get "alt" -}}
 {{- $caption := .Get "caption" -}}
 <figure class="screenshot">
-  <a href="{{ $src | relURL }}" aria-label="View full-size screenshot: {{ $caption }}">
+  <a href="{{ $src | relURL }}" data-screenshot aria-label="Enlarge screenshot: {{ $caption }}">
     <img src="{{ $src | relURL }}" alt="{{ $alt }}" width="1920" height="1168" loading="lazy" decoding="async">
   </a>
   <figcaption>{{ $caption }}</figcaption>

@@ -69,5 +69,10 @@
       </div>
     </div>
   </div>
+  {{ if .HasShortcode "screenshot" }}
+    {{ partial "screenshot-viewer.html" . }}
+    {{ $js := resources.Get "js/screenshot-viewer.js" | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{ end }}
 </body>
 </html>
