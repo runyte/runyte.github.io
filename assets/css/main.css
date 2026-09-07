@@ -210,6 +210,24 @@ body::before {
   white-space: pre;
 }
 
+.logo-edge {
+  color: color-mix(in srgb, var(--heading) 25%, var(--surface));
+}
+
+.logo-stroke {
+  /* Fade toward both edges of each stroke, keeping its middle bright. */
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--heading) 45%, var(--surface)),
+    color-mix(in srgb, var(--heading) 75%, white) 40%,
+    color-mix(in srgb, var(--heading) 75%, white) 60%,
+    color-mix(in srgb, var(--heading) 45%, var(--surface))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;

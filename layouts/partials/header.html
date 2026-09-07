@@ -1,6 +1,9 @@
 <header class="site-header">
   <a class="logo-link" href="{{ .Site.Home.RelPermalink }}" aria-label="Runyte home">
-    <pre class="logo" role="img" aria-label="Runyte">{{ (resources.Get "ascii/logo.txt").Content }}</pre>
+    {{- $logo := (resources.Get "ascii/logo.txt").Content -}}
+    {{- $logo = replaceRE `([-_])` `<span class="logo-edge">$1</span>` $logo -}}
+    {{- $logo = replaceRE `(\++)` `<span class="logo-stroke">$1</span>` $logo -}}
+    <pre class="logo" role="img" aria-label="Runyte">{{ $logo | safeHTML }}</pre>
   </a>
 
   <nav class="site-nav" aria-label="Main navigation">
