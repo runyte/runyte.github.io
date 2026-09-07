@@ -20,6 +20,8 @@ return later while a local host keeps your workspace, terminal processes,
 and language servers running. Runyte aims for a minimal interface, fast
 responses, and reliable editing so you can stay focused on your work.
 
+[View Runyte on GitHub](https://github.com/runyte/runyte)
+
 {{< screenshot
   src="images/screenshots/session-strip.webp"
   theme="ocean-dark"
