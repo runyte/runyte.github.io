@@ -957,6 +957,10 @@ html.screenshot-viewer-open {
   white-space: nowrap;
 }
 
+.readiness-table td:last-child strong {
+  color: var(--success);
+}
+
 .session-diagram {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
