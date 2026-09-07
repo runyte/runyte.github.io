@@ -1,57 +1,50 @@
 ---
 title: Installation
-description: Install Rust, Cargo, and Runyte on Linux or macOS.
+description: Download Runyte for Linux or macOS, or build it with Cargo.
 ---
 
-# Installation
+# Get Runyte
 
-Runyte currently supports **Linux and macOS**. It requires Rust 1.88 or newer
-and a C compiler for its bundled Tree-sitter grammars.
+## Download 0.2.0
 
-## 1. Install Rust and Cargo
+{{< compact-table label="Runyte 0.2.0 downloads" >}}
+| Platform | Download |
+| --- | --- |
+| **macOS · Apple Silicon** | [ARM64 archive](https://github.com/runyte/runyte/releases/download/v0.2.0/runyte-v0.2.0-aarch64-apple-darwin.tar.xz) |
+| **macOS · Intel** | [x86-64 archive](https://github.com/runyte/runyte/releases/download/v0.2.0/runyte-v0.2.0-x86_64-apple-darwin.tar.xz) |
+| **Linux · Intel / AMD** | [x86-64 archive](https://github.com/runyte/runyte/releases/download/v0.2.0/runyte-v0.2.0-x86_64-unknown-linux-gnu.tar.xz) |
+| **Linux · ARM** | [ARM64 archive](https://github.com/runyte/runyte/releases/download/v0.2.0/runyte-v0.2.0-aarch64-unknown-linux-gnu.tar.xz) |
+{{< /compact-table >}}
 
-[Cargo](https://doc.rust-lang.org/stable/cargo/) is Rust's package manager and
-build tool. It downloads packages from crates.io and builds their executable
-programs. The recommended way to get Cargo is to install Rust with
-[rustup](https://rust-lang.org/tools/install/), the official Rust toolchain
-installer and version manager.
+Verify against [SHA256SUMS](https://github.com/runyte/runyte/releases/download/v0.2.0/SHA256SUMS),
+extract, and put `runyte` on your `PATH`. macOS binaries are unsigned and not notarized.
 
-On Linux or macOS, run:
+[All releases](https://github.com/runyte/runyte/releases)
 
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
+## Or build with Cargo
 
-Follow the on-screen instructions, then restart your terminal. Confirm that
-both tools are available:
-
-```sh
-rustc --version
-cargo --version
-```
-
-You also need a C compiler. On macOS, the Xcode Command Line Tools provide one
-(`xcode-select --install`). On Linux, install your distribution's C development
-tools if `cc --version` is not already available.
-
-## 2. Install Runyte
-
-Cargo builds Runyte from its published package and installs the `runyte`
-executable:
+Requires [Rust 1.88+ and Cargo](https://rust-lang.org/tools/install/) and a C compiler.
 
 ```sh
 cargo install runyte --locked
 ```
 
-The `--locked` flag uses the dependency versions tested with the release.
-
-## 3. Start Runyte
+## Start here
 
 ```sh
-runyte             # open the built-in introduction
-runyte .           # explore and edit the current directory
-runyte README.md   # open a file
+runyte
+runyte .
+runyte README.md
+runyte --persistent
 ```
 
-Once inside, run `:tutorial` for a guided introduction or press `Space ?` for
-contextual help.
+Inside Runyte: `:tutorial` for a guided tour, `Space ?` for help.
+
+{{< compact-table label="Optional tools" >}}
+| For | Requirement |
+| --- | --- |
+| Git workflows | `git` on your `PATH` |
+| Language services | Your language server; allow it with `:lsp-trust` |
+| Linux system clipboard | `wl-clipboard`, `xclip`, or `xsel` |
+| macOS system clipboard | Built-in `pbcopy` / `pbpaste`; nothing to install |
+{{< /compact-table >}}

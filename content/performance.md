@@ -1,206 +1,73 @@
 ---
 title: Performance
-description: Startup, quit, and idle measurements for Runyte, Neovim, and Helix across text and Lua files of three sizes.
+description: Recorded editing-readiness, session-attachment, quit, and idle measurements for Runyte.
 ---
 
-# Performance
+# Measured performance
 
-The benchmark opens generated documents at 500, 5,000, and 50,000 lines. Each
-size is written twice with byte-identical content: the `.txt` file carries no
-language for any editor, while the `.lua` file gives all three the same single
-Tree-sitter Lua grammar.
+Recorded benchmarks, with versions and dates. Lower timings are better.
 
-Startup, quit, and idle cost are measured separately, because they answer
-different questions and no editor leads all three. Startup and quit are
-medians of 10 runs in a 120×40 pseudo-terminal with isolated configuration,
-cache, and state directories. Idle is the median and range of five independent
-ten-second windows, each using a fresh process. See the
-[full benchmark methodology](https://github.com/runyte/runyte/blob/main/benchmarks/README.md)
-for details.
+## Ready to edit
 
-Measured on 31 August 2026 with Neovim 0.12.4, Helix 25.07.1, and Runyte 0.1.6
-on an AMD Ryzen AI 9 365 running Linux 7.1.9. Absolute values are
-machine-specific and are not comparable against results taken on other
-hardware. In each row the fastest value is highlighted in green, the
-intermediate value in yellow, and the slowest in red. Ties are highlighted
-equally.
+Launch → insert one space → see the edit. The saved whole file is verified afterward.
 
-## Startup
+**5 September 2026 · Runyte 0.1.10 · Neovim 0.12.4 · Helix 25.07.1**
 
-Startup is the time in milliseconds from immediately before the process
-launches until a token from the first document line appears in the raw
-terminal stream. It is one shared output event, not proof that the whole
-screen has been presented, that input is accepted, or that highlighting and
-background work have finished. An editor may emit that token before or after
-it parses the document, so an earlier value means the document text reached
-the terminal sooner — not that the editor completed more work.
+{{< compact-table label="Readiness to edit, median milliseconds" >}}
+| File | Lines | Neovim | Helix | Runyte |
+| --- | ---: | ---: | ---: | ---: |
+| Text | 500 | 22.5 | 29.7 | **15.1** |
+| Text | 5,000 | 23.3 | 31.6 | **15.5** |
+| Text | 50,000 | 25.3 | 31.1 | **23.0** |
+| Lua | 500 | 41.0 | 34.7 | **21.2** |
+| Lua | 5,000 | 32.0 | 53.1 | **32.7** |
+| Lua | 50,000 | 32.2 | 295.7 | **157.5** |
+{{< /compact-table >}}
 
-{{< benchmark-table variant="fixtures" >}}
-<colgroup>
-  <col class="benchmark-table__fixture">
-  <col class="benchmark-table__loc">
-  <col class="benchmark-table__size">
-  <col span="3" class="benchmark-table__result">
-</colgroup>
-<thead>
-  <tr>
-    <th scope="col">Fixture</th>
-    <th scope="col">LOC</th>
-    <th scope="col">Size</th>
-    <th scope="col">Neovim</th>
-    <th scope="col">Helix</th>
-    <th scope="col">Runyte</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>short.txt</code></td><td>0.5k</td><td>17 kB</td>
-    <td>{{< result rank="slowest" >}}19{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}17{{< /result >}}</td>
-    <td>{{< result rank="fastest" >}}6{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>medium.txt</code></td><td>5k</td><td>171 kB</td>
-    <td>{{< result rank="slowest" >}}21{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}21{{< /result >}}</td>
-    <td>{{< result rank="fastest" >}}8{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>long.txt</code></td><td>50k</td><td>1.7 MB</td>
-    <td>{{< result rank="slowest" >}}23{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}21{{< /result >}}</td>
-    <td>{{< result rank="fastest" >}}15{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>short.lua</code></td><td>0.5k</td><td>17 kB</td>
-    <td>{{< result rank="slowest" >}}33{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}27{{< /result >}}</td>
-    <td>{{< result rank="fastest" >}}14{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>medium.lua</code></td><td>5k</td><td>171 kB</td>
-    <td>{{< result rank="fastest" >}}27{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}48{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}28{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>long.lua</code></td><td>50k</td><td>1.7 MB</td>
-    <td>{{< result rank="fastest" >}}28{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}215{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}176{{< /result >}}</td>
-  </tr>
-</tbody>
-{{< /benchmark-table >}}
+Milliseconds, median of 10 warm-cache launches. AMD Ryzen AI 9 365, Linux,
+120×40 terminal, isolated configuration. One edit near the file start;
+background parsing may still differ between editors.
 
-Runyte emits document content first on every fixture without a language and on
-the smallest Lua file. On `medium.lua` the millisecond separating Neovim and
-Runyte is within ordinary run variation. On `long.lua` Neovim emits document
-text at 28 ms against Runyte's 176 ms: Runyte draws a stable
-`Opening workspace…` presentation and then replaces it with a single complete
-highlighted frame, so no document text is exposed in an unhighlighted or
-reflowing intermediate state. That is a difference in output order, not
-evidence that Neovim finished parsing 1.7 MB of Lua at 28 ms.
+[Ranges, samples, and methodology](https://github.com/runyte/runyte/blob/main/context/reference/startup-performance.md#2026-09-05--readiness-loading-and-syntax)
 
-## Quit
+## Persistent sessions
 
-Quit is the time in milliseconds from the final force-quit keystroke until the
-process exits. Every editor receives the same `Esc` `:` `q` `!` `Enter`
-sequence against the same unchanged document, so no editor-specific save or
-persistence workflow is included.
+**6 September 2026 · development build based on `9750cd0` plus session navigation**
 
-{{< benchmark-table variant="fixtures" >}}
-<colgroup>
-  <col class="benchmark-table__fixture">
-  <col class="benchmark-table__loc">
-  <col class="benchmark-table__size">
-  <col span="3" class="benchmark-table__result">
-</colgroup>
-<thead>
-  <tr>
-    <th scope="col">Fixture</th>
-    <th scope="col">LOC</th>
-    <th scope="col">Size</th>
-    <th scope="col">Neovim</th>
-    <th scope="col">Helix</th>
-    <th scope="col">Runyte</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>short.txt</code></td><td>0.5k</td><td>17 kB</td>
-    <td>{{< result rank="fastest" >}}2{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}4{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}4{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>medium.txt</code></td><td>5k</td><td>171 kB</td>
-    <td>{{< result rank="fastest" >}}3{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}4{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}4{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>long.txt</code></td><td>50k</td><td>1.7 MB</td>
-    <td>{{< result rank="fastest" >}}3{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}4{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}5{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>short.lua</code></td><td>0.5k</td><td>17 kB</td>
-    <td>{{< result rank="fastest" >}}2{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}4{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}5{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>medium.lua</code></td><td>5k</td><td>171 kB</td>
-    <td>{{< result rank="fastest" >}}2{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}7{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}8{{< /result >}}</td>
-  </tr>
-  <tr>
-    <td><code>long.lua</code></td><td>50k</td><td>1.7 MB</td>
-    <td>{{< result rank="fastest" >}}6{{< /result >}}</td>
-    <td>{{< result rank="middle" >}}22{{< /result >}}</td>
-    <td>{{< result rank="slowest" >}}28{{< /result >}}</td>
-  </tr>
-</tbody>
-{{< /benchmark-table >}}
+{{< compact-table label="Persistent session timing, median milliseconds" >}}
+| Scenario | Cold start | Warm attach |
+| --- | ---: | ---: |
+| One session | 32.59 | **5.22** |
+| Three sessions | 33.32 | **6.13** |
+| Three sessions, strip hidden | 33.48 | **6.37** |
+| Three sessions, another terminal producing output | 33.20 | **6.55** |
+{{< /compact-table >}}
 
-Neovim exits first in every row. The category is reported as measured rather
-than dropped where Runyte does not lead.
+Milliseconds, median of 3 runs on Ryzen AI 9 365 / Linux. Time to visible output;
+this measures a different event from editing readiness. No screen writes during
+the settled 16-second idle windows.
 
-## Idle
+[Session benchmark details](https://github.com/runyte/runyte/blob/main/context/reference/startup-performance.md#2026-09-06--persistent-session-navigation)
 
-With `medium.lua` open in a Git repository and no input, CPU is sampled over
-ten seconds across the editor and every process it spawned, alongside the
-number of times it writes to the screen. Each cell is the median across the
-five windows, with the observed range in parentheses.
+## Quit and idle
 
-{{< benchmark-table variant="idle" >}}
-<colgroup>
-  <col class="benchmark-table__editor">
-  <col span="2" class="benchmark-table__idle">
-</colgroup>
-<thead>
-  <tr>
-    <th scope="col">Editor</th>
-    <th scope="col">Idle CPU</th>
-    <th scope="col">Screen writes</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Neovim</td><td>0.00 % (0.00–0.00)</td><td>0 (0–0)</td>
-  </tr>
-  <tr>
-    <td>Helix</td><td>0.00 % (0.00–0.00)</td><td>0 (0–0)</td>
-  </tr>
-  <tr>
-    <td>Runyte</td><td>0.00 % (0.00–0.10)</td><td>0 (0–0)</td>
-  </tr>
-</tbody>
-{{< /benchmark-table >}}
+**31 August 2026 · Runyte 0.1.6 · Neovim 0.12.4 · Helix 25.07.1**
 
-All three editors are event-driven at rest. One of Runyte's five windows
-rounded to 0.10 %; the work that remains scheduled is bounded and named — a
-one-second maintenance wake and a two-second metadata reconciliation covering
-filesystem events the operating system fails to deliver.
+{{< compact-table label="Historical quit and idle measurements" >}}
+| Measurement | Neovim | Helix | Runyte |
+| --- | ---: | ---: | ---: |
+| Quit, fixture medians | 2–6 ms | 4–22 ms | **4–28 ms** |
+| Idle CPU, median | 0.00% | 0.00% | **0.00%** |
+| Idle screen writes | 0 | 0 | **0** |
+{{< /compact-table >}}
+
+Quit: six text/Lua fixtures, 10 runs each. Idle: five 10-second windows;
+Runyte's CPU range was 0.00–0.10%.
+
+[Full quit and idle results](https://github.com/runyte/runyte/blob/main/context/reference/startup-performance.md#2026-08-31)
+
+These recorded builds predate some 0.2.0 changes. Values are machine-specific;
+the tables are not measurements of the current release.
+
+[All benchmark harnesses](https://github.com/runyte/runyte/blob/main/benchmarks/README.md) ·
+[Finder vs. fzf](https://github.com/runyte/runyte/blob/main/context/reference/fuzzy-matching.md)

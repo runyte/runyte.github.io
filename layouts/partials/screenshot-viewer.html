@@ -2,6 +2,14 @@
   <form method="dialog" class="screenshot-viewer__toolbar">
     <button class="screenshot-viewer__close" autofocus>Close <span aria-hidden="true">×</span></button>
   </form>
-  <img class="screenshot-viewer__image" alt="">
-  <p id="screenshot-viewer-caption" class="screenshot-viewer__caption"></p>
+  <div class="screenshot-viewer__stage">
+    <button type="button" class="screenshot-viewer__arrow screenshot-viewer__previous" aria-label="Previous screenshot" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5m7-7-7 7 7 7" /></svg>
+    </button>
+    <img class="screenshot-viewer__image" alt="">
+    <button type="button" class="screenshot-viewer__arrow screenshot-viewer__next" aria-label="Next screenshot" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
+    </button>
+  </div>
+  <p id="screenshot-viewer-caption" class="screenshot-viewer__caption" aria-live="polite" aria-atomic="true"></p>
 </dialog>

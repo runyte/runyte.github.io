@@ -1,9 +1,12 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" -}}
 {{- $caption := .Get "caption" -}}
+{{- $image := imageConfig (printf "static/%s" $src) -}}
+{{- $version := readFile (printf "static/%s" $src) | sha256 -}}
+{{- $url := printf "%s?v=%s" ($src | relURL) (substr $version 0 12) -}}
 <figure class="screenshot">
-  <a href="{{ $src | relURL }}" data-screenshot aria-label="Enlarge screenshot: {{ $caption }}">
-    <img src="{{ $src | relURL }}" alt="{{ $alt }}" width="1920" height="1168" loading="lazy" decoding="async">
+  <a href="{{ $url }}" data-screenshot aria-label="Enlarge screenshot: {{ $caption }}">
+    <img src="{{ $url }}" alt="{{ $alt }}" width="{{ .Get "width" | default $image.Width }}" height="{{ .Get "height" | default $image.Height }}" loading="{{ if eq (.Get "eager") "true" }}eager{{ else }}lazy{{ end }}"{{ if eq (.Get "eager") "true" }} fetchpriority="high"{{ end }} decoding="async">
   </a>
-  <figcaption>{{ $caption }}</figcaption>
+  <figcaption>{{ $caption }}{{ with .Get "theme" }} <span class="screenshot__theme">· {{ . }}</span>{{ end }}</figcaption>
 </figure>

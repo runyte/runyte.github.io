@@ -1,58 +1,70 @@
 ---
 title: Screenshots
-description: See Runyte's editor, file explorer, terminals, Git tools, themes, coding agents, and persistent sessions in action.
+description: Runyte's editor, Finder, Navigator, persistent sessions, Markdown, terminals, and Git in action.
 ---
 
-# Screenshots
+# See Runyte in action
 
-Runyte keeps editing, files, terminals, Git, coding agents, and persistent sessions in
-one coherent terminal workspace. Select any screenshot to enlarge it. Close the
-overlay or press Escape to return to the page.
+Click to enlarge. Close or press Escape to return.
+
+Fonts follow your terminal settings.
+
+{{< screenshot-gallery >}}
 
 {{< screenshot
-  src="images/screenshots/about.webp"
-  alt="Runyte About screen showing the logo, version number, and getting-started keyboard shortcuts."
-  caption="The About screen with Runyte's essential navigation and workspace shortcuts."
+  src="images/screenshots/session-strip.webp"
+  theme="ocean-dark"
+  alt="Runyte 0.2.0 with a clickable strip of running persistent sessions above the editor."
+  caption="Switch projects. Keep buffers and terminals running."
 >}}
 
 {{< screenshot
-  src="images/screenshots/terminal-git-explorer.webp"
-  alt="Runyte workspace with a process monitor and Git branch list on the left and a project file explorer on the right."
-  caption="A process monitor, Git branches, and the file explorer arranged in one workspace."
+  src="images/screenshots/rendered-markdown.webp"
+  theme="nordbones-dark-soft"
+  alt="Runyte 0.2.0 displaying a Markdown document as a formatted page."
+  caption="Read Markdown as a page. Return to source."
+>}}
+
+{{< screenshot
+  src="images/screenshots/navigator.webp"
+  theme="terafox-soft"
+  alt="Runyte 0.2.0 Navigator listing open buffers and running terminals."
+  caption="Jump between open buffers and terminals."
 >}}
 
 {{< screenshot
   src="images/screenshots/workspace-search.webp"
-  alt="Runyte's workspace search matching htop across files and a terminal, with a result preview beside the match list."
-  caption="Workspace-wide fuzzy search across files, buffers, and terminals, with a live preview."
+  theme="everforest-dark-medium"
+  alt="Runyte 0.2.0 Finder searching workspace content with a result preview."
+  caption="Find content across files, buffers, and terminals."
 >}}
 
 {{< screenshot
   src="images/screenshots/side-by-side-diff.webp"
-  alt="Runyte comparing the indexed and worktree versions of a README side by side, with additions and deletions highlighted."
-  caption="A side-by-side Git diff comparing the indexed file with the working-tree version."
+  theme="rosebones-dark"
+  alt="Runyte 0.2.0 comparing indexed and working-tree Rust source with highlighted changes in rosebones-dark."
+  caption="Compare changes side by side."
 >}}
 
 {{< screenshot
   src="images/screenshots/light-theme.webp"
-  alt="Runyte in a light theme with a process monitor and file explorer beside a Rust source file containing multiple selections."
-  caption="Terminal, file explorer, and multi-selection source editing in a unified light theme."
+  theme="ocean-light"
+  alt="Runyte 0.2.0 selecting every task match in Rust source beside a terminal and explorer in ocean-light."
+  caption="Select every match. Edit them together."
 >}}
 
 {{< screenshot
   src="images/screenshots/coding-agents.webp"
-  alt="Runyte showing Claude Code and OpenAI Codex in two terminal panes above a Git log and Git branch list."
-  caption="Claude Code and OpenAI Codex working alongside the Git log and branch browser."
+  theme="frappe"
+  alt="Claude Code and OpenAI Codex in adjacent Runyte 0.2.0 terminal panes in frappe."
+  caption="Claude and Codex. Two terminals, one workspace."
 >}}
 
 {{< screenshot
-  src="images/screenshots/git-commands.webp"
-  alt="Runyte command palette filtered to Git commands over an open Rust source file."
-  caption="The searchable command palette filtered to Runyte's built-in Git commands."
+  src="images/screenshots/about.webp"
+  theme="gruvbox"
+  alt="Runyte 0.2.0 About screen with current getting-started shortcuts."
+  caption="Start here. Discover commands as you go."
 >}}
 
-{{< screenshot
-  src="images/screenshots/sessions.webp"
-  alt="Runyte session picker listing persistent workspaces with details for the selected runyte-dev session."
-  caption="The persistent-session picker with activity, process, branch, directory, and worktree details."
->}}
+{{< /screenshot-gallery >}}
