@@ -1,0 +1,32 @@
+{
+  "source": "take4.mp4",
+  "fps": 15,
+  "source_frames": 905,
+  "output_frames": 900,
+  "duration": 60,
+  "cuts": [
+    [
+      64,
+      140
+    ],
+    [
+      410,
+      618
+    ]
+  ],
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 64
+    },
+    {
+      "start_frame": 140,
+      "end_frame": 410
+    },
+    {
+      "start_frame": 618,
+      "end_frame": 905
+    }
+  ],
+  "time_scale": 1.4492753623188406
+}

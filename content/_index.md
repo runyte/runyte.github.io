@@ -5,6 +5,12 @@ description: A terminal workspace built around a modal text editor for Linux and
 
 # Your editor, terminals, files, and Git—in one workspace.
 
+{{< video
+  src="videos/runyte-demo.mp4"
+  poster="videos/runyte-demo-poster.webp"
+  caption="From a Markdown prompt to Rust code, in one workspace. Watch the 60-second demo."
+>}}
+
 **Runyte** is a terminal workspace built around a modal text editor for Linux
 and macOS. Edit with multiple selections, manage files and Git, and run shells
 or CLI coding agents in adjacent panes. Consistent keys, a shared clipboard,
@@ -21,11 +27,3 @@ and language servers running. Runyte aims for a minimal interface, fast
 responses, and reliable editing so you can stay focused on your work.
 
 [View Runyte on GitHub](https://github.com/runyte/runyte)
-
-{{< screenshot
-  src="images/screenshots/session-strip.webp"
-  theme="ocean-dark"
-  alt="Runyte 0.2.0 with a persistent-session strip above a Rust editor, file explorer, and terminal."
-  caption="Edit. Explore. Run. All in one workspace."
-  eager="true"
->}}

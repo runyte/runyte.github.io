@@ -1,0 +1,15 @@
+{{- $src := .Get "src" -}}
+{{- $poster := .Get "poster" -}}
+{{- $caption := .Get "caption" -}}
+{{- $image := imageConfig (printf "static/%s" $poster) -}}
+{{- $version := readFile (printf "static/%s" $src) | sha256 -}}
+{{- $posterVersion := readFile (printf "static/%s" $poster) | sha256 -}}
+{{- $url := printf "%s?v=%s" ($src | relURL) (substr $version 0 12) -}}
+{{- $posterURL := printf "%s?v=%s" ($poster | relURL) (substr $posterVersion 0 12) -}}
+<figure class="demo-video" id="demo">
+  <video controls playsinline preload="metadata" poster="{{ $posterURL }}" width="{{ $image.Width }}" height="{{ $image.Height }}" aria-label="{{ $caption }}">
+    <source src="{{ $url }}" type="video/mp4">
+    <a href="{{ $url }}">Watch the Runyte demo (MP4).</a>
+  </video>
+  <figcaption>{{ $caption }} <a href="{{ $url }}">Open video</a></figcaption>
+</figure>
