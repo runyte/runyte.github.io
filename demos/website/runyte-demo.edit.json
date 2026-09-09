@@ -1,32 +1,72 @@
 {
-  "source": "take4.mp4",
+  "source": "take6.mp4",
   "fps": 15,
-  "source_frames": 905,
+  "source_frames": 934,
   "output_frames": 900,
   "duration": 60,
   "cuts": [
     [
-      64,
-      140
+      66,
+      143
     ],
     [
-      410,
-      618
+      312,
+      485
     ]
   ],
   "segments": [
     {
       "start_frame": 0,
-      "end_frame": 64
+      "end_frame": 66,
+      "kind": "workflow",
+      "output_start_frame": 0,
+      "output_frames": 96,
+      "time_scale": 1.4545454545454546
     },
     {
-      "start_frame": 140,
-      "end_frame": 410
+      "start_frame": 143,
+      "end_frame": 158,
+      "kind": "workflow",
+      "output_start_frame": 96,
+      "output_frames": 22,
+      "time_scale": 1.4666666666666666
     },
     {
-      "start_frame": 618,
-      "end_frame": 905
+      "start_frame": 158,
+      "end_frame": 211,
+      "kind": "prompt_typing",
+      "output_start_frame": 118,
+      "output_frames": 45,
+      "time_scale": 0.8490566037735849
+    },
+    {
+      "start_frame": 211,
+      "end_frame": 312,
+      "kind": "workflow",
+      "output_start_frame": 163,
+      "output_frames": 147,
+      "time_scale": 1.4554455445544554
+    },
+    {
+      "start_frame": 485,
+      "end_frame": 766,
+      "kind": "workflow",
+      "output_start_frame": 310,
+      "output_frames": 410,
+      "time_scale": 1.4590747330960854
+    },
+    {
+      "start_frame": 766,
+      "end_frame": 934,
+      "kind": "finder",
+      "output_start_frame": 720,
+      "output_frames": 180,
+      "time_scale": 1.0714285714285714
     }
   ],
-  "time_scale": 1.4492753623188406
+  "section_seconds": {
+    "prompt_typing": 3.0,
+    "finder": 12.0,
+    "workflow": 45.0
+  }
 }

@@ -1,7 +1,7 @@
 # Website demo
 
 `../../static/videos/runyte-demo.mp4` was recorded by Codex from real Runyte
-0.2.1 (editor source `07a891e`) on 8 September 2026. It uses ocean-dark,
+0.2.2 (editor source `54366eb`) on 9 September 2026. It uses ocean-dark,
 200 columns × 50 rows, and JetBrainsMono Nerd Font Medium with bold/italic
 variants. The silent H.264/yuv420p video is 2400×1300 pixels at 15 fps:
 900 frames, exactly 60 seconds.
@@ -18,8 +18,13 @@ jump to `focus`. The word is copied into the left explorer to create `focus.rs`.
 The complete answer is selected in terminal review and pasted into the file.
 The prepared Cargo manifest registers that file as its binary target.
 The script checks that the pasted answer compiles, formats it through Runyte,
-and visibly changes a numeric `15` to `"15"`. The final diagnostics list shows
+and visibly changes a numeric `15` to `"15"`. The diagnostics list shows
 the resulting real rust-analyzer/rustc type mismatch.
+
+The final twelve seconds demonstrate Finder: `Space f` finds `focus.rs` by
+name, then `Tab` switches to content mode. Searching `fn focus` finds the
+function in both the file and retained Codex output. The scene selects each
+source to show its preview, then Enter opens the terminal match in review.
 
 `website_demo.py` prepares an empty temporary Git workspace, owns a persistent
 host, and drives real keys through the editor repository's `runyte-demo-videos`
@@ -34,10 +39,13 @@ short-lived Codex home, then removes it with the other temporary settings.
 The prompt asks for source only, without tools or file edits. Each scene-owned
 persistent host is stopped explicitly during cleanup.
 
-`edit_demo.py` removes startup and response waits, keeps a brief transition into
-the answer, and gently retimes the remaining footage to exactly one minute.
-It adds no extended still-frame reading pauses. `runyte-demo.edit.json` records
-the cuts and time scale. The raw recording, diagnostic screenshots, and private
+`edit_demo.py` removes startup and response waits and keeps a brief transition
+into the answer. It budgets exactly three seconds for typing the prompt, twelve
+seconds for Finder, and forty-five seconds for the rest of the workflow. Each
+section is retimed separately, so filling the minute cannot stretch the prompt
+typing again. Reading pauses are recorded live. `runyte-demo.edit.json` records
+the cuts, section budgets, and source/output frame boundaries with each segment's
+time scale. The raw recording, diagnostic screenshots, and private
 recording metadata remain temporary verification artifacts.
 
 To make a new take, build Runyte and install the skill's Python requirements:
@@ -58,4 +66,5 @@ python3 -m venv /tmp/runyte-video-venv
 Use an empty workspace and a new output name. The font directory must contain
 the four JetBrainsMono font files named by the script. Inspect the rendered
 table, label narrowing, copied filename, entire answer selection, and diagnostic
-at full size. Generate the poster from the rendered, wrapped table checkpoint.
+at full size. Check both Finder previews and the opened terminal match.
+Generate the poster from the rendered, wrapped table checkpoint.

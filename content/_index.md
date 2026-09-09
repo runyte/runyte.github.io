@@ -8,7 +8,7 @@ description: A terminal workspace built around a modal text editor for Linux and
 {{< video
   src="videos/runyte-demo.mp4"
   poster="videos/runyte-demo-poster.webp"
-  caption="From a Markdown prompt to Rust code, in one workspace. Watch the 60-second demo."
+  caption="From a Markdown prompt to Rust code, then find text across files and terminals. Watch the 60-second demo."
 >}}
 
 **Runyte** is a terminal workspace built around a modal text editor for Linux

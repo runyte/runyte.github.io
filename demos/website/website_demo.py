@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MPL-2.0
-"""Record a real Runyte prompt-editor, Codex, explorer and Rust diagnostics demo."""
+"""Record a real Runyte prompt-editor, Codex, explorer, Rust diagnostics and Finder demo."""
 import argparse
 import importlib.util
 import json
@@ -112,7 +112,9 @@ def main():
                 until(lambda:'[file]' in rows()[0] and '.md' in rows()[0])
                 key('%',.1)
                 key('c',.1)
-                do('type',text=prompt,interval=.012,wait=.2)
+                check('Prompt typing begins',wait=0)
+                do('type',text=prompt,interval=3/len(prompt),wait=0)
+                check('Prompt typing ends',wait=0)
                 key('\x1b',.25)
                 key('gg',.2)
                 check('Prompt composed',['focus planner'],wait=.3)
@@ -194,10 +196,35 @@ def main():
                 key('\x1b',.2)
                 command('w',wait=.3)
                 check('Diagnostics wait begins',wait=0)
-                until(lambda: '1E' in rows()[48],60)
+                until(lambda: re.search(r'\b[1-9]\d*E\b',rows()[48]),60)
                 check('Rust type error ready',wait=.3)
                 key(' ld',.5)
-                check('Rust diagnostics',['mismatched types'],wait=.4)
+                check('Rust diagnostics',['mismatched types'],wait=1)
+                check('Finder begins',wait=0)
+                key('\x1b',.2)
+                key(' f',.5)
+                do('type',text='focus',interval=.10,wait=.4)
+                check('Finder by name',['Finder','focus.rs'],wait=.8)
+                key('\t',.35)
+                key('\x1b[D'*5,.1)
+                do('type',text='fn ',interval=.09,wait=.6)
+                # Inspect only the result-list column, not matching preview text.
+                def select_hit(terminal):
+                    for _ in range(12):
+                        selected = next((row[:88] for row in rows()[6:46]
+                                         if '▸' in row[:88]), '')
+                        if ('[terminal] Codex:' in selected if terminal else
+                                'focus.rs:' in selected):
+                            return
+                        key('\x1b[B',.15)
+                    raise RuntimeError('Finder did not select the requested content source')
+                select_hit(False)
+                check('Finder file contents',['focus.rs','fn focus'],wait=1.5)
+                select_hit(True)
+                check('Finder terminal contents',['Codex','fn focus'],wait=1.5)
+                key('\r',.4)
+                check('Finder opened terminal match',['[terminal]','Codex'],wait=.6)
+                check('Finder ends',wait=0)
             except BaseException:
                 args.output.with_suffix('.failure.txt').write_text(c.text())
                 c.render_image().save(args.output.with_suffix('.failure.png'))
