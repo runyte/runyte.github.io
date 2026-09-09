@@ -38,7 +38,7 @@ its caption. Older assets remain available for existing external links.
 
 The Intro page embeds the 60-second demo with native playback controls through
 `layouts/shortcodes/video.html`. The video and poster live in `static/videos/`;
-the editor README links its poster directly to the hosted MP4. Codex recorded
+the editor README embeds a GitHub-hosted copy of the same MP4. Codex recorded
 the real prompt-editor → Codex → Rust diagnostics → Finder workflow at 200×50 terminal
 cells. [demos/website/](demos/website/) contains the source/version record, prompt,
 replay script, and edit recipe.

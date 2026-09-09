@@ -68,3 +68,10 @@ the four JetBrainsMono font files named by the script. Inspect the rendered
 table, label narrowing, copied filename, entire answer selection, and diagnostic
 at full size. Check both Finder previews and the opened terminal match.
 Generate the poster from the rendered, wrapped table checkpoint.
+
+The editor README uses a GitHub video attachment to render a native player:
+https://github.com/user-attachments/assets/cc77a90c-25e5-4b15-a1c9-f5da7f3f12fb
+
+That attachment is a copy of the final MP4, separate from the website asset.
+When replacing the demo, upload the new final MP4 to GitHub and update the
+standalone attachment URL near the beginning of the editor README as well.
