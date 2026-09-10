@@ -74,5 +74,9 @@
     {{ $js := resources.Get "js/screenshot-viewer.js" | minify | fingerprint }}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
   {{ end }}
+  {{ if .HasShortcode "video" }}
+    {{ $videoJS := resources.Get "js/video-player.js" | minify | fingerprint }}
+    <script src="{{ $videoJS.RelPermalink }}" integrity="{{ $videoJS.Data.Integrity }}" defer></script>
+  {{ end }}
 </body>
 </html>
