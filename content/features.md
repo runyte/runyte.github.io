@@ -18,16 +18,17 @@ Shared panes, theme, commands, and clipboard.
 | **Languages** | Bundled Tree-sitter highlighting and asynchronous LSP |
 | **Sessions** | Clickable session strip, keyboard switching, detachable clients |
 | **Interface** | Key hints, themes, settings, notifications, rendered Markdown |
+| **Plugins** | [Any language](/plugins/): native commands, views, keys, background work |
 {{< /compact-table >}}
 
 Helix-inspired selection-first editing with familiar Vim motions.
 
-## 26 bundled languages
+## 31 bundled languages
 
 {{< language-list >}}
-Bash, C, C#, C++, CMake, CSS, Go, HTML, INI, Java, JavaScript, JSON,
-Kotlin, Lua, Make, Markdown, Protocol Buffers, Python, Rust, SQL, Swift,
-TOML, TSX, TypeScript, YAML, Zig
+Bash, C, C#, C++, CMake, CSS, Dockerfile, Go, HCL/Terraform, HTML, INI,
+Java, JavaScript, JSON, Kotlin, Lua, Make, Markdown, PHP, Protocol Buffers,
+Python, Ruby, Rust, SQL, Swift, TOML, TSX, TypeScript, XML, YAML, Zig
 {{< /language-list >}}
 
 No grammar downloads. Syntax-aware indentation: `editor.smart_newline: true`.

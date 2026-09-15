@@ -4,10 +4,11 @@ Source of the [Runyte](https://github.com/runyte/runyte) website, built with
 [Hugo](https://gohugo.io/) and deployed to GitHub Pages by GitHub Actions on
 every push to `main`.
 
-The site is a small seven-page introduction to Runyte:
+The site is a small eight-page introduction to Runyte:
 
 - Intro
 - Features
+- Plugins
 - Screenshots
 - Installation
 - Performance

@@ -20,6 +20,7 @@ Start with `:tutorial`. Press `Space` to discover commands as you work.
 | Save | `Ctrl-s` |
 | Contextual help | `Space ?` |
 | Command palette / manual | `:` / `:help` |
+| Plugin commands / plugin status | `::` / `:plugins` |
 {{< /compact-table >}}
 
 ## Switch projects. Keep your place.
@@ -49,4 +50,5 @@ Editing and highlighting work without them.
 
 [Full manual](https://github.com/runyte/runyte/blob/main/docs/user-guide.md) ·
 [LSP setup](https://github.com/runyte/runyte/blob/main/docs/lsp/README.md) ·
+[Plugin guide](/plugins/) ·
 [macOS Option-key help](https://github.com/runyte/runyte/blob/main/docs/faq.md)
