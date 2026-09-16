@@ -1,0 +1,17 @@
+{{- $software := dict
+  "@context" "https://schema.org"
+  "@type" "SoftwareApplication"
+  "@id" (printf "%s#software" .Site.Home.Permalink)
+  "name" "Runyte"
+  "url" .Site.Home.Permalink
+  "description" .Description
+  "applicationCategory" "DeveloperApplication"
+  "operatingSystem" "Linux, macOS"
+  "isAccessibleForFree" true
+  "license" "https://www.mozilla.org/en-US/MPL/2.0/"
+  "downloadUrl" ("installation/" | absURL)
+  "screenshot" (.Site.Params.image | absURL)
+  "sameAs" (slice "https://github.com/runyte/runyte" "https://crates.io/crates/runyte")
+  "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD")
+-}}
+<script type="application/ld+json">{{ $software | jsonify | safeJS }}</script>

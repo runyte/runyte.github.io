@@ -2,9 +2,12 @@
 
 Source of the [Runyte](https://github.com/runyte/runyte) website, built with
 [Hugo](https://gohugo.io/) and deployed to GitHub Pages by GitHub Actions on
-every push to `main`.
+every push to `main` and daily. The build imports the user guide and FAQ
+from `runyte/runyte` on `main`. A local build takes an editor checkout as the
+argument to `scripts/import-docs.py`. Imported pages are generated files; edit
+the originals in the editor repository.
 
-The site is a small eight-page introduction to Runyte:
+The site introduces Runyte and includes documentation and workflow guides:
 
 - Intro
 - Features
@@ -13,6 +16,8 @@ The site is a small eight-page introduction to Runyte:
 - Installation
 - Performance
 - Help
+- Documentation
+- Workflow guides
 - Acknowledgements
 
 Content lives in `content/`, layouts in `layouts/`, and styles in
@@ -20,8 +25,10 @@ Content lives in `content/`, layouts in `layouts/`, and styles in
 plain text, matching the logo in Runyte’s `:about` page.
 
 ```sh
+python3 scripts/import-docs.py ../runyte
 hugo server   # local preview at http://localhost:1313/
 hugo --gc --minify
+python3 scripts/check-site.py public
 ```
 
 The theme is custom (no `theme` key in `hugo.yaml`); layouts live in

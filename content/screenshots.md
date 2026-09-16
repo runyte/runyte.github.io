@@ -1,4 +1,5 @@
 ---
+seoTitle: "Runyte Screenshots — Editor, Terminals and Git"
 title: Screenshots
 description: Runyte's editor, Finder, Navigator, persistent sessions, Markdown, terminals, and Git in action.
 ---

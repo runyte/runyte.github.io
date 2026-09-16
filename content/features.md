@@ -1,4 +1,5 @@
 ---
+seoTitle: "Modal Editing, Terminals, Git and Project Search | Runyte"
 title: Features
 description: Selection-first editing, files, terminals, Git, language tools, and persistent sessions in one interface.
 ---

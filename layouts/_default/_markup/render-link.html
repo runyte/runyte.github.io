@@ -1,0 +1,14 @@
+{{- $destination := .Destination -}}
+{{- $url := urls.Parse $destination -}}
+{{- if and .Page.Params.sourcePath (not $url.IsAbs) (not (strings.HasPrefix $destination "/")) $url.Path -}}
+  {{- $sourcePath := path.Clean (path.Join (path.Dir .Page.Params.sourcePath) $url.Path) -}}
+  {{- $localPages := dict "docs/user-guide.md" "docs/user-guide/" "docs/faq.md" "docs/faq/" -}}
+  {{- with index $localPages $sourcePath -}}
+    {{- $destination = . | relURL -}}
+  {{- else -}}
+    {{- $destination = printf "https://github.com/runyte/runyte/blob/%s/%s" $.Page.Params.sourceRef $sourcePath -}}
+  {{- end -}}
+  {{- with $url.RawQuery }}{{ $destination = printf "%s?%s" $destination . }}{{ end -}}
+  {{- with $url.Fragment }}{{ $destination = printf "%s#%s" $destination . }}{{ end -}}
+{{- end -}}
+<a href="{{ $destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

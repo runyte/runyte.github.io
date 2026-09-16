@@ -1,4 +1,5 @@
 ---
+seoTitle: "Runyte Performance — Terminal Editor Benchmarks"
 title: Performance
 description: Runyte, Neovim, and Helix editing-readiness benchmarks, plus Runyte session, quit, and idle results.
 ---

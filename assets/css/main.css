@@ -1188,3 +1188,25 @@ html.screenshot-viewer-open {
   color: var(--fg);
   white-space: nowrap;
 }
+
+.document-source {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.document-toc {
+  margin: 1.5rem 0 2rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+}
+
+.document-toc summary {
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.page h2,
+.page h3 {
+  scroll-margin-top: 1rem;
+}

@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "23 5 * * *"
   workflow_dispatch:
 
 permissions:
@@ -34,6 +36,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Checkout editor documentation
+        uses: actions/checkout@v4
+        with:
+          repository: runyte/runyte
+          ref: main
+          path: _source/runyte
+          fetch-depth: 0
+      - name: Import documentation
+        run: python3 scripts/import-docs.py _source/runyte
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -45,6 +56,8 @@ jobs:
         # HTTPS is off — that causes mixed content and drops the stylesheet.
         run: |
           hugo --gc --minify
+      - name: Check generated pages
+        run: python3 scripts/check-site.py public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

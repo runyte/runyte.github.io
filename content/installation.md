@@ -1,4 +1,5 @@
 ---
+seoTitle: "Install Runyte on Linux and macOS"
 title: Installation
 description: Download Runyte for Linux or macOS, or build it with Cargo.
 ---

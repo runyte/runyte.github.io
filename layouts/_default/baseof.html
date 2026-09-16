@@ -4,15 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {{- $title := .Site.Title -}}
-  {{- if not .IsHome -}}
-    {{- $title = printf "%s | %s" .Title .Site.Title -}}
-  {{- end -}}
+  {{- $title := .Params.seoTitle | default (printf "%s | %s" .Title .Site.Title) -}}
   {{- $description := .Description | default .Site.Params.description -}}
 
   <title>{{ $title }}</title>
   <meta name="description" content="{{ $description }}">
-  <meta name="robots" content="all,follow">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   <link rel="canonical" href="{{ .Permalink }}">
 
@@ -20,6 +17,22 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:description" content="{{ $description }}">
+
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:locale" content="en_US">
+  {{- $imagePath := .Params.image | default .Site.Params.image -}}
+  {{- $image := imageConfig (printf "static/%s" $imagePath) -}}
+  {{- $imageAlt := .Params.imageAlt | default .Site.Params.imageAlt -}}
+  <meta property="og:image" content="{{ $imagePath | absURL }}">
+  <meta property="og:image:width" content="{{ $image.Width }}">
+  <meta property="og:image:height" content="{{ $image.Height }}">
+  <meta property="og:image:alt" content="{{ $imageAlt }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  <meta name="twitter:image" content="{{ $imagePath | absURL }}">
+  <meta name="twitter:image:alt" content="{{ $imageAlt }}">
+  {{ if .IsHome }}{{ partial "software-schema.html" . }}{{ end }}
 
   {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

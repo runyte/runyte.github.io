@@ -11,3 +11,13 @@ buildFuture: false
 params:
   description: "Runyte - an editor-first terminal workspace built around a modal, selection-first editor."
   author: "Krzysztof Arendt"
+  image: "images/screenshots/rendered-markdown.webp"
+  imageAlt: "Runyte displaying a Markdown document as a formatted page."
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3

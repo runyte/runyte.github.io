@@ -1,4 +1,5 @@
 ---
+seoTitle: "Runyte Help and Keyboard Shortcuts"
 title: Help
 description: The essential Runyte shortcuts for editing, search, terminals, and persistent sessions.
 ---
@@ -43,12 +44,14 @@ Start with `runyte --persistent`. Buffers and terminals stay alive after detachi
 One interactive client per session. State lasts while its host runs, including
 while detached; it does not survive host termination or reboot.
 
+[Documentation and workflow guides](/docs/)
+
 ## Language tools
 
 Language servers require workspace permission. Change it with `:lsp-trust`.
 Editing and highlighting work without them.
 
-[Full manual](https://github.com/runyte/runyte/blob/main/docs/user-guide.md) ·
+[Full manual](/docs/user-guide/) ·
 [LSP setup](https://github.com/runyte/runyte/blob/main/docs/lsp/README.md) ·
 [Plugin guide](/plugins/) ·
-[macOS Option-key help](https://github.com/runyte/runyte/blob/main/docs/faq.md)
+[macOS Option-key help](/docs/faq/)

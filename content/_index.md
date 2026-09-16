@@ -1,4 +1,5 @@
 ---
+seoTitle: "Runyte — Modal Terminal Editor for Linux and macOS"
 title: Intro
 description: A terminal workspace built around a modal text editor for Linux and macOS, with project search, integrated terminals, Git, and optional persistent sessions.
 ---
@@ -11,7 +12,7 @@ description: A terminal workspace built around a modal text editor for Linux and
   caption="From a Markdown prompt to Rust code, then find text across files and terminals. Watch the 60-second demo."
 >}}
 
-**Runyte** is a terminal workspace built around a modal text editor for Linux
+**Runyte** is a free, open-source terminal workspace built around a modal text editor for Linux
 and macOS. Edit with multiple selections, manage files and Git, and run shells
 or CLI coding agents in adjacent panes. Consistent keys, a shared clipboard,
 and one theme connect the tools you use throughout the day.
@@ -26,4 +27,13 @@ return later while a local host keeps your workspace, terminal processes,
 and language servers running. Runyte aims for a minimal interface, fast
 responses, and reliable editing so you can stay focused on your work.
 
+[Install Runyte](/installation/) · [Read the documentation](/docs/) ·
 [View Runyte on GitHub](https://github.com/runyte/runyte)
+
+## Work with Runyte
+
+- [Use Claude Code and Codex inside Runyte](/guides/coding-agents/).
+- [Keep projects open with persistent terminal workspaces](/guides/persistent-workspaces/).
+- [Move from Helix to Runyte](/guides/from-helix/).
+
+Runyte is licensed under the [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/).

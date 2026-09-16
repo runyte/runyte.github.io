@@ -1,4 +1,5 @@
 ---
+seoTitle: "Runyte Acknowledgements and Open Source Credits"
 title: Acknowledgements
 description: The projects and people behind Runyte's editor, language tools, interface, and themes.
 ---

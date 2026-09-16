@@ -1,5 +1,16 @@
 {{ define "main" }}
   <article class="page">
+    {{ if .Params.sourcePath }}
+      <h1>{{ .Title }}</h1>
+      <p class="document-source">Reference for the current development version.
+        <a href="https://github.com/runyte/runyte/blob/{{ .Params.sourceRef }}/{{ .Params.sourcePath }}">View source</a>.
+        <a href="{{ "installation/" | relURL }}">Install a release</a>.
+      </p>
+      <details class="document-toc">
+        <summary>On this page</summary>
+        {{ .TableOfContents }}
+      </details>
+    {{ end }}
     {{ .Content }}
   </article>
 {{ end }}

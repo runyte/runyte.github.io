@@ -1,4 +1,5 @@
 ---
+seoTitle: "Runyte Plugins — Extend Your Terminal Editor"
 title: Plugins
 description: Extend Runyte with plugins written in any programming language, with native commands, views, key bindings, and background work.
 ---
