@@ -1,7 +1,7 @@
 ---
 title: Persistent terminal workspaces
 seoTitle: Persistent Terminal Workspaces with Runyte
-description: Keep files, unsaved buffers, language servers, and terminal processes open while you detach from Runyte or switch projects on Linux and macOS.
+description: Keep files, unsaved buffers, language servers, and terminal processes open while you detach from Runyte or switch projects.
 image: images/screenshots/session-strip.webp
 imageAlt: Runyte with a strip of running persistent sessions above the editor.
 ---

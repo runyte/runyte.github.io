@@ -1,7 +1,7 @@
 ---
-seoTitle: "Runyte — Modal Terminal Editor for Linux and macOS"
+seoTitle: "Runyte — Modal Terminal Editor for Linux, macOS, and Windows"
 title: Intro
-description: A terminal workspace built around a modal text editor for Linux and macOS, with project search, integrated terminals, Git, and optional persistent sessions.
+description: A terminal workspace built around a modal text editor for Linux, macOS, and Windows, with project search, integrated terminals, Git, and optional persistent sessions.
 ---
 
 # Your editor, terminals, files, and Git—in one workspace.
@@ -13,8 +13,9 @@ description: A terminal workspace built around a modal text editor for Linux and
 >}}
 
 **Runyte** is a free, open-source terminal workspace built around a modal text editor for Linux
-and macOS. Edit with multiple selections, manage files and Git, and run shells
-or CLI coding agents in adjacent panes. Consistent keys, a shared clipboard,
+and macOS, with provisional native Windows support. Edit with multiple
+selections, manage files and Git, and run shells or CLI coding agents in
+adjacent panes. Consistent keys, a shared clipboard,
 and one theme connect the tools you use throughout the day.
 
 The **fuzzy Finder** searches files, unsaved buffers, and terminals by name or

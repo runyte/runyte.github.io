@@ -43,8 +43,8 @@ Notes open as normal Markdown buffers.
 
 ## Try one
 
-Save [uppercase.py](https://github.com/runyte/runyte/blob/v0.3.0/docs/plugins/uppercase.py)
-and [application.py](https://github.com/runyte/runyte/blob/v0.3.0/docs/plugins/application.py)
+Save [uppercase.py](https://github.com/runyte/runyte/blob/v0.3.2/docs/plugins/uppercase.py)
+and [application.py](https://github.com/runyte/runyte/blob/v0.3.2/docs/plugins/application.py)
 side by side, then add this to your configuration with absolute paths:
 
 ```yaml
@@ -76,7 +76,7 @@ Plugins run as your user, with your permissions. Capabilities control what they
 can do inside the editor, but they are not a sandbox. Enable only programs you
 trust.
 
-[Plugin guide](https://github.com/runyte/runyte/blob/v0.3.0/docs/plugins.md) ·
-[Authoring guide](https://github.com/runyte/runyte/blob/v0.3.0/docs/plugins/authoring.md) ·
-[Examples in Python, Rust, and C](https://github.com/runyte/runyte/blob/v0.3.0/docs/plugins/todo/README.md) ·
-[File manager, SFTP, and media examples](https://github.com/runyte/runyte/blob/v0.3.0/docs/plugins/applications.md#local-file-manager)
+[Plugin guide](https://github.com/runyte/runyte/blob/v0.3.2/docs/plugins.md) ·
+[Authoring guide](https://github.com/runyte/runyte/blob/v0.3.2/docs/plugins/authoring.md) ·
+[Examples in Python, Rust, and C](https://github.com/runyte/runyte/blob/v0.3.2/docs/plugins/todo/README.md) ·
+[File manager, SFTP, and media examples](https://github.com/runyte/runyte/blob/v0.3.2/docs/plugins/applications.md#local-file-manager)

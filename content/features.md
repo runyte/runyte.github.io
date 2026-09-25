@@ -24,15 +24,17 @@ Shared panes, theme, commands, and clipboard.
 
 Helix-inspired selection-first editing with familiar Vim motions.
 
-## 31 bundled languages
+## 32 bundled languages
 
 {{< language-list >}}
-Bash, C, C#, C++, CMake, CSS, Dockerfile, Go, HCL/Terraform, HTML, INI,
+Bash, C, C#, C++, CMake, CSS, Dockerfile, Elixir, Go, HCL/Terraform, HTML, INI,
 Java, JavaScript, JSON, Kotlin, Lua, Make, Markdown, PHP, Protocol Buffers,
 Python, Ruby, Rust, SQL, Swift, TOML, TSX, TypeScript, XML, YAML, Zig
 {{< /language-list >}}
 
-No grammar downloads. Syntax-aware indentation: `editor.smart_newline: true`.
+No grammar downloads. Enter indents by syntax and continues Markdown lists;
+set `editor.smart_newline: false` to keep only the current indentation.
+Indent with spaces or tabs: `editor.indent`.
 
 Install language servers separately and allow them per workspace with `:lsp-trust`.
 

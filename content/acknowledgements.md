@@ -11,7 +11,7 @@ description: The projects and people behind Runyte's editor, language tools, int
 | --- | --- |
 | Selection-first editing | [Helix](https://helix-editor.com/), with familiar Vim motions |
 | Syntax highlighting | Helix's [tree-house](https://github.com/helix-editor/tree-house) and [Tree-sitter](https://tree-sitter.github.io/) |
-| 31 languages | 30 statically linked grammar crates and their query authors |
+| 32 languages | 31 statically linked grammar crates and their query authors |
 | Terminal interface | [Ratatui](https://ratatui.rs/) and [Crossterm](https://github.com/crossterm-rs/crossterm) |
 | Text storage | [Ropey](https://github.com/cessen/ropey) |
 | Editable explorer | [Oil.nvim](https://github.com/stevearc/oil.nvim) |

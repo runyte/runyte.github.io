@@ -6,7 +6,7 @@ description: Learn Runyte's modal editing, keyboard shortcuts, configuration, in
 
 # Runyte documentation
 
-[Install Runyte](/installation/) on Linux or macOS, then run `:tutorial`
+[Install Runyte](/installation/) on Linux, macOS, or Windows, then run `:tutorial`
 inside the editor for an interactive introduction. `Space ?` opens contextual
 help, and `:help` opens the complete manual.
 
