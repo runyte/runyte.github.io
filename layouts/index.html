@@ -1,5 +1,18 @@
 {{ define "main" }}
-  <article class="page">
-    {{ .Content }}
+  <article class="about-page">
+    <pre class="logo" aria-hidden="true">{{ (resources.Get "ascii/logo.txt").Content }}</pre>
+    <h1 class="visually-hidden">Runyte</h1>
+    <p class="about-motto">A fast modal terminal editor for focused work.</p>
+    <h2>Getting around</h2>
+    <div class="getting-around">
+      <a href="{{ "docs/" | relURL }}#website" data-action="help"><kbd>Space ?</kbd><span>help for this page</span></a>
+      <a href="{{ "docs/" | relURL }}" data-action="navigator"><kbd>Space n</kbd><span>navigate the website</span></a>
+      <a href="{{ partialCached "media-url.html" .Site.Params.demoVideo .Site.Params.demoVideo }}" data-action="demo"><code>:demo</code><span>watch Runyte in action</span></a>
+      <a href="{{ "docs/" | relURL }}"><code>:help</code><span>open documentation</span></a>
+      <a href="{{ .Site.Home.RelPermalink }}"><code>:about</code><span>return to this page</span></a>
+      <a href="{{ "docs/" | relURL }}#website" data-action="command"><code>:</code><span>open the command palette</span></a>
+    </div>
+    <p class="about-instruction enhanced-only">Press keys in sequence. Run commands with Enter.</p>
+    <p class="about-links"><a href="{{ "installation/" | relURL }}">Install Runyte</a><span aria-hidden="true">·</span><a href="{{ partialCached "media-url.html" .Site.Params.demoVideo .Site.Params.demoVideo }}" data-action="demo">▶ Watch the demo</a><span aria-hidden="true">·</span><a href="https://github.com/runyte/runyte">GitHub ↗</a></p>
   </article>
 {{ end }}

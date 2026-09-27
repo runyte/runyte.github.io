@@ -1,7 +1,9 @@
 /content/docs/user-guide.md
+/assets/imported/
 /content/docs/faq.md
 /_source/
 /public/
 /resources/
 .hugo_build.lock
 .runyte/
+__pycache__/

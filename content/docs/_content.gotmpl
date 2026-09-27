@@ -1,0 +1,16 @@
+{{ with resources.Get "imported/user-guide.json" }}
+  {{ $source := . | transform.Unmarshal }}
+  {{ $guide := partial "guide/sections.html" $source }}
+  {{ $navigation := slice }}
+  {{ range $index, $section := $guide.sections }}
+    {{ $navigation = $navigation | append (dict "title" .title "url" .url "id" .id "level" .level "group" .group "weight" $index) }}
+  {{ end }}
+  {{ range $index, $section := $guide.sections }}
+    {{ $params := dict "guide" true "guideID" .id "guideLevel" .level "guideGroup" .group "guideNavigation" $navigation "guideAnchors" $guide.anchors "sourcePath" $source.sourcePath "sourceRef" $source.sourceRef }}
+    {{ $kind := "page" }}
+    {{ if le .level 2 }}{{ $kind = "section" }}{{ end }}
+    {{ $.AddPage (dict "path" .path "kind" $kind "type" "guide" "title" .title "description" (printf "%s — Runyte user guide." .title) "weight" $index "dates" (dict "lastmod" (time.AsTime $source.lastmod)) "params" $params "content" (dict "mediaType" "text/markdown" "value" (printf "%s\n\n%s" .body $guide.references))) }}
+  {{ end }}
+{{ else }}
+  {{ errorf "Missing imported guide. Run python3 scripts/import-docs.py <editor-checkout>." }}
+{{ end }}

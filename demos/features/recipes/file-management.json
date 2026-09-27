@@ -1,0 +1,119 @@
+{
+  "setup": [
+    {
+      "op": "key",
+      "text": " e",
+      "wait": 0.8
+    },
+    {
+      "op": "checkpoint",
+      "name": "Explorer ready",
+      "required": [
+        "notes.md",
+        "scratch.txt"
+      ],
+      "wait": 0.3
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": "/notes\r",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "gh",
+      "wait": 0.2
+    },
+    {
+      "op": "key",
+      "text": "i",
+      "wait": 0.2
+    },
+    {
+      "op": "type",
+      "text": "docs/",
+      "interval": 0.12,
+      "wait": 0.4
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "o",
+      "wait": 0.2
+    },
+    {
+      "op": "type",
+      "text": "CHANGELOG.md",
+      "interval": 0.12,
+      "wait": 0.4
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "/scratch\r",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "x",
+      "wait": 0.2
+    },
+    {
+      "op": "key",
+      "text": "c",
+      "wait": 0.2
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 1
+    },
+    {
+      "op": "command",
+      "text": "w",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Review filesystem plan",
+      "required": [
+        "Filesystem plan",
+        "move notes.md",
+        "delete scratch.txt"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 2
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Changes applied",
+      "required": [
+        "CHANGELOG.md"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 2
+    }
+  ]
+}

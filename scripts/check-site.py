@@ -29,10 +29,14 @@ class Page(HTMLParser):
             self.ids.add(attrs["id"])
         if tag == "a" and "href" in attrs:
             self.links.append(attrs["href"])
-        if tag in ("img", "script") and "src" in attrs:
+        if tag in ("img", "script", "video", "source") and "src" in attrs:
             self.links.append(attrs["src"])
+        if tag == "video":
+            for attr in ("poster", "data-src"):
+                if attrs.get(attr):
+                    self.links.append(attrs[attr])
         if tag == "meta":
-            self.meta[attrs.get("name", attrs.get("property"))] = attrs.get("content")
+            self.meta[attrs.get("name", attrs.get("property", attrs.get("http-equiv", "").lower()))] = attrs.get("content")
         if tag == "link" and attrs.get("rel") == "canonical":
             self.canonical = attrs.get("href")
         if tag == "h1":
@@ -57,11 +61,22 @@ class Page(HTMLParser):
 
 def check_site(root):
     pages = {}
+    redirects = {}
     errors = []
     for file in root.rglob("index.html"):
         route = "/" + file.parent.relative_to(root).as_posix().strip(".")
         route = route.rstrip("/") + "/"
-        pages[route] = Page(file.read_text(encoding="utf-8"))
+        page = Page(file.read_text(encoding="utf-8"))
+        if page.meta.get("refresh"):
+            redirects[route] = page
+        else:
+            pages[route] = page
+    for route, page in redirects.items():
+        target = urlsplit(page.canonical or "")
+        if target.netloc != "runyte.com" or target.path not in pages:
+            errors.append(f"{route}: invalid redirect target {page.canonical}")
+        if page.canonical not in page.meta["refresh"]:
+            errors.append(f"{route}: redirect does not match canonical target")
     for route, page in pages.items():
         canonical = urljoin(BASE_URL, route)
         if page.canonical != canonical:
@@ -81,7 +96,7 @@ def check_site(root):
                     errors.append(f"{route}: missing anchor {link}")
             elif not (root / path.lstrip("/")).is_file():
                 errors.append(f"{route}: missing target {link}")
-    required = {"/docs/", "/docs/user-guide/", "/docs/faq/", "/guides/coding-agents/", "/guides/persistent-workspaces/", "/guides/from-helix/"}
+    required = {"/docs/", "/docs/user-guide/", "/guides/coding-agents/", "/guides/persistent-workspaces/", "/guides/from-helix/"}
     if not required <= pages.keys():
         errors.append(f"Missing pages: {required - pages.keys()}")
     sitemap = ET.parse(root / "sitemap.xml")

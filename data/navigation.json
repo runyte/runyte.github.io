@@ -1,0 +1,62 @@
+[
+  {
+    "title": "About",
+    "url": "/",
+    "description": "A fast modal terminal editor for focused work."
+  },
+  {
+    "title": "Features",
+    "url": "/features/",
+    "description": "Editing, terminals, search, Git, and more."
+  },
+  {
+    "title": "Screenshots",
+    "url": "/screenshots/",
+    "description": "Views and themes from the editor."
+  },
+  {
+    "title": "Install",
+    "url": "/installation/",
+    "description": "Get Runyte for Linux, macOS, or Windows."
+  },
+  {
+    "title": "Docs",
+    "url": "/docs/",
+    "description": "User guide and workflow guides."
+  },
+  {
+    "title": "Plugins",
+    "url": "/plugins/",
+    "description": "Extend Runyte in any language."
+  },
+  {
+    "title": "Performance",
+    "url": "/performance/",
+    "description": "Measured startup, attach, and idle performance."
+  },
+  {
+    "title": "Workflow guides",
+    "url": "/guides/",
+    "description": "Agents, persistent sessions, and moving from Helix.",
+    "menu": false
+  },
+  {
+    "title": "User guide",
+    "url": "/docs/user-guide/",
+    "description": "The complete Runyte manual.",
+    "menu": false
+  },
+  {
+    "id": "repository",
+    "title": "GitHub \u2197",
+    "url": "https://github.com/runyte/runyte",
+    "description": "Runyte repository and source code.",
+    "keywords": [
+      "github",
+      "repo",
+      "repository",
+      "code",
+      "source"
+    ]
+  }
+]

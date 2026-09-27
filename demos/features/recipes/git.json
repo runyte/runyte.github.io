@@ -1,0 +1,70 @@
+{
+  "setup": [
+    {
+      "op": "command",
+      "text": "open src/tasks.py",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "src/tasks.py"
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": " gD",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Compare changes",
+      "required": [
+        "pending_tasks",
+        "ready_tasks"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 3
+    },
+    {
+      "op": "command",
+      "text": "diff-off",
+      "interval": 0.06,
+      "wait": 1
+    },
+    {
+      "op": "key",
+      "text": " gg",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Changed files",
+      "required": [
+        "src/tasks.py"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "\ts",
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Stage the change",
+      "required": [
+        "staged"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 2
+    }
+  ]
+}

@@ -6,10 +6,8 @@ description: Learn what carries over from Helix to Runyte and what changes in se
 
 # Moving from Helix to Runyte
 
-Runyte is a modal terminal editor inspired by Helix's selection-first model.
-It combines editing with integrated terminals, Git tools, project search, and
-optional persistent workspaces. Familiar motions and selection commands carry
-over, but Runyte deliberately changes several bindings and behaviors.
+Runyte uses Helix's selection-first model. Many motions carry over;
+search, macros, and some selection commands differ.
 
 ## Start with familiar editing
 
@@ -27,10 +25,13 @@ expression. Both select every match in the search region. If a selection spans
 two or more characters, the search stays within the selected regions; otherwise
 it searches the buffer.
 
-For example, with a single caret in a buffer, press `s`, type `old_name`, and
-press Enter. Every occurrence is selected. Press `c`, type `new_name`, then
-press `Esc` to replace them together. Runyte's `s` treats punctuation literally,
-so `foo(` can be searched without escaping it.
+To rename text everywhere:
+
+1. Press `s`, type `old_name`, and press Enter.
+2. Press `c` and type `new_name`.
+3. Press `Esc`.
+
+Literal search treats punctuation as text; `foo(` needs no escaping.
 
 Press `n` or `N` after a search to reduce the selection to the next or previous
 match. `*` selects occurrences of the current word or selection as a
@@ -73,7 +74,7 @@ panes even while typing into a terminal; `Ctrl-\` leaves terminal input and
 `i` resumes it. `Space n` opens the Navigator from editor modes, and `Ctrl-w n`
 also works in Terminal Insert.
 
-Start with `runyte --persistent` to keep your workspace running after `:detach`.
+Start with `runyte -a` to keep your workspace running after `:detach`.
 See [persistent terminal workspaces](/guides/persistent-workspaces/) and
 [using coding agents](/guides/coding-agents/) for complete examples.
 

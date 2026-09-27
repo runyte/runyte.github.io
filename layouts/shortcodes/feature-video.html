@@ -1,0 +1,15 @@
+{{ $src := .Get "src" | default "videos/runyte-demo.mp4" }}
+{{ $url := partialCached "media-url.html" $src $src }}
+{{ $poster := .Get "poster" | default "videos/runyte-demo-poster.webp" }}
+{{ $posterURL := partialCached "media-url.html" $poster $poster }}
+{{ $start := .Get "start" | default "0" }}
+{{ $end := .Get "end" }}
+{{ $caption := .Get "caption" }}
+{{ $fragment := printf "#t=%s" $start }}
+{{ with $end }}{{ $fragment = printf "%s,%s" $fragment . }}{{ end }}
+<figure class="feature-video" data-clip data-start="{{ $start }}"{{ with $end }} data-end="{{ . }}"{{ end }}{{ with .Get "duration" }} data-duration="{{ . }}"{{ end }}>
+  <video controls playsinline preload="none" aria-label="{{ $caption }}" src="{{ $url }}{{ $fragment }}" poster="{{ $posterURL }}">
+    <a href="{{ $url }}{{ $fragment }}">Watch this demonstration</a>
+  </video>
+  <figcaption>{{ $caption }} <a href="{{ $url }}{{ $fragment }}">Open clip ↗</a></figcaption>
+</figure>

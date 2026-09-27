@@ -1,0 +1,96 @@
+{
+  "setup": [
+    {
+      "op": "key",
+      "text": "\u0017t",
+      "wait": 0.7
+    },
+    {
+      "op": "type",
+      "text": "python3 src/tasks.py",
+      "interval": 0.12,
+      "wait": 0.2
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.7
+    },
+    {
+      "op": "key",
+      "text": "\u001c",
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "terminal-rename output",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "open README.md",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "README.md"
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": " f",
+      "wait": 0.5
+    },
+    {
+      "op": "type",
+      "text": "release",
+      "interval": 0.12,
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Find a file",
+      "required": [
+        "docs/release.md"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "\t",
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Search content",
+      "required": [
+        "Contents",
+        "output"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "\u001b[B",
+      "wait": 1.5
+    },
+    {
+      "op": "key",
+      "text": "\u001b[B",
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Preview another match",
+      "required": [],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 2
+    }
+  ]
+}

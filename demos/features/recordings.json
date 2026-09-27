@@ -1,0 +1,135 @@
+[
+  {
+    "name": "modal-editing",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "binary_sha256": "66eac44d40d281f03b80677516a1b90080e80d9eb3f7117841c0689e612e91de",
+    "theme": "gruvbox",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 16.2,
+    "frames": 243,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 4.9,
+    "video_sha256": "b863786997c5f626a95f2a2a0d5a2ab70f50647ef1751fa4abd021ffbdf1e34f"
+  },
+  {
+    "name": "key-hints",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "binary_sha256": "66eac44d40d281f03b80677516a1b90080e80d9eb3f7117841c0689e612e91de",
+    "theme": "ocean-dark",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 16.133333333333333,
+    "frames": 242,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 6.6,
+    "video_sha256": "fbde0aa6f0de079f53bb176a4500cc48a26656a6a081a1a469a08c26b69e703f"
+  },
+  {
+    "name": "markdown",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "binary_sha256": "66eac44d40d281f03b80677516a1b90080e80d9eb3f7117841c0689e612e91de",
+    "theme": "nordbones-dark-soft",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 14.333333333333334,
+    "frames": 215,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 3.7,
+    "video_sha256": "a71c9357b9ef06bf09fefc5e25b988494a27c827f8e0ab45b5281f6730a04846"
+  },
+  {
+    "name": "finder",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "binary_sha256": "66eac44d40d281f03b80677516a1b90080e80d9eb3f7117841c0689e612e91de",
+    "theme": "everforest-dark-medium",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 13.8,
+    "frames": 207,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 5.9,
+    "video_sha256": "6a7a2ad5a4f40b0f58477fe831a1e92cbf07f46b1c3f2e0f10a0580331b3e323"
+  },
+  {
+    "name": "navigator",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "binary_sha256": "66eac44d40d281f03b80677516a1b90080e80d9eb3f7117841c0689e612e91de",
+    "theme": "matrix",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 18.133333333333333,
+    "frames": 272,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 2.2,
+    "video_sha256": "a636195ca162f18e669af852f8a68d158ae5a6aa4ae722561d32feabf48008b5"
+  },
+  {
+    "name": "file-management",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "binary_sha256": "66eac44d40d281f03b80677516a1b90080e80d9eb3f7117841c0689e612e91de",
+    "theme": "gruvbox",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 16.4,
+    "frames": 246,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 8.7,
+    "video_sha256": "341d3c5f383f8ab8281ea2d009a87e45a74138756e192d548547364e02caa076"
+  },
+  {
+    "name": "git",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "binary_sha256": "66eac44d40d281f03b80677516a1b90080e80d9eb3f7117841c0689e612e91de",
+    "theme": "rosebones-dark",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 14.4,
+    "frames": 216,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 2.2,
+    "video_sha256": "6dd7ac56c1618a34dba75328dc42cc0c086a1f81c150436d9ac79f498e76ad57"
+  }
+]

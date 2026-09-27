@@ -1,0 +1,2 @@
+{{- $version := readFile (printf "static/%s" .) | sha256 -}}
+{{- return (printf "%s?v=%s" (. | relURL) (substr $version 0 12)) -}}

@@ -1,0 +1,48 @@
+{{ $page := . }}
+{{ $navigation := .Params.guideNavigation }}
+<div class="guide-splits">
+  <aside class="guide-sidebar">
+    <details class="guide-contents" open>
+      <summary>Contents</summary>
+      <nav class="guide-toc" aria-label="User guide contents">
+        <ol>
+          {{ range $navigation }}
+            {{ if le .level 2 }}
+              <li>
+                <a href="{{ .url | relURL }}"{{ if eq $page.RelPermalink (.url | relURL) }} aria-current="page"{{ end }}>{{ if eq .level 1 }}Overview{{ else }}{{ .title }}{{ end }}</a>
+                {{ $children := where (where $navigation "level" 3) "group" .id }}
+                {{ with $children }}
+                  <ol>{{ range . }}<li><a href="{{ .url | relURL }}"{{ if eq $page.RelPermalink (.url | relURL) }} aria-current="page"{{ end }}>{{ .title }}</a></li>{{ end }}</ol>
+                {{ end }}
+              </li>
+            {{ end }}
+          {{ end }}
+        </ol>
+      </nav>
+    </details>
+  </aside>
+  <div id="guide-reading" class="guide-reading" tabindex="0" role="region" aria-label="Guide section: {{ .Title }}">
+    <article class="page guide-page">
+      <p class="guide-breadcrumb"><a href="{{ "docs/user-guide/" | relURL }}">User guide</a>{{ if eq .Params.guideLevel 3 }}{{ range where $navigation "id" $page.Params.guideGroup }} / <a href="{{ .url | relURL }}">{{ .title }}</a>{{ end }}{{ end }}</p>
+      <h1{{ with .Params.guideID }} id="{{ . }}"{{ end }}>{{ .Title }}</h1>
+      <p class="document-source">Development reference · <a href="https://github.com/runyte/runyte/blob/{{ .Params.sourceRef }}/{{ .Params.sourcePath }}{{ with .Params.guideID }}#{{ . }}{{ end }}">View source</a></p>
+      {{ if eq .Params.guideLevel 1 }}
+        {{ range $anchor, $url := .Params.guideAnchors }}
+          {{ if ne $url $page.RelPermalink }}<p class="guide-legacy-anchor" id="{{ $anchor }}">This section has its own page. <a href="{{ $url | relURL }}#{{ $anchor }}">Continue to the section →</a></p>{{ end }}
+        {{ end }}
+      {{ end }}
+      {{ .Content }}
+      {{ $children := where (where $navigation "level" 3) "group" .Params.guideID }}
+      {{ with $children }}
+        <h2>In this section</h2>
+        <ul class="guide-section-links">{{ range . }}<li><a href="{{ .url | relURL }}">{{ .title }}</a></li>{{ end }}</ul>
+      {{ end }}
+      <nav class="guide-pagination" aria-label="Guide pages">
+        {{ $index := int .Weight }}
+        {{ if gt $index 0 }}{{ with index $navigation (sub $index 1) }}<a rel="prev" href="{{ .url | relURL }}">← {{ .title }}</a>{{ end }}{{ end }}
+        {{ if lt $index (sub (len $navigation) 1) }}{{ with index $navigation (add $index 1) }}<a rel="next" href="{{ .url | relURL }}">{{ .title }} →</a>{{ end }}{{ end }}
+      </nav>
+    </article>
+  </div>
+</div>
+<script id="guide-anchors" type="application/json">{{ .Params.guideAnchors | jsonify | safeJS }}</script>

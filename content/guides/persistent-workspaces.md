@@ -6,72 +6,45 @@ image: images/screenshots/session-strip.webp
 imageAlt: Runyte with a strip of running persistent sessions above the editor.
 ---
 
-# Persistent terminal workspaces with Runyte
+# Persistent sessions
 
-A Runyte workspace belongs to one project directory. In persistent mode, a
-local host keeps its buffers, panes, language servers, and terminal processes
-alive while you detach or visit another project. The terminal interface
-attaches to that host when you return.
+Keep terminals running and unsaved buffers open while switching projects.
+A local host holds the workspace; your terminal attaches to it.
 
-## Open a project
-
-From your project directory, start Runyte in persistent mode:
+## Start or return
 
 ```sh
-runyte --persistent
+runyte -a
 ```
 
-Open files with `Space f` and a terminal with `Ctrl-w t`. A terminal session is
-one shell or other child process; a persistent session retains the whole
-workspace, which can contain several terminal sessions.
-
-## Detach and return
-
-From an editor buffer, run `:detach`. If you are typing in a terminal, first
-press `Ctrl-\` to enter Runyte's Normal mode, then type `:detach` and press Enter.
-The interface returns to your outer shell while the host continues running.
-
-From the same project directory, run:
-
-```sh
-runyte --persistent
-```
-
-Your panes, unsaved buffers, and running terminals remain in the host. Save
-important edits to disk as usual.
+Use `:detach` to leave the session running. Run the same command in the same
+directory to return. From terminal input, press `Ctrl-\` before typing `:detach`.
 
 ## Switch projects
 
-`Space Space` opens the persistent-session manager. Select a workspace and
-press Enter to attach; Runyte starts its host if necessary. Within the manager,
-`Ctrl-o` opens a directory chooser for another project.
+| Task | Keys |
+| --- | --- |
+| Session manager | `Space Space` |
+| Previous / next running session | `Shift-Left` / `Shift-Right` |
+| Previous session | `Ctrl-w a` |
+| Numbered running session | `Space 1`–`9` |
+| Buffers and terminals in this workspace | `Space n` |
 
-You can also switch from an integrated terminal:
+From an integrated terminal, you can also switch with:
 
 ```sh
 cd ../other-project
 runyte -a
 ```
 
-This switches the outer Runyte interface to the new workspace. Returning to the
-original workspace brings you back to its existing terminal.
-
-| Action | Default keys |
-| --- | --- |
-| Open the persistent-session manager | `Space Space` |
-| Previous or next running persistent session | `Shift-Left` / `Shift-Right` |
-| Return to the previous persistent session | `Ctrl-w a` |
-| Visit a numbered running persistent session | `Space 1`–`9` |
-| Open buffers and terminals in this workspace | `Space n` |
-
 {{< screenshot
   src="images/screenshots/session-strip.webp"
-  alt="Runyte 0.2.0 with its running persistent sessions displayed above the editor."
-  caption="Switch between running projects from the session strip."
+  alt="Runyte with a strip of running persistent sessions above the editor."
+  caption="Switch projects from the session strip."
   theme="ocean-dark"
 >}}
 
-## List or stop persistent sessions
+## Stop a session
 
 From an outer shell:
 
@@ -80,20 +53,18 @@ runyte --session-list
 runyte --session-stop PROJECT
 ```
 
-Replace `PROJECT` with a session name, an unambiguous ID prefix, or a project
-directory. A normal stop refuses while the host has protected work such as
-unsaved files, live terminal children, or active plugin jobs. Finish that work
-and exit the terminal programs before stopping the host.
-
-Inside the editor, `:quit` closes the active pane and, from the last pane,
-stops a clean persistent session. Use `:detach` when you want it to keep running.
+Use a session name, an unambiguous ID prefix, or a project directory.
+A normal stop refuses protected work, including unsaved files and live terminal
+children. Save edits and finish terminal programs first.
 
 ## What persists
 
-Persistent mode retains editor state and live processes for the lifetime of
-the host. It supports one interactive terminal interface per workspace at a
-time, and is local to your machine. It does not provide recovery of unsaved
-text or live processes after host termination, logout, reboot, or machine failure.
+- Panes, open files, unsaved buffers, and language servers.
+- Shells, agents, and other terminal processes.
+- One interactive terminal interface per workspace at a time.
 
-See the [complete persistent-session reference](/docs/user-guide/#workspaces-and-modes)
-and [coding-agent workflow](/guides/coding-agents/).
+State lasts only while the host runs. Save important work to disk;
+unsaved text and live processes do not survive host termination or reboot.
+
+[Full session reference](/docs/user-guide/#workspaces-and-modes) ·
+[Coding-agent workflow](/guides/coding-agents/)

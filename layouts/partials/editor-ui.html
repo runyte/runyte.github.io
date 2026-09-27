@@ -1,0 +1,36 @@
+<div id="key-hints" class="key-hints" hidden aria-label="Available next keys"></div>
+<dialog id="editor-dialog" class="editor-dialog" aria-labelledby="dialog-title">
+  <header class="dialog-header"><h2 id="dialog-title"></h2><button type="button" data-close aria-label="Close dialog">Esc ×</button></header>
+  <section id="dialog-navigator" hidden>
+    <label class="prompt-label" for="navigator-query">Filter pages</label>
+    <input id="navigator-query" type="search" autocomplete="off" spellcheck="false" placeholder="Type to find a page…" aria-controls="navigator-results">
+    <ul id="navigator-results" class="navigator-results"></ul>
+    <p id="navigator-count" class="dialog-footnote" role="status"></p>
+    <p class="dialog-footnote">↑ ↓ select · Enter open · Esc close</p>
+  </section>
+  <section id="dialog-help" hidden>
+    <p id="help-context"></p>
+    <div id="shortcut-reference" class="shortcut-reference"></div>
+    <p>Press keys in sequence. Start a command with <kbd>:</kbd>, then press Enter. You can also click or tap each action.</p>
+    <label class="shortcut-toggle"><input type="checkbox" id="shortcuts-enabled" checked> Enable website keyboard shortcuts</label>
+    <p class="dialog-footnote">These controls navigate the website. <a href="{{ "docs/user-guide/key-bindings/" | relURL }}">Editor shortcuts</a> · <a href="{{ "docs/user-guide/" | relURL }}">Full user guide</a></p>
+  </section>
+  <section id="dialog-demo" hidden>
+    <video id="overview-video" controls playsinline preload="none" data-src="{{ partialCached "media-url.html" .Site.Params.demoVideo .Site.Params.demoVideo }}" poster="{{ partialCached "media-url.html" .Site.Params.demoPoster .Site.Params.demoPoster }}" aria-label="Runyte overview demo"></video>
+    <p class="dialog-footnote">Runyte in action · <a href="{{ partialCached "media-url.html" .Site.Params.demoVideo .Site.Params.demoVideo }}">Open video</a></p>
+  </section>
+  <section id="dialog-quit" hidden>
+    <p>Runyte closed. You can close this tab.</p>
+    <p class="muted">Your browser kept the tab open.</p>
+    <button type="button" data-close>Return to Runyte</button>
+  </section>
+  <section id="dialog-command" hidden>
+    <form id="command-form">
+      <label class="prompt-label" for="command-input">Command</label>
+      <div class="command-line"><span aria-hidden="true">:</span><input id="command-input" autocomplete="off" spellcheck="false" aria-controls="command-results" placeholder="help"><button type="submit">Enter ↵</button></div>
+    </form>
+    <ul id="command-results" class="navigator-results"></ul>
+    <p id="command-message" role="status" class="dialog-footnote">Tab complete · ↑ ↓ select · Enter run</p>
+  </section>
+</dialog>
+<script id="site-navigation" type="application/json">{{ hugo.Data.navigation | jsonify | safeJS }}</script>

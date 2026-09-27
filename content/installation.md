@@ -1,61 +1,82 @@
 ---
 seoTitle: "Install Runyte on Linux, macOS, and Windows"
 title: Installation
-description: Download Runyte for Linux, macOS, or Windows, or build it with Cargo.
+description: Install Runyte on Linux, macOS, or Windows. Use the installer, download a release, or install through Cargo.
 ---
 
-# Get Runyte
+# Install Runyte
 
-## Download 0.3.2
+## Linux and macOS
 
-{{< compact-table label="Runyte 0.3.2 downloads" >}}
-| Platform | Download |
-| --- | --- |
-| **macOS · Apple Silicon** | [ARM64 archive](https://github.com/runyte/runyte/releases/download/v0.3.2/runyte-v0.3.2-aarch64-apple-darwin.tar.xz) |
-| **macOS · Intel** | [x86-64 archive](https://github.com/runyte/runyte/releases/download/v0.3.2/runyte-v0.3.2-x86_64-apple-darwin.tar.xz) |
-| **Linux · Intel / AMD** | [x86-64 archive](https://github.com/runyte/runyte/releases/download/v0.3.2/runyte-v0.3.2-x86_64-unknown-linux-gnu.tar.xz) |
-| **Linux · ARM** | [ARM64 archive](https://github.com/runyte/runyte/releases/download/v0.3.2/runyte-v0.3.2-aarch64-unknown-linux-gnu.tar.xz) |
-| **Windows · x86-64** | [ZIP archive](https://github.com/runyte/runyte/releases/download/v0.3.2/runyte-v0.3.2-x86_64-pc-windows-msvc.zip) · provisional |
-{{< /compact-table >}}
+Install or update to the latest release:
 
-Verify against [SHA256SUMS](https://github.com/runyte/runyte/releases/download/v0.3.2/SHA256SUMS),
-extract, and put `runyte` on your `PATH`. macOS binaries are unsigned and not notarized.
+```sh
+curl -fsSL https://raw.githubusercontent.com/runyte/runyte/main/install.sh | sh
+```
 
-On Windows, check the hash with `Get-FileHash -Algorithm SHA256`. The
-executable is unsigned and needs the x64
-[Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist)
-(`VCRUNTIME140.dll`), which the ZIP does not include. Windows support is
-provisional: it targets Windows 11 24H2 or later in Windows Terminal.
-[Windows scope and requirements](/docs/user-guide/#windows-support)
+- Supports x86-64 and ARM64. Verifies the download's SHA-256 checksum.
+- Installs to `~/.local/bin/runyte` without sudo. Add that directory to `PATH`.
+- Linux needs glibc 2.35 or newer. Alpine/musl is unsupported.
+- macOS binaries are unsigned and not notarized.
 
-[All releases](https://github.com/runyte/runyte/releases)
+[Review the installer](https://github.com/runyte/runyte/blob/main/install.sh) ·
+[Options and requirements](/docs/user-guide/#install-and-update-with-curl)
 
-## Or build with Cargo
+## Windows
 
-Requires [Rust 1.88+ and Cargo](https://rust-lang.org/tools/install/) and a C compiler.
-On Windows, use Visual Studio Build Tools with the C++ toolchain and Windows SDK.
+Download the x86-64 ZIP from [GitHub Releases](https://github.com/runyte/runyte/releases).
+Verify its hash against `SHA256SUMS`, extract it, and add its directory to `PATH`.
+
+- Requires Windows 11 24H2 or later and Windows Terminal.
+- The executable is unsigned.
+- Install the x64 Visual C++ Redistributable if `VCRUNTIME140.dll` is missing.
+
+[Windows setup and differences](/docs/user-guide/#windows-support)
+
+## Cargo
+
+Requires Rust 1.88 or newer and a C compiler.
 
 ```sh
 cargo install runyte --locked
 ```
 
-## Start here
+On Windows, install Visual Studio Build Tools with the C++ toolchain and Windows SDK.
+
+## First run
+
+| Command | Start with |
+| --- | --- |
+| `runyte` | The current directory |
+| `runyte README.md` | A file |
+| `runyte +120:8 src/app.rs` | A line and column |
+| `runyte -a` | A persistent session |
+
+Inside Runyte, use `:tutorial` to learn interactively. Press `Space ?` for help.
+
+## Set your editor
+
+On Linux and macOS, add these to your shell configuration:
 
 ```sh
-runyte
-runyte .
-runyte README.md
-runyte --persistent
+alias ru=runyte
+export EDITOR='runyte --wait'
+export VISUAL='runyte --wait'
 ```
 
-Inside Runyte: `:tutorial` for a guided tour, `Space ?` for help.
+Git, Claude Code, and Codex can then open files or prompts in Runyte.
+See the [shell setup guide](/docs/user-guide/#change-the-shell-directory-on-exit)
+for Windows setup and changing directory on exit.
 
-{{< compact-table label="Optional tools" >}}
-| For | Requirement |
+## Optional tools
+
+| For | Install |
 | --- | --- |
-| Git workflows | `git` on your `PATH` |
+| Git features | `git` |
 | Language services | Your language server; allow it with `:lsp-trust` |
-| Linux system clipboard | `wl-clipboard`, `xclip`, or `xsel` |
-| macOS system clipboard | Built-in `pbcopy` / `pbpaste`; nothing to install |
-| Windows system clipboard | Built in; nothing to install |
-{{< /compact-table >}}
+| Linux clipboard | `wl-clipboard`, `xclip`, or `xsel` |
+
+The macOS and Windows clipboard integrations use system tools or APIs.
+
+[All release downloads](https://github.com/runyte/runyte/releases) ·
+[Full manual](/docs/user-guide/)

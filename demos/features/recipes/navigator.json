@@ -1,0 +1,147 @@
+{
+  "setup": [
+    {
+      "op": "command",
+      "text": "open docs/release.md",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "docs/release.md"
+    },
+    {
+      "op": "command",
+      "text": "open src/tasks.py",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "src/tasks.py"
+    },
+    {
+      "op": "key",
+      "text": "\u0017t",
+      "wait": 0.7
+    },
+    {
+      "op": "type",
+      "text": "python3 src/tasks.py",
+      "interval": 0.12,
+      "wait": 0.2
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.7
+    },
+    {
+      "op": "key",
+      "text": "\u001c",
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "terminal-rename output",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "open README.md",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "README.md"
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": " n",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Buffers and terminal",
+      "required": [
+        "Navigator",
+        "output",
+        "src/tasks.py"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 2
+    },
+    {
+      "op": "type",
+      "text": "tasks",
+      "interval": 0.12,
+      "wait": 1
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Visit file",
+      "required": [
+        "pending_tasks"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": " n",
+      "wait": 0.5
+    },
+    {
+      "op": "type",
+      "text": "output",
+      "interval": 0.12,
+      "wait": 1
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Visit terminal",
+      "required": [
+        "2 tasks left before release"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "\u001c",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": " n",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Return to Navigator",
+      "required": [
+        "Navigator"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 2
+    }
+  ]
+}

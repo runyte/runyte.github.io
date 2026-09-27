@@ -1,0 +1,65 @@
+{
+  "source": "take3.mp4",
+  "fps": 15,
+  "source_frames": 922,
+  "output_frames": 900,
+  "duration": 60,
+  "cuts": [
+    [
+      87,
+      111
+    ],
+    [
+      665,
+      681
+    ]
+  ],
+  "segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 87,
+      "act": 0,
+      "output_start_frame": 0,
+      "output_frames": 102,
+      "time_scale": 1.1724137931034482
+    },
+    {
+      "start_frame": 111,
+      "end_frame": 281,
+      "act": 0,
+      "output_start_frame": 102,
+      "output_frames": 198,
+      "time_scale": 1.1647058823529413
+    },
+    {
+      "start_frame": 281,
+      "end_frame": 571,
+      "act": 1,
+      "output_start_frame": 300,
+      "output_frames": 300,
+      "time_scale": 1.0344827586206897
+    },
+    {
+      "start_frame": 571,
+      "end_frame": 665,
+      "act": 2,
+      "output_start_frame": 600,
+      "output_frames": 84,
+      "time_scale": 0.8936170212765957
+    },
+    {
+      "start_frame": 681,
+      "end_frame": 922,
+      "act": 2,
+      "output_start_frame": 684,
+      "output_frames": 216,
+      "time_scale": 0.8962655601659751
+    }
+  ],
+  "act_seconds": 20,
+  "act_time_scales": [
+    1.1673151750972763,
+    1.0344827586206897,
+    0.8955223880597015
+  ]
+}

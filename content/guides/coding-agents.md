@@ -6,81 +6,63 @@ image: images/screenshots/coding-agents.webp
 imageAlt: Claude Code and Codex in adjacent Runyte terminal panes.
 ---
 
-# Use Claude Code and Codex inside Runyte
+# Use coding agents inside Runyte
 
-Runyte runs CLI coding agents in integrated terminal panes beside your files.
-In a persistent workspace, an agent's external-editor request can open its
-prompt as an ordinary Runyte buffer in the same pane. Save and close that buffer
-to return to the agent.
+Run Claude Code or Codex in terminal panes beside your files.
+Use Runyte to edit their prompts and inspect their output.
 
-## Start a persistent workspace
+## Set up
 
-[Install Runyte](/installation/) and install the coding agent you want to use
-separately. From your project directory, run:
-
-```sh
-runyte --persistent
-```
-
-Press `Ctrl-w v` to split the view vertically, then `Ctrl-w t` to open a shell
-in the active pane. Set the editor variables in that shell before starting
-the agent:
+Install the agent separately. Set your editor in your shell configuration:
 
 ```sh
 export EDITOR='runyte --wait'
 export VISUAL='runyte --wait'
 ```
 
-Start `claude` or `codex` in that shell. Existing agent processes keep the
-environment they started with, so restart the agent after changing these
-variables. For the same workflow every time, put the exports in your shell's
-configuration.
+Restart an existing agent after changing these variables.
+
+1. Run `runyte -a` in your project.
+2. Press `Ctrl-w v` to split the view.
+3. Press `Ctrl-w t` to open a terminal.
+4. Start `claude` or `codex`.
 
 {{< screenshot
   src="images/screenshots/coding-agents.webp"
-  alt="Claude Code and Codex running in adjacent Runyte 0.2.0 terminal panes."
+  alt="Claude Code and Codex running in adjacent Runyte terminal panes."
   caption="Two coding agents in one workspace."
   theme="frappe"
 >}}
 
-## Edit a prompt with Ctrl+G
+## Edit a prompt with Ctrl-g
 
-1. Type a draft into the agent's prompt input.
-2. Press `Ctrl+G`. Runyte opens the requested file in Normal mode, temporarily
-   covering the originating terminal.
-3. Press `i` to edit. You can use the editor's selections, search, and normal
-   text-editing commands.
-4. Press `Esc`, then enter `:wq`. Runyte writes the prompt and returns to the
-   same terminal. Review the text in the agent before submitting it.
+1. Draft a prompt in the agent.
+2. Press `Ctrl-g` to open it in Runyte.
+3. Press `i` and edit. Press `Esc` when done.
+4. Run `:wq` to save and return to the agent.
+5. Review the prompt, then submit it.
 
-`Ctrl+G` is documented by both
-[Codex CLI](https://learn.chatgpt.com/docs/cli-customization#prompt-editor) and
-[Claude Code](https://code.claude.com/docs/en/interactive-mode#general-controls).
+Saving with `:w` alone leaves the editor request open.
+`:q!` cancels the request and discards unsaved changes.
 
-Saving with `:w` alone leaves the editor request open. In this prompt-editing
-workflow, `:q!` cancels the request and discards unsaved changes; text saved
-previously remains on disk.
+## Move around
 
-## Move between code and terminals
+| Task | Keys |
+| --- | --- |
+| Move between panes | `Ctrl-w h/j/k/l` |
+| Open Navigator, including from a terminal | `Ctrl-w n` |
+| Leave terminal input | `Ctrl-\` |
+| Resume terminal input | `i` |
+| Find files or content from editor modes | `Space f`, then Tab to switch |
+| Open Git actions from an editor buffer | `Space g` |
 
-`Ctrl-w h/j/k/l` moves between panes, including while typing in a terminal.
-`Ctrl-w n` opens the Navigator for open buffers and running terminals.
+## Keep agents running
 
-Ordinary terminal keystrokes belong to the running program. Press `Ctrl-\`
-to leave terminal input and enter Runyte's live Normal mode; `i` resumes input.
-From editor modes, `Space f` opens the Finder, and `Tab` switches it between
-names and contents across files, open buffers, and terminals.
+Use `:detach` after finishing any prompt-editor request.
+Return with `runyte -a` in the same project.
 
-For Git work, open the `Space g` menu from an editor buffer. You can inspect
-changes and stage them while the agent remains in its terminal pane.
+Buffers and terminals stay alive while the local host runs.
+They do not survive host termination or reboot.
 
-## Keep the workspace running
-
-After completing any open prompt-editor request, use `:detach` from editor
-command mode to leave the persistent workspace running. Run `runyte --persistent`
-from the same project directory to return. Detaching during an external-editor
-request cancels that request.
-
-Persistent state lasts while its local host process runs; it does not survive
-host termination or reboot. See [persistent terminal workspaces](/guides/persistent-workspaces/)
-and the [external-editor reference](/docs/user-guide/#session-and-destination-navigation).
+[Persistent sessions](/guides/persistent-workspaces/) ·
+[External-editor reference](/docs/user-guide/#session-and-destination-navigation)

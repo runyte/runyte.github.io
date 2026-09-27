@@ -1,0 +1,68 @@
+{
+  "setup": [
+    {
+      "op": "command",
+      "text": "open docs/release.md",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "docs/release.md"
+    }
+  ],
+  "actions": [
+    {
+      "op": "wait",
+      "wait": 1.5
+    },
+    {
+      "op": "key",
+      "text": "?",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Rendered table",
+      "required": [
+        "[rendered",
+        "Release plan"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 3
+    },
+    {
+      "op": "key",
+      "text": "?",
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Back to source",
+      "required": [
+        "| Task |"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "?",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Read the page",
+      "required": [
+        "[rendered"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 2
+    }
+  ]
+}

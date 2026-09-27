@@ -9,7 +9,9 @@ buildDrafts: false
 buildFuture: false
 
 params:
-  description: "Runyte - an editor-first terminal workspace built around a modal, selection-first editor."
+  description: "Runyte — A fast modal terminal editor for focused work."
+  demoVideo: "videos/runyte-demo.mp4"
+  demoPoster: "videos/runyte-demo-poster.webp"
   author: "Krzysztof Arendt"
   image: "images/screenshots/rendered-markdown.webp"
   imageAlt: "Runyte displaying a Markdown document as a formatted page."

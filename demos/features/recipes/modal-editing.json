@@ -1,0 +1,95 @@
+{
+  "setup": [
+    {
+      "op": "command",
+      "text": "open src/tasks.py",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "src/tasks.py"
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": "s",
+      "wait": 0.5
+    },
+    {
+      "op": "type",
+      "text": "pending",
+      "interval": 0.12,
+      "wait": 0.4
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 2
+    },
+    {
+      "op": "checkpoint",
+      "name": "All matches selected",
+      "required": [
+        "pending"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "c",
+      "wait": 0.5
+    },
+    {
+      "op": "type",
+      "text": "ready",
+      "interval": 0.12,
+      "wait": 1
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 1.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "All matches changed",
+      "required": [
+        "ready_tasks"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "u",
+      "wait": 1.8
+    },
+    {
+      "op": "checkpoint",
+      "name": "Undo together",
+      "required": [
+        "pending_tasks"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "U",
+      "wait": 1.8
+    },
+    {
+      "op": "key",
+      "text": "\u0013",
+      "wait": 0.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Redo and save",
+      "required": [
+        "ready_tasks"
+      ],
+      "wait": 0.3
+    }
+  ]
+}

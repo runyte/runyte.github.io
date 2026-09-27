@@ -1,6 +1,10 @@
-# Website demo
+# Previous website demo
 
-`../../static/videos/runyte-demo.mp4` was recorded by Codex from real Runyte
+This recipe records the previous Codex demo. The current website video was
+replaced by the [Navigator take](../navigator-video/README.md) on 27 September
+2026. The source and editing notes below are retained for reference.
+
+The previous `../../static/videos/runyte-demo.mp4` was recorded by Codex from real Runyte
 0.2.2 (editor source `54366eb`) on 9 September 2026. It uses ocean-dark,
 200 columns × 50 rows, and JetBrainsMono Nerd Font Medium with bold/italic
 variants. The silent H.264/yuv420p video is 2400×1300 pixels at 15 fps:

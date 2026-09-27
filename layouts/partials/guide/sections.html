@@ -1,0 +1,81 @@
+{{- /* Split the imported ATX Markdown at h2/h3 boundaries. Explicit IDs keep
+     global duplicate-heading anchors stable after each section becomes a page.
+     Fenced examples and indented code must never create guide pages. */ -}}
+{{- $sections := slice -}}
+{{- $anchors := dict -}}
+{{- $used := dict -}}
+{{- $group := "" -}}
+{{- $current := dict "id" "" "title" "User guide" "level" 1 "group" "" "path" "user-guide" "url" "/docs/user-guide/" -}}
+{{- $lines := slice -}}
+{{- $references := slice -}}
+{{- $fence := "" -}}
+{{- $fenceLength := 0 -}}
+{{- $comment := false -}}
+{{- range split .body "\n" -}}
+  {{- $line := . -}}
+  {{- $fences := findRESubmatch "^ {0,3}(`{3,}|~{3,})(.*)$" $line 1 -}}
+  {{- if $fence -}}
+    {{- with $fences -}}
+      {{- $run := index (index . 0) 1 -}}
+      {{- if and (strings.HasPrefix $run $fence) (ge (len $run) $fenceLength) (eq (strings.TrimSpace (index (index . 0) 2)) "") -}}
+        {{- $fence = "" -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $lines = $lines | append $line -}}
+    {{- continue -}}
+  {{- end -}}
+  {{- with $fences -}}
+    {{- $run := index (index . 0) 1 -}}
+    {{- $fence = substr $run 0 1 -}}
+    {{- $fenceLength = len $run -}}
+    {{- $lines = $lines | append $line -}}
+    {{- continue -}}
+  {{- end -}}
+  {{- if or $comment (strings.HasPrefix (strings.TrimSpace $line) "<!--") -}}
+    {{- $comment = not (strings.Contains $line "-->") -}}
+    {{- $lines = $lines | append $line -}}
+    {{- continue -}}
+  {{- end -}}
+  {{- $heading := findRESubmatch `^ {0,3}(#{2,6})\s+(.+?)\s*$` $line 1 -}}
+  {{- with $heading -}}
+    {{- $match := index . 0 -}}
+    {{- $level := len (index $match 1) -}}
+    {{- $text := replaceRE `\s+#+\s*$` "" (index $match 2) -}}
+    {{- $explicit := findRESubmatch `\s+\{#([^}]+)\}$` $text 1 -}}
+    {{- $text = replaceRE `\s+\{#[^}]+\}$` "" $text -}}
+    {{- $baseID := $text | anchorize -}}
+    {{- $id := $baseID -}}
+    {{- with $explicit -}}
+      {{- $id = index (index . 0) 1 -}}
+    {{- else -}}
+      {{- if isset $used $id -}}
+        {{- range seq 1 (add (len $used) 1) -}}
+          {{- $id = printf "%s-%d" $baseID . -}}
+          {{- if not (isset $used $id) }}{{ break }}{{ end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $used = merge $used (dict $id true) -}}
+    {{- if le $level 3 -}}
+      {{- $sections = $sections | append (merge $current (dict "body" (delimit $lines "\n"))) -}}
+      {{- $lines = slice -}}
+      {{- if eq $level 2 }}{{ $group = $id }}{{ end -}}
+      {{- $route := printf "user-guide/%s" $id -}}
+      {{- if and (eq $level 3) $group }}{{ $route = printf "user-guide/%s/%s" $group $id }}{{ end -}}
+      {{- $current = dict "id" $id "title" $text "level" $level "group" $group "path" $route "url" (printf "/docs/%s/" $route) -}}
+    {{- else -}}
+      {{- $lines = $lines | append (printf "%s %s {#%s}" (index $match 1) $text $id) -}}
+    {{- end -}}
+    {{- $anchors = merge $anchors (dict $id $current.url) -}}
+    {{- continue -}}
+  {{- end -}}
+  {{- range findRESubmatch `<a\s+id="([^"]+)"` $line -}}
+    {{- $anchors = merge $anchors (dict (index . 1) $current.url) -}}
+  {{- end -}}
+  {{- if findRE `^ {0,3}\[[^]]+\]:\s*\S` $line -}}
+    {{- $references = $references | append $line -}}
+  {{- end -}}
+  {{- $lines = $lines | append $line -}}
+{{- end -}}
+{{- $sections = $sections | append (merge $current (dict "body" (delimit $lines "\n"))) -}}
+{{- return (dict "sections" $sections "anchors" $anchors "references" (delimit $references "\n")) -}}

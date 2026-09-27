@@ -1,0 +1,63 @@
+{
+  "setup": [
+    {
+      "op": "command",
+      "text": "open src/tasks.py",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "src/tasks.py"
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": " ",
+      "wait": 2.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Discover next keys",
+      "required": [],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "g",
+      "wait": 2.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Discover Git actions",
+      "required": [],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": " ?",
+      "wait": 2
+    },
+    {
+      "op": "checkpoint",
+      "name": "Contextual help",
+      "required": [],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 3
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 1
+    }
+  ]
+}
