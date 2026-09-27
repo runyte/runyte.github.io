@@ -29,7 +29,7 @@ Fonts follow your terminal settings.
 {{< screenshot
   src="images/screenshots/navigator.webp"
   theme="terafox-soft"
-  alt="Runyte 0.2.0 Navigator listing open buffers and running terminals."
+  alt="Runyte 0.3.3 Navigator listing files, an explorer, About, and running terminals, with a live terminal preview."
   caption="Jump between open buffers and terminals."
 >}}
 
