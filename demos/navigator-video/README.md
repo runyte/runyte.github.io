@@ -124,3 +124,26 @@ and a readiness wait times out, adjust them there.
 The editor README embeds a GitHub video attachment rather than the website
 file. When replacing the demo, upload the final MP4 to GitHub as well and
 update the attachment URL near the beginning of the editor README.
+
+The current attachment is
+<https://github.com/user-attachments/assets/b11679ab-0369-4bca-be4c-43c419b528c0>.
+Its bytes were checked against `static/videos/runyte-demo.mp4`, and the public
+README player was checked without signing in.
+
+GitHub supports authenticated media uploads through the endpoint used by
+[GitHub CLI's attachment uploader](https://github.com/cli/cli/blob/trunk/internal/attachments/client.go).
+A browser upload is not required. From the website repository:
+
+```sh
+video_repo_id=$(gh api repos/runyte/runyte --jq .id)
+gh api --method POST \
+  "https://uploads.github.com/user-attachments/assets?name=runyte-demo.mp4&content_type=video%2Fmp4&repository_id=${video_repo_id}" \
+  --header 'Content-Type: application/octet-stream' \
+  --header 'Accept: application/vnd.github+json' \
+  --input static/videos/runyte-demo.mp4 --jq .url
+```
+
+Use the returned canonical attachment URL as its own README paragraph. Preserve
+the caption. Verify the public README player after publishing the reference;
+an unattached upload may not yet be accessible anonymously. Do not store the
+player's temporary signed download URL in Markdown.

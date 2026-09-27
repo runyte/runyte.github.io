@@ -1,6 +1,6 @@
 # Feature videos
 
-Seven real Runyte recordings for `/features/`. Recorded on 27 September 2026.
+Eight real Runyte recordings for `/features/`. Recorded on 27 September 2026.
 
 | Clip | Seconds | Theme | Action |
 | --- | ---: | --- | --- |
@@ -11,10 +11,11 @@ Seven real Runyte recordings for `/features/`. Recorded on 27 September 2026.
 | Navigator | 18.1 | matrix | Switch between files and a terminal |
 | File management | 16.4 | gruvbox | Move, create, delete, review and apply |
 | Git | 14.4 | rosebones-dark | Compare changes and stage a file |
+| Session management | 22.1 | terafox / ember-dark | Manage sessions and switch with Shift Left / Right |
 
 ## Capture
 
-- Runyte 0.3.3. The binary hash is in `recordings.json`; its exact source revision was not verified.
+- Runyte 0.3.3. Binary hashes are in `recordings.json`. The original seven clips have an unverified source revision; session management was built from `457dbd2dddec88b22956782a90d8cd4479e9e7ca`.
 - 200 × 50 terminal cells. 2400 × 1300 pixels. 15 fps. H.264, CRF 18, yuv420p.
 - JetBrainsMono Nerd Font Medium, with bold and italic variants.
 - Actual PTY output, rendered by the editor repository's `runyte-demo-videos` skill.
@@ -34,7 +35,7 @@ python3 demos/features/record_features.py modal-editing \
   --output-dir /tmp/runyte-feature-takes
 ```
 
-Choose a clip name from the table (lowercase, with hyphens).
+Choose a standalone clip name from the table (lowercase, with hyphens).
 `record_features.py` creates a disposable release-checklist project and a local
 Git baseline. It uses standalone mode, isolated editor configuration, no LSP,
 and a plain shell. Finder and Navigator use actual output from the fixture's
@@ -44,6 +45,30 @@ Python script. No personal files or coding-agent accounts are needed.
 the timing slightly. Temporary outputs include checkpoint PNGs, a contact sheet,
 and recording sidecars. Inspect these before copying a take to `static/videos/features/`.
 Keep sidecars containing machine paths out of the repository.
+
+### Session management
+
+The session clip uses its own script and two real persistent hosts:
+
+```sh
+python3 demos/features/record_sessions.py \
+  --skills-root ../runyte-dev/skills \
+  --binary /path/to/runyte \
+  --font-dir /path/to/jetbrains-mono-fonts \
+  --output-dir /tmp/runyte-session-take \
+  --source-ref VERIFIED_BUILD_REVISION
+```
+
+- API uses `terafox`, with a rendered README beside Python code.
+- Website uses `ember-dark`, with a rendered README beside CSS.
+- `Space Space` opens the manager; Tab shows its actions.
+- Filtering and Enter opens Website. Shift Left returns to API; Shift Right returns to Website.
+- Checkpoints verify the visible content and the active pane's theme color after switching.
+
+The script creates separate temporary projects and configuration/runtime storage.
+It waits for both hosts to run, prepares their layouts, and records one client
+switching between them. Cleanup stops only those two exact workspaces, including
+after a failed take. It never attaches to or stops personal sessions.
 
 ## Checks
 

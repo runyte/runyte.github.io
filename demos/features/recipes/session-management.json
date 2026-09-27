@@ -1,0 +1,210 @@
+{
+  "setup": [
+    {
+      "op": "command",
+      "text": "session-attach ../api",
+      "interval": 0.06,
+      "wait": 1
+    },
+    {
+      "op": "command",
+      "text": "theme terafox",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "open README.md",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "?",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "\u0017v",
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "open src/tasks.py",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "session-attach ../website",
+      "interval": 0.06,
+      "wait": 1
+    },
+    {
+      "op": "command",
+      "text": "theme ember-dark",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "open README.md",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "?",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "\u0017v",
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "open style.css",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "command",
+      "text": "session-attach ../api",
+      "interval": 0.06,
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "API ready",
+      "required": [
+        "pending_tasks",
+        "terafox"
+      ],
+      "wait": 0.3
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": "  ",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Session manager",
+      "required": [
+        "Sessions",
+        "API",
+        "Website"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 1.5
+    },
+    {
+      "op": "key",
+      "text": "\t",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Session actions",
+      "required": [
+        "Rename",
+        "Open"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 1
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 0.5
+    },
+    {
+      "op": "type",
+      "text": "Website",
+      "interval": 0.12,
+      "wait": 0.8
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Website in ember-dark",
+      "required": [
+        "ember-dark",
+        "style.css"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 1.5
+    },
+    {
+      "op": "key",
+      "text": "\u001b[1;2D",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Shift Left returns to API",
+      "required": [
+        "terafox",
+        "pending_tasks"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 1.5
+    },
+    {
+      "op": "key",
+      "text": "\u001b[1;2C",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Shift Right returns to Website",
+      "required": [
+        "ember-dark",
+        "style.css"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 1.5
+    },
+    {
+      "op": "key",
+      "text": "  ",
+      "wait": 1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Both sessions stay open",
+      "required": [
+        "Sessions",
+        "API",
+        "Website"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "wait",
+      "wait": 1
+    }
+  ]
+}

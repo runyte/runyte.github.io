@@ -131,5 +131,25 @@
     "codec": "h264",
     "poster_seconds": 2.2,
     "video_sha256": "6dd7ac56c1618a34dba75328dc42cc0c086a1f81c150436d9ac79f498e76ad57"
+  },
+  {
+    "name": "session-management",
+    "recorded": "2026-09-27",
+    "version": "runyte 0.3.3",
+    "source_revision": "457dbd2dddec88b22956782a90d8cd4479e9e7ca",
+    "binary_sha256": "caa25af64426129b40418717834fa22757c5348f7a0dc2b2bf2ffecc281cee8d",
+    "theme": "terafox / ember-dark",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "duration": 22.066666666666666,
+    "frames": 331,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 18.7,
+    "video_sha256": "f121a0a1d867ebf8e1369072eb4dc7e13e0d820ec04f9f873129e9f4e6675a38"
   }
 ]

@@ -1,7 +1,7 @@
 ---
 seoTitle: "Modal Editing, Terminals, Git and Project Search | Runyte"
 title: Features
-description: Edit text, find files, switch terminals, and review changes. Seven short demonstrations from Runyte.
+description: Edit text, find files, switch terminals, and review changes. Eight short demonstrations from Runyte.
 ---
 
 # Features
@@ -9,7 +9,7 @@ description: Edit text, find files, switch terminals, and review changes. Seven 
 One binary. Files, terminals, and consistent keys.
 
 [Editing](#modal-editing) · [Key hints](#discover-keys) · [Markdown](#markdown) ·
-[Finder](#finder) · [Navigator](#navigator) · [Files](#file-management) · [Git](#git)
+[Finder](#finder) · [Navigator](#navigator) · [Files](#file-management) · [Git](#git) · [Sessions](#session-management)
 
 ## Modal editing
 
@@ -52,6 +52,13 @@ Edit the file list to create, move, or remove files. Review the plan before appl
 Compare changes side by side. Review and stage files without leaving the editor.
 
 {{< feature-video src="videos/features/git.mp4" poster="videos/features/git-poster.webp" duration="14.4" caption="Review a rename in the diff, then stage the changed file." >}}
+
+## Session management
+
+Press `Space Space` to manage sessions. Switch with `Shift Left` and `Shift Right`.
+Each session keeps its layout and theme.
+
+{{< feature-video src="videos/features/session-management.mp4" poster="videos/features/session-management-poster.webp" duration="22.07" caption="Open the session manager. Switch between API in terafox and Website in ember-dark." >}}
 
 Recorded in Runyte 0.3.3. Each clip uses a different view or theme.
 

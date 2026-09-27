@@ -48,12 +48,12 @@ The About page opens the overview demo in an overlay with native controls.
 The video paths are configured in `hugo.yaml` (`demoVideo` and `demoPoster`).
 The overview is the 60-second Runyte 0.3.3 / Claude Code recording documented in
 [demos/navigator-video/](demos/navigator-video/). Its poster is the Navigator at
-47 seconds, with Claude marked unread. The editor README still uses a separate,
-older GitHub upload; replacing that needs the new attachment URL.
+47 seconds, with Claude marked unread. The editor README uses a separate GitHub attachment of the same video.
+See the Navigator recipe for its upload URL and replacement procedure.
 
-The Features page has seven dedicated recordings in `static/videos/features/`.
+The Features page has eight dedicated recordings in `static/videos/features/`.
 [demos/features/](demos/features/) contains their fixture, replay recipes, and
-version records. Each clip runs for 14–18 seconds. Media URLs include content
+version records. Each clip runs for 14–22 seconds. Media URLs include content
 hashes so replacing a recording also refreshes browser caches.
 
 Keep benchmark dates and measured source versions alongside their tables;

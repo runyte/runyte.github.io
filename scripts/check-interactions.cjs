@@ -165,12 +165,12 @@ const base = process.env.BASE_URL || "http://127.0.0.1:1313";
     assert.equal(await page.locator(".key-hints").isVisible(), true);
     await key("Escape");
     assert.equal(await page.locator("#discover-keys").textContent(), "Key hints");
-    assert.equal(await page.locator("[data-clip]").count(), 7);
+    assert.equal(await page.locator("[data-clip]").count(), 8);
     assert.equal(mediaRequests.length, 0, "Features should not load video data before play");
     const sources = await page.locator("[data-clip] video").evaluateAll(
       (videos) => videos.map((video) => video.src),
     );
-    assert.equal(new Set(sources).size, 7, "Each feature has a dedicated recording");
+    assert.equal(new Set(sources).size, 8, "Each feature has a dedicated recording");
     await page.locator("[data-clip]").first().locator("button").click();
     await page.waitForFunction(
       () => !document.querySelector("[data-clip] video").paused,
