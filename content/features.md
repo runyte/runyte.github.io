@@ -1,7 +1,7 @@
 ---
 seoTitle: "Modal Editing, Terminals, Git and Project Search | Runyte"
 title: Features
-description: Edit text, find files, switch terminals, and review changes. Eight short demonstrations from Runyte.
+description: Edit text, find files, switch terminals, and review changes. Nine short demonstrations from Runyte.
 ---
 
 # Features
@@ -9,7 +9,7 @@ description: Edit text, find files, switch terminals, and review changes. Eight 
 One binary. Files, terminals, and consistent keys.
 
 [Editing](#modal-editing) · [Key hints](#discover-keys) · [Markdown](#markdown) ·
-[Finder](#finder) · [Navigator](#navigator) · [Files](#file-management) · [Git](#git) · [Sessions](#session-management)
+[Finder](#finder) · [Navigator](#navigator) · [Directory tree](#directory-tree) · [Files](#file-management) · [Git](#git) · [Sessions](#session-management)
 
 ## Modal editing
 
@@ -41,6 +41,13 @@ Press `Space n` to switch between open buffers and terminals. Type to narrow the
 
 {{< feature-video src="videos/features/navigator.mp4" poster="videos/features/navigator-poster.webp" duration="18.13" caption="Visit a file and a running terminal. Return to the same list." >}}
 
+## Directory tree
+
+Press `Space d d` to reveal the active file and focus the directory tree.
+Open a file with Enter. Press `Space d t` to hide or show the sidebar.
+
+{{< feature-video src="videos/features/directory-tree.mp4" poster="videos/features/directory-tree-poster.webp" duration="10" caption="Reveal the active file, open a neighbor, and toggle the directory tree." >}}
+
 ## File management
 
 Edit the file list to create, move, or remove files. Review the plan before applying it.
@@ -60,7 +67,7 @@ Each session keeps its layout and theme.
 
 {{< feature-video src="videos/features/session-management.mp4" poster="videos/features/session-management-poster.webp" duration="22.07" caption="Open the session manager. Switch between API in terafox and Website in ember-dark." >}}
 
-Recorded in Runyte 0.3.3. Each clip uses a different view or theme.
+Directory tree recorded in Runyte 0.3.4; other clips in 0.3.3. Each clip uses a different view or theme.
 
 ## More tools
 

@@ -51,9 +51,9 @@ The overview is the 60-second Runyte 0.3.3 / Claude Code recording documented in
 47 seconds, with Claude marked unread. The editor README uses a separate GitHub attachment of the same video.
 See the Navigator recipe for its upload URL and replacement procedure.
 
-The Features page has eight dedicated recordings in `static/videos/features/`.
+The Features page has nine dedicated recordings in `static/videos/features/`.
 [demos/features/](demos/features/) contains their fixture, replay recipes, and
-version records. Each clip runs for 14–22 seconds. Media URLs include content
+version records. Each clip runs for 10–22 seconds. Media URLs include content
 hashes so replacing a recording also refreshes browser caches.
 
 Keep benchmark dates and measured source versions alongside their tables;

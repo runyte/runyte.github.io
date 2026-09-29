@@ -1,0 +1,75 @@
+{
+  "setup": [
+    {
+      "op": "command",
+      "text": "open src/tasks.py",
+      "interval": 0.06,
+      "wait": 0.5
+    },
+    {
+      "op": "expect",
+      "text": "src/tasks.py"
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": " dd",
+      "wait": 1.4
+    },
+    {
+      "op": "checkpoint",
+      "name": "Reveal active file",
+      "required": [
+        "[dir tree]",
+        "tasks.py"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": "k",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 1.4
+    },
+    {
+      "op": "checkpoint",
+      "name": "Open neighboring file",
+      "required": [
+        "RELEASE_NAME"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": " dt",
+      "wait": 1.1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Tree hidden",
+      "required": [
+        "RELEASE_NAME"
+      ],
+      "wait": 0.3
+    },
+    {
+      "op": "key",
+      "text": " dt",
+      "wait": 1.3
+    },
+    {
+      "op": "checkpoint",
+      "name": "Tree restored",
+      "required": [
+        "[dir tree]",
+        "config.py"
+      ],
+      "wait": 0.3
+    }
+  ]
+}

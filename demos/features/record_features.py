@@ -80,6 +80,13 @@ def opened(path): return [command('open ' + path), {'op':'expect', 'text':path}]
 
 
 def recipe(name):
+    if name == 'directory-tree':
+        return 'ocean-dark', opened('src/tasks.py'), [
+            key(' dd', 1.4), check('Reveal active file', '[dir tree]', 'tasks.py'),
+            key('k', .5), key('\r', 1.4), check('Open neighboring file', 'RELEASE_NAME'),
+            key(' dt', 1.1), check('Tree hidden', 'RELEASE_NAME'),
+            key(' dt', 1.3), check('Tree restored', '[dir tree]', 'config.py'),
+        ]
     if name == 'modal-editing':
         return 'gruvbox', opened('src/tasks.py'), [
             key('s'), type_('pending'), key('\r', 2), check('All matches selected', 'pending'),
@@ -132,7 +139,7 @@ def recipe(name):
     raise ValueError(name)
 
 
-NAMES = ('modal-editing', 'key-hints', 'markdown', 'finder', 'navigator', 'file-management', 'git')
+NAMES = ('modal-editing', 'key-hints', 'markdown', 'finder', 'navigator', 'file-management', 'git', 'directory-tree')
 
 
 def main():
@@ -159,6 +166,11 @@ def main():
         (workspace / 'docs').mkdir()
         files = {'README.md':README, 'src/tasks.py':TASKS, 'docs/release.md':MARKDOWN,
                  'notes.md':'# Notes\n\nKeep the release small.\n', 'scratch.txt':'Temporary notes.\n', '.gitignore':'.runyte/\n'}
+        if args.name == 'directory-tree':
+            files['src/config.py'] = ('"""Release settings."""\n\n'
+                'RELEASE_NAME = "Autumn update"\n'
+                'CHECKS = ["tests", "docs", "package"]\n'
+                'REQUIRE_REVIEW = True\n')
         for name, text in files.items(): (workspace / name).write_text(text)
         def git(*parts):
             return subprocess.check_output(['git','-c','user.name=Demo','-c','user.email=demo@example.com',
@@ -190,6 +202,8 @@ def main():
                     if action['op'] == 'checkpoint':
                         if str(Path.home()) in capture.text():
                             raise RuntimeError('Personal path or prompt in capture')
+                        if args.name == 'directory-tree' and action['name'] == 'Tree hidden':
+                            assert '[dir tree]' not in capture.text()
                         slug = action['name'].lower().replace(' ', '-')
                         capture.render_image().save(args.output_dir / f'{args.name}-{slug}.png')
             except BaseException:
@@ -197,6 +211,20 @@ def main():
                 (args.output_dir / f'{args.name}-failure.txt').write_text(capture.text())
                 raise
         print(json.dumps(recorder.record(options, data, playback=play_scene)), flush=True)
+        if args.name == 'directory-tree':
+            timing = json.loads(output.with_suffix('.recording.json').read_text())
+            if timing['timeline'][-1]['end'] > 9:
+                raise RuntimeError('Actions ran too slowly for a 10-second clip; record again')
+            # Keep interaction speed intact; adjust only the final still to 150 frames.
+            final = args.output_dir / 'directory-tree-final.mp4'
+            subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
+                '-i', str(output), '-vf', 'tpad=stop_mode=clone:stop_duration=10',
+                '-t', '10', '-an', '-c:v', 'libx264', '-crf', '18', '-pix_fmt', 'yuv420p',
+                '-movflags', '+faststart', str(final)], check=True)
+            final.replace(output)
+            subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
+                '-ss', '2', '-i', str(output), '-frames:v', '1',
+                str(args.output_dir / 'directory-tree-poster.webp')], check=True)
         if args.name == 'file-management':
             assert (workspace/'docs/notes.md').exists() and (workspace/'CHANGELOG.md').exists()
             assert not (workspace/'notes.md').exists() and not (workspace/'scratch.txt').exists()

@@ -1,6 +1,7 @@
 # Feature videos
 
-Eight real Runyte recordings for `/features/`. Recorded on 27 September 2026.
+Nine real Runyte recordings for `/features/`. The original eight were recorded on
+27 September 2026; directory tree on 29 September 2026.
 
 | Clip | Seconds | Theme | Action |
 | --- | ---: | --- | --- |
@@ -9,17 +10,19 @@ Eight real Runyte recordings for `/features/`. Recorded on 27 September 2026.
 | Markdown | 14.3 | nordbones-dark-soft | Render a table and return to source |
 | Finder | 13.8 | everforest-dark-medium | Find names, search contents, preview matches |
 | Navigator | 18.1 | matrix | Switch between files and a terminal |
+| Directory tree | 10.0 | ocean-dark | Reveal the active file, open a neighbor, hide and restore the tree |
 | File management | 16.4 | gruvbox | Move, create, delete, review and apply |
 | Git | 14.4 | rosebones-dark | Compare changes and stage a file |
 | Session management | 22.1 | terafox / ember-dark | Manage sessions and switch with Shift Left / Right |
 
 ## Capture
 
-- Runyte 0.3.3. Binary hashes are in `recordings.json`. The original seven clips have an unverified source revision; session management was built from `457dbd2dddec88b22956782a90d8cd4479e9e7ca`.
+- Runyte 0.3.3 for the original eight; 0.3.4 for directory tree. Binary hashes are in `recordings.json`. The original seven clips and directory tree have an unverified build source revision; session management was built from `457dbd2dddec88b22956782a90d8cd4479e9e7ca`.
 - 200 × 50 terminal cells. 2400 × 1300 pixels. 15 fps. H.264, CRF 18, yuv420p.
 - JetBrainsMono Nerd Font Medium, with bold and italic variants.
 - Actual PTY output, rendered by the editor repository's `runyte-demo-videos` skill.
 - Original timing, including short reading pauses. No speed changes or audio.
+  Directory tree adjusts only the final still to exactly 10 seconds (150 frames).
 - Posters are frames extracted from the final MP4s. Times and checksums are in `recordings.json`.
 
 ## Repeat
@@ -45,6 +48,16 @@ Python script. No personal files or coding-agent accounts are needed.
 the timing slightly. Temporary outputs include checkpoint PNGs, a contact sheet,
 and recording sidecars. Inspect these before copying a take to `static/videos/features/`.
 Keep sidecars containing machine paths out of the repository.
+
+### Directory tree
+
+Use `directory-tree` with `record_features.py` and a Runyte build supporting
+`Space d d` and `Space d t`. The fixture adds `src/config.py` beside `src/tasks.py`.
+Checkpoints verify the tree appears, the neighboring file opens, and the sidebar
+hides and returns. The final still is trimmed or padded to exactly 10 seconds;
+the script also extracts the poster at 2 seconds. Recording sidecars describe the
+raw take before this final duration adjustment. The final media metadata is in
+`recordings.json`.
 
 ### Session management
 

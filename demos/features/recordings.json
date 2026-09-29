@@ -151,5 +151,25 @@
     "codec": "h264",
     "poster_seconds": 18.7,
     "video_sha256": "f121a0a1d867ebf8e1369072eb4dc7e13e0d820ec04f9f873129e9f4e6675a38"
+  },
+  {
+    "version": "runyte 0.3.4",
+    "binary_sha256": "a62dbbed613bad05504476c3814563817a9f0e31dc015cf98a523fe14893a981",
+    "theme": "ocean-dark",
+    "geometry": "200x50",
+    "font": "JetBrainsMono Nerd Font Medium",
+    "name": "directory-tree",
+    "recorded": "2026-09-29",
+    "duration": 10.0,
+    "frames": 150,
+    "fps": 15,
+    "pixels": [
+      2400,
+      1300
+    ],
+    "codec": "h264",
+    "poster_seconds": 2.0,
+    "video_sha256": "d3abc3251b1bfda71c0d84cb1c62b68f98aa052e41bcbbd8ef4df6c99f341445",
+    "timing": "Original interaction speed; final still adjusted to 10 seconds."
   }
 ]
