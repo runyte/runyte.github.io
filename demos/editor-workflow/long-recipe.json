@@ -1,0 +1,205 @@
+{
+  "setup": [],
+  "actions": [
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 0.1
+    },
+    {
+      "op": "key",
+      "text": " ot",
+      "wait": 0.35
+    },
+    {
+      "op": "type",
+      "text": "gruvbox",
+      "wait": 0.5,
+      "interval": 0.045
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.6
+    },
+    {
+      "op": "checkpoint",
+      "name": "Gruvbox theme",
+      "required": [],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": " f",
+      "wait": 0.3
+    },
+    {
+      "op": "type",
+      "text": "dlnmd",
+      "wait": 0.9,
+      "interval": 0.045
+    },
+    {
+      "op": "checkpoint",
+      "name": "Fuzzy find launch notes",
+      "required": [
+        "Finder",
+        "docs/launch.md",
+        "# Launch checklist"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.5
+    },
+    {
+      "op": "key",
+      "text": "?",
+      "wait": 1.6
+    },
+    {
+      "op": "checkpoint",
+      "name": "Rendered Markdown",
+      "required": [
+        "[rendered",
+        "Launch checklist",
+        "Release board",
+        "Mira"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "  ",
+      "wait": 1.0
+    },
+    {
+      "op": "checkpoint",
+      "name": "Session manager",
+      "required": [
+        "Sessions",
+        "Release",
+        "Workbench"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "type",
+      "text": "Workbench",
+      "wait": 0.6,
+      "interval": 0.045
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.9
+    },
+    {
+      "op": "checkpoint",
+      "name": "Switch to Workbench",
+      "required": [
+        "Workbench",
+        "ready_tasks"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u0017v",
+      "wait": 0.4
+    },
+    {
+      "op": "command",
+      "text": "help panes",
+      "wait": 0.6,
+      "interval": 0.025
+    },
+    {
+      "op": "key",
+      "text": " ps",
+      "wait": 0.3
+    },
+    {
+      "op": "checkpoint",
+      "name": "Help beside source",
+      "required": [
+        "[help]",
+        "ready_tasks"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u0017s",
+      "wait": 0.4
+    },
+    {
+      "op": "key",
+      "text": " E",
+      "wait": 0.7
+    },
+    {
+      "op": "checkpoint",
+      "name": "Explorer pane",
+      "required": [
+        "[explorer]",
+        "README.md"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u0017h",
+      "wait": 0.25
+    },
+    {
+      "op": "key",
+      "text": "\u0017s",
+      "wait": 0.4
+    },
+    {
+      "op": "key",
+      "text": "\u0017t",
+      "wait": 0.5
+    },
+    {
+      "op": "type",
+      "text": "exec htop --readonly --pid $$",
+      "wait": 0.15,
+      "interval": 0.035
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 1.1
+    },
+    {
+      "op": "checkpoint",
+      "name": "Live htop",
+      "required": [
+        "htop",
+        "PID",
+        "CPU"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u0017k",
+      "wait": 0.5
+    },
+    {
+      "op": "checkpoint",
+      "name": "Four live panes",
+      "required": [
+        "ready_tasks",
+        "[help]",
+        "[explorer]",
+        "htop"
+      ],
+      "wait": 0
+    }
+  ]
+}

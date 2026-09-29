@@ -1,0 +1,61 @@
+{
+  "version": "runyte 0.3.4",
+  "binary_sha256": "56e2fe6b664b1d4f71a89d7a6d689e6e2d8fd0301c62796dbde76f3bb67b705f",
+  "source_revision": null,
+  "theme": "matrix",
+  "font": "JetBrainsMono Nerd Font Medium",
+  "geometry": "200x50",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 2400,
+        "height": 1300,
+        "r_frame_rate": "15/1",
+        "nb_read_frames": "300"
+      }
+    ],
+    "format": {
+      "duration": "20.000000"
+    }
+  },
+  "checkpoints": [
+    "Search selects six matches",
+    "Edit and save",
+    "Explorer",
+    "Explorer opened config",
+    "Directory tree",
+    "Tree opened tasks",
+    "Find by filename",
+    "Search file contents",
+    "Run the checklist",
+    "Files and terminals",
+    "Navigator opened file",
+    "Navigator opened history",
+    "Navigator opened checks",
+    "Final Navigator"
+  ],
+  "timing": "Original interaction speed; ending still adjusted to exactly 20 seconds.",
+  "video_sha256": "b41687ff3953eaa6745e291dfb244c4368df507d49d566da11f4b9c37bff7d71",
+  "recipe_sha256": "f3fba58187f45e70bbe3dcfd25578e3fac0276e540cabcdc7cf0ed061618f582",
+  "checkpoint_seconds": {
+    "Search selects six matches": 2.176,
+    "Edit and save": 3.866,
+    "Explorer": 4.776,
+    "Explorer opened config": 5.536,
+    "Directory tree": 6.394,
+    "Tree opened tasks": 7.154,
+    "Find by filename": 8.462,
+    "Search file contents": 9.471,
+    "Run the checklist": 11.89,
+    "Files and terminals": 13.129,
+    "Navigator opened file": 14.285,
+    "Navigator opened history": 15.805,
+    "Navigator opened checks": 17.445,
+    "Final Navigator": 18.156
+  },
+  "recorded": "2026-09-29",
+  "review": "Contact sheet and key checkpoint PNGs inspected for matrix styling; all fourteen milestones, saved source, Python output, and media properties verified."
+}

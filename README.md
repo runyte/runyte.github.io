@@ -46,10 +46,15 @@ its caption. Older assets remain available for existing external links.
 
 The About page opens the overview demo in an overlay with native controls.
 The video paths are configured in `hugo.yaml` (`demoVideo` and `demoPoster`).
-The overview is the 60-second Runyte 0.3.3 / Claude Code recording documented in
-[demos/navigator-video/](demos/navigator-video/). Its poster is the Navigator at
-47 seconds, with Claude marked unread. The editor README uses a separate GitHub attachment of the same video.
-See the Navigator recipe for its upload URL and replacement procedure.
+The overview is the [40-second Runyte 0.3.4 editing workflow](demos/editor-workflow/LONG-DEMO.md):
+modal editing, search, Explorer, directory tree, terminals, Navigator, Markdown,
+persistent sessions, and four panes. It starts in matrix and switches to gruvbox
+in the second half. Its poster shows the four-pane layout at 37 seconds.
+The editor README uses a separate GitHub attachment of the same video; the
+workflow recipe records its URL and replacement procedure.
+
+The original [20-second matrix video and recipe](demos/editor-workflow/README.md)
+remain available alongside the longer version.
 
 The Features page has nine dedicated recordings in `static/videos/features/`.
 [demos/features/](demos/features/) contains their fixture, replay recipes, and

@@ -1,0 +1,52 @@
+{
+  "version": "runyte 0.3.4",
+  "binary_sha256": "56e2fe6b664b1d4f71a89d7a6d689e6e2d8fd0301c62796dbde76f3bb67b705f",
+  "source_revision": null,
+  "theme": "matrix (0\u201320s), gruvbox (second half, after visible theme switch)",
+  "font": "JetBrainsMono Nerd Font Medium",
+  "geometry": "200x50",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 2400,
+        "height": 1300,
+        "r_frame_rate": "15/1",
+        "nb_read_frames": "600"
+      }
+    ],
+    "format": {
+      "duration": "40.000000"
+    }
+  },
+  "intro_video_sha256": "b41687ff3953eaa6745e291dfb244c4368df507d49d566da11f4b9c37bff7d71",
+  "intro_frames_verified_identical": 300,
+  "video_sha256": "acb069b9306f93d2909537c8895e7bb7686134cb1ab6c174a3dced02432b9ca1",
+  "recipe_sha256": "e4c251988a1a2e72a927b5afe202bfc4911027920d12866f1c311fb9d07e771d",
+  "checkpoint_seconds": {
+    "Gruvbox theme": 21.877,
+    "Fuzzy find launch notes": 23.316,
+    "Rendered Markdown": 25.43,
+    "Session manager": 26.44,
+    "Switch to Workbench": 28.353,
+    "Help beside source": 30.015,
+    "Explorer pane": 31.126,
+    "Live htop": 34.568,
+    "Four live panes": 35.084
+  },
+  "htop_version": "htop 3.4.1",
+  "timing": "Original first 300 frames; continuation at recorded speed; final hold fills 40 seconds.",
+  "recorded": "2026-09-29",
+  "review": "Continuation contact sheets at half-second intervals and key checkpoint PNGs inspected; nine milestones and all four final quadrants verified; all 300 opening frames match the original.",
+  "website": {
+    "video_path": "static/videos/runyte-demo.mp4",
+    "poster_path": "static/videos/runyte-demo-poster.webp",
+    "poster_seconds": 37,
+    "poster_sha256": "bf36a8a6411677e0a658c9b66d0f9e2714be80577e0effe09e12c0af4b6d672b",
+    "readme_attachment": "https://github.com/user-attachments/assets/86edfda0-f8cb-4999-b35d-4f450f4ad3c3",
+    "attachment_bytes_verified": true,
+    "public_readme_player_verified": true
+  }
+}

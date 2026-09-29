@@ -90,4 +90,4 @@ after a failed take. It never attaches to or stops personal sessions.
 - Check the MP4 dimensions, frame rate, codec, and duration with ffprobe.
 - Play each clip through in the browser. Check replay, independent playback, and no eager downloads.
 
-The main `:demo` is a separate recording: see [the Navigator recipe](../navigator-video/README.md).
+The main `:demo` is a separate recording: see [the 40-second editing workflow](../editor-workflow/LONG-DEMO.md).

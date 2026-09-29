@@ -1,8 +1,9 @@
 # Previous website demo
 
-This recipe records the previous Codex demo. The current website video was
-replaced by the [Navigator take](../navigator-video/README.md) on 27 September
-2026. The source and editing notes below are retained for reference.
+This recipe records the previous Codex demo, replaced by the
+[Navigator take](../navigator-video/README.md) on 27 September 2026.
+The current website video is the [40-second editing workflow](../editor-workflow/LONG-DEMO.md).
+The source and editing notes below are retained for reference.
 
 The previous `../../static/videos/runyte-demo.mp4` was recorded by Codex from real Runyte
 0.2.2 (editor source `54366eb`) on 9 September 2026. It uses ocean-dark,

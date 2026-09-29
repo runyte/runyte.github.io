@@ -1,6 +1,9 @@
-# Navigator video
+# Previous Navigator video
 
-`../../static/videos/runyte-demo.mp4` was recorded on 27 September 2026 from
+This 60-second take was replaced by the [40-second editing workflow](../editor-workflow/LONG-DEMO.md)
+on 29 September 2026. The recipe and attachment below are retained for reference.
+
+The previous `../../static/videos/runyte-demo.mp4` was recorded on 27 September 2026 from
 real Runyte 0.3.3 (editor source `f310698` on `dev`) and Claude Code 2.1.283,
 whose banner showed Opus 5.5. It is 200 columns × 50 rows at 12×26 pixels
 (2400×1300), 15 fps, silent H.264/yuv420p: 900 frames, exactly 60 seconds.
@@ -125,7 +128,7 @@ The editor README embeds a GitHub video attachment rather than the website
 file. When replacing the demo, upload the final MP4 to GitHub as well and
 update the attachment URL near the beginning of the editor README.
 
-The current attachment is
+The attachment for this previous take is
 <https://github.com/user-attachments/assets/b11679ab-0369-4bca-be4c-43c419b528c0>.
 Its bytes were checked against `static/videos/runyte-demo.mp4`, and the public
 README player was checked without signing in.

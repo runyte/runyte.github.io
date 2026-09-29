@@ -1,0 +1,344 @@
+{
+  "setup": [
+    {
+      "op": "key",
+      "text": "\u0017t",
+      "wait": 0.4
+    },
+    {
+      "op": "type",
+      "text": "git log --oneline -3",
+      "wait": 0.1,
+      "interval": 0
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.4
+    },
+    {
+      "op": "key",
+      "text": "\u001c",
+      "wait": 0.1
+    },
+    {
+      "op": "command",
+      "text": "terminal-rename history",
+      "wait": 0.2,
+      "interval": 0.01
+    },
+    {
+      "op": "command",
+      "text": "open README.md",
+      "wait": 0.2,
+      "interval": 0.01
+    },
+    {
+      "op": "command",
+      "text": "open src/tasks.py",
+      "wait": 0.4,
+      "interval": 0.01
+    }
+  ],
+  "actions": [
+    {
+      "op": "key",
+      "text": "s",
+      "wait": 0.1
+    },
+    {
+      "op": "type",
+      "text": "pending",
+      "wait": 0.1,
+      "interval": 0.045
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 1.15
+    },
+    {
+      "op": "checkpoint",
+      "name": "Search selects six matches",
+      "required": [
+        "pending_tasks",
+        "6 sel"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "c",
+      "wait": 0.1
+    },
+    {
+      "op": "type",
+      "text": "ready",
+      "wait": 0.25,
+      "interval": 0.045
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 0.1
+    },
+    {
+      "op": "key",
+      "text": "\u0013",
+      "wait": 1.0
+    },
+    {
+      "op": "checkpoint",
+      "name": "Edit and save",
+      "required": [
+        "ready_tasks"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": " e",
+      "wait": 0.9
+    },
+    {
+      "op": "checkpoint",
+      "name": "Explorer",
+      "required": [
+        "[explorer]",
+        "config.py",
+        "tasks.py"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "k",
+      "wait": 0.15
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.6
+    },
+    {
+      "op": "checkpoint",
+      "name": "Explorer opened config",
+      "required": [
+        "RELEASE_NAME"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": " dd",
+      "wait": 0.85
+    },
+    {
+      "op": "checkpoint",
+      "name": "Directory tree",
+      "required": [
+        "[dir tree]",
+        "config.py",
+        "tasks.py"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "j",
+      "wait": 0.15
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.6
+    },
+    {
+      "op": "checkpoint",
+      "name": "Tree opened tasks",
+      "required": [
+        "ready_tasks"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": " f",
+      "wait": 0.2
+    },
+    {
+      "op": "type",
+      "text": "release",
+      "wait": 0.15,
+      "interval": 0.035
+    },
+    {
+      "op": "key",
+      "text": "\u001b[B",
+      "wait": 0.7
+    },
+    {
+      "op": "checkpoint",
+      "name": "Find by filename",
+      "required": [
+        "Finder",
+        "docs/release.md",
+        "# Release plan"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\t",
+      "wait": 1.0
+    },
+    {
+      "op": "checkpoint",
+      "name": "Search file contents",
+      "required": [
+        "Contents",
+        "release"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u001b",
+      "wait": 0.1
+    },
+    {
+      "op": "key",
+      "text": "\u0017t",
+      "wait": 0.5
+    },
+    {
+      "op": "type",
+      "text": "python3 src/tasks.py",
+      "wait": 0.1,
+      "interval": 0.045
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.8
+    },
+    {
+      "op": "checkpoint",
+      "name": "Run the checklist",
+      "required": [
+        "2 tasks left before release"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u001c",
+      "wait": 0.1
+    },
+    {
+      "op": "command",
+      "text": "terminal-rename checks",
+      "wait": 0.1,
+      "interval": 0.01
+    },
+    {
+      "op": "key",
+      "text": " n",
+      "wait": 0.7
+    },
+    {
+      "op": "checkpoint",
+      "name": "Files and terminals",
+      "required": [
+        "Navigator",
+        "history",
+        "checks",
+        "src/tasks.py"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "type",
+      "text": "tasks",
+      "wait": 0.45,
+      "interval": 0.03
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.55
+    },
+    {
+      "op": "checkpoint",
+      "name": "Navigator opened file",
+      "required": [
+        "ready_tasks"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": " n",
+      "wait": 0.2
+    },
+    {
+      "op": "type",
+      "text": "history",
+      "wait": 0.5,
+      "interval": 0.03
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.6
+    },
+    {
+      "op": "checkpoint",
+      "name": "Navigator opened history",
+      "required": [
+        "Prepare release checklist"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u0017n",
+      "wait": 0.2
+    },
+    {
+      "op": "type",
+      "text": "checks",
+      "wait": 0.55,
+      "interval": 0.03
+    },
+    {
+      "op": "key",
+      "text": "\r",
+      "wait": 0.7
+    },
+    {
+      "op": "checkpoint",
+      "name": "Navigator opened checks",
+      "required": [
+        "2 tasks left before release"
+      ],
+      "wait": 0
+    },
+    {
+      "op": "key",
+      "text": "\u0017n",
+      "wait": 0.7
+    },
+    {
+      "op": "checkpoint",
+      "name": "Final Navigator",
+      "required": [
+        "Navigator",
+        "history",
+        "checks",
+        "src/tasks.py"
+      ],
+      "wait": 0
+    }
+  ]
+}
