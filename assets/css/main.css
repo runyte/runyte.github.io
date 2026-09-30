@@ -794,7 +794,7 @@ summary {
   padding-bottom: 2.5rem;
 }
 .is-guide .workspace-frame {
-  padding: 0;
+  padding: 1rem 0 0;
   height: calc(100dvh - 5.7rem);
   min-height: 0;
 }
@@ -861,8 +861,11 @@ summary {
   outline-offset: -4px;
 }
 .guide-page {
-  max-width: 85ch;
+  max-width: none;
   margin: auto;
+}
+.guide-page table {
+  overflow-wrap: normal;
 }
 .guide-breadcrumb {
   font-size: 0.8rem;
