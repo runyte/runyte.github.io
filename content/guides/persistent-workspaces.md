@@ -66,5 +66,5 @@ children. Save edits and finish terminal programs first.
 State lasts only while the host runs. Save important work to disk;
 unsaved text and live processes do not survive host termination or reboot.
 
-[Full session reference](/docs/user-guide/#workspaces-and-modes) ·
+[Full session reference](/docs/user-guide/#workspaces-and-persistent-sessions) ·
 [Coding-agent workflow](/guides/coding-agents/)
