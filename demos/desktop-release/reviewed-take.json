@@ -1,0 +1,79 @@
+{
+  "old_segments": [
+    {
+      "start": 0,
+      "duration": 7,
+      "caption": "Modal editing + file navigation"
+    },
+    {
+      "start": 9.5,
+      "duration": 5,
+      "caption": "Integrated terminals + Navigator"
+    },
+    {
+      "start": 21.5,
+      "duration": 7,
+      "caption": "Markdown + persistent sessions"
+    }
+  ],
+  "native_seconds": 26,
+  "duration": 44.933333,
+  "native_source_revision": "f0692a1",
+  "native_theme": "ocean-dark",
+  "native_font_size": 22,
+  "geometry": [
+    2560,
+    1440
+  ],
+  "fps": 30,
+  "cuts": "Repeated Navigator visits and the old four-pane construction/hold removed; retained footage stays at original speed.",
+  "recorded": "2026-10-24",
+  "native_checkpoints": [
+    {
+      "name": "Animated GIF",
+      "seconds": 2.875
+    },
+    {
+      "name": "PDF and image",
+      "seconds": 6.635
+    },
+    {
+      "name": "Media overview",
+      "seconds": 9.587
+    },
+    {
+      "name": "Alt drag swaps GIF and source",
+      "seconds": 13.117
+    },
+    {
+      "name": "Shift Alt drag expands PDF upward",
+      "seconds": 16.976
+    },
+    {
+      "name": "PDF zoom and fit",
+      "seconds": 20.106
+    },
+    {
+      "name": "Alt drag swaps PDF and GIF",
+      "seconds": 23.647
+    },
+    {
+      "name": "end",
+      "seconds": 25.986
+    }
+  ],
+  "media": {
+    "runyte-demo.mp4": "7b63a9df8e582e6479dd69b150be4ff0ac4ccf08ec728e284c4d2a6adb829282",
+    "runyte-desktop-demo.mp4": "6aa61915cb04b2c4417be30302278317fa9af356f00631b3dbfea752c8d7ec34",
+    "runyte-demo-poster.webp": "28befec7318f391b8b7130a7b116485c977f542725f411a1c4ecfc7bf42d83a4",
+    "runyte-desktop-demo-poster.webp": "6abf2b5c403ab5c62bca3feae36382c57c6eb616fdbb42667aa873d984a63985"
+  },
+  "original_video_sha256": "acb069b9306f93d2909537c8895e7bb7686134cb1ab6c174a3dced02432b9ca1",
+  "review": "Half-second contact sheets and full-resolution media/gesture checkpoints inspected; full-file FFmpeg decode and FFprobe geometry/frame-count checks. No playback viewer inspection claimed.",
+  "overview_frames": 1348,
+  "desktop_frames": 780,
+  "attachments": {
+    "overview": "https://github.com/user-attachments/assets/5f039873-8232-4ad9-b089-0d54b2b05e85",
+    "desktop": "https://github.com/user-attachments/assets/211a7af2-d989-4fa3-97c5-3567be7ee294"
+  }
+}

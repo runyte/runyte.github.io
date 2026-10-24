@@ -46,19 +46,20 @@ its caption. Older assets remain available for existing external links.
 
 The About page opens the overview demo in an overlay with native controls.
 The video paths are configured in `hugo.yaml` (`demoVideo` and `demoPoster`).
-The overview is the [40-second Runyte 0.3.4 editing workflow](demos/editor-workflow/LONG-DEMO.md):
-modal editing, search, Explorer, directory tree, terminals, Navigator, Markdown,
-persistent sessions, and four panes. It starts in matrix and switches to gruvbox
-in the second half. Its poster shows the four-pane layout at 37 seconds.
+The overview is the [45-second terminal and desktop demo](demos/desktop-release/README.md):
+editing, files, terminals, Markdown, persistent sessions, animated images,
+PDFs, and pane dragging. It retains selected matrix/gruvbox scenes from the
+previous demo and adds a real ocean-dark desktop capture at 2560 × 1440.
+Its poster shows source, GIF, and PDF together.
 The editor README uses a separate GitHub attachment of the same video; the
 workflow recipe records its URL and replacement procedure.
 
 The original [20-second matrix video and recipe](demos/editor-workflow/README.md)
 remain available alongside the longer version.
 
-The Features page has nine dedicated recordings in `static/videos/features/`.
+The Features page has ten dedicated recordings in `static/videos/features/`.
 [demos/features/](demos/features/) contains their fixture, replay recipes, and
-version records. Each clip runs for 10–22 seconds. Media URLs include content
+version records. The desktop clip runs for 26 seconds; the other clips run for 10–22 seconds. Media URLs include content
 hashes so replacing a recording also refreshes browser caches.
 
 Keep benchmark dates and measured source versions alongside their tables;

@@ -1,7 +1,7 @@
 ---
 seoTitle: "Modal Editing, Terminals, Git and Project Search | Runyte"
 title: Features
-description: Edit text, find files, switch terminals, and review changes. Nine short demonstrations from Runyte.
+description: Edit text, find files, switch terminals, and review changes. Ten short demonstrations from Runyte.
 ---
 
 # Features
@@ -9,7 +9,7 @@ description: Edit text, find files, switch terminals, and review changes. Nine s
 One binary. Files, terminals, and consistent keys.
 
 [Editing](#modal-editing) · [Key hints](#discover-keys) · [Markdown](#markdown) ·
-[Finder](#finder) · [Navigator](#navigator) · [Directory tree](#directory-tree) · [Files](#file-management) · [Git](#git) · [Sessions](#session-management)
+[Finder](#finder) · [Navigator](#navigator) · [Directory tree](#directory-tree) · [Files](#file-management) · [Git](#git) · [Sessions](#session-management) · [Desktop](#desktop)
 
 ## Modal editing
 
@@ -67,7 +67,16 @@ Each session keeps its layout and theme.
 
 {{< feature-video src="videos/features/session-management.mp4" poster="videos/features/session-management-poster.webp" duration="22.07" caption="Open the session manager. Switch between API in terafox and Website in ember-dark." >}}
 
-Directory tree recorded in Runyte 0.3.4; other clips in 0.3.3. Each clip uses a different view or theme.
+## Desktop
+
+Launch the desktop edition with `runyte --window`. Open images, animated GIFs,
+and PDFs beside source code. Alt-drag swaps or rearranges panes;
+Shift-Alt-drag expands a pane into its neighbours.
+
+{{< feature-video src="videos/features/desktop.mp4" poster="videos/features/desktop-poster.webp" duration="26" caption="Open an animated image and a PDF. Alt-drag to swap panes; Shift-Alt-drag to expand the PDF." >}}
+
+Desktop recorded from the 0.4.1 development candidate; directory tree in 0.3.4,
+and other clips in 0.3.3. Each clip uses a different view or theme.
 
 ## More tools
 
