@@ -1,5 +1,6 @@
 """Integration checks for guide generation. Requires Hugo; uses only temporary files."""
 import json
+import importlib.util
 from pathlib import Path
 import shutil
 import subprocess
@@ -50,6 +51,53 @@ class GuideGenerationTests(unittest.TestCase):
             check=True, capture_output=True, text=True,
         )
         return destination
+
+    def test_chapter_import_keeps_routes_links_and_source_paths(self):
+        spec = importlib.util.spec_from_file_location("import_docs", ROOT / "scripts/import-docs.py")
+        importer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(importer)
+        repository = self.root / "editor"
+        guide = repository / "docs/user-guide"
+        guide.mkdir(parents=True)
+        (guide / "README.md").write_text("# Guide\n\n- [First](first.md)\n- [Second](second.md)\n")
+        (guide / "first.md").write_text("## First\n\n### Start\n[Next](second.md#detail). [Overview](second.md).\n\n<!-- navigation -->\n[Contents](README.md)\n")
+        (guide / "second.md").write_text("## Second\n\n### Detail\n[Plugin](../plugins.md).\n")
+        subprocess.run(["git", "init", "-q", str(repository)], check=True)
+        subprocess.run(["git", "-C", str(repository), "add", "."], check=True)
+        subprocess.run(["git", "-C", str(repository), "-c", "user.name=Fixture", "-c", "user.email=fixture@example.com", "commit", "-qm", "Fixture"], check=True)
+        importer.import_docs(repository, self.root / "content/docs", self.resource.parent)
+        data = json.loads(self.resource.read_text())
+        self.assertEqual(data["title"], "Runyte user guide")
+        self.assertNotIn("<!-- navigation -->", data["body"])
+        self.assertEqual(data["sourcePaths"]["Second"], "docs/user-guide/second.md")
+        # Include source metadata in this fixture's rendered page.
+        for name in ("single.html", "list.html"):
+            (self.root / "layouts/_default" / name).write_text('<p>{{ .Params.sourcePath }}</p>{{ .Content }}')
+        output = self.build()
+        first = (output / "docs/user-guide/first/start/index.html").read_text()
+        second = (output / "docs/user-guide/second/detail/index.html").read_text()
+        self.assertIn('/docs/user-guide/second/detail/#detail', first)
+        self.assertIn('href="/docs/user-guide/second/"', first)
+        self.assertIn('docs/user-guide/first.md', first)
+        self.assertIn('docs/user-guide/second.md', second)
+        self.assertIn('/docs/plugins.md', second)
+        self.assertNotIn('/docs/user-guide/plugins.md', second)
+
+    def test_importer_accepts_the_pre_split_checkout(self):
+        spec = importlib.util.spec_from_file_location("import_docs", ROOT / "scripts/import-docs.py")
+        importer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(importer)
+        repository = self.root / "legacy"
+        (repository / "docs").mkdir(parents=True)
+        (repository / "docs/user-guide.md").write_text("# Guide\n\n## First\nLegacy content.\n")
+        subprocess.run(["git", "init", "-q", str(repository)], check=True)
+        subprocess.run(["git", "-C", str(repository), "add", "."], check=True)
+        subprocess.run(["git", "-C", str(repository), "-c", "user.name=Fixture", "-c", "user.email=fixture@example.com", "commit", "-qm", "Fixture"], check=True)
+        importer.import_docs(repository, self.root / "content/docs", self.resource.parent)
+        data = json.loads(self.resource.read_text())
+        self.assertEqual(data["sourcePath"], "docs/user-guide.md")
+        self.assertIn("Legacy content.", data["body"])
+        self.assertTrue((self.build() / "docs/user-guide/first/index.html").exists())
 
     def test_sections_preserve_code_duplicate_anchors_and_cross_section_links(self):
         self.write_source('''An introduction.
