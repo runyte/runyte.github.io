@@ -96,7 +96,9 @@ without JavaScript. They write review screenshots to `/tmp/`.
 
 ## Split user guide
 
-The import script copies the full guide into `assets/imported/user-guide.json`
+The authoritative chapters and ordered index live in `docs/user-guide/` in the editor repository.
+The import script assembles these chapters, removes repository navigation footers,
+and preserves each chapter’s source path for source links. It copies the full guide into `assets/imported/user-guide.json`
 with its source revision and date. The JSON is ignored by Git. CI refreshes it before every build; locally, rerun
 `python3 scripts/import-docs.py ../runyte-dev` after editing the upstream guide.
 

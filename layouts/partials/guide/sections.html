@@ -1,8 +1,11 @@
 {{- /* Split the imported ATX Markdown at h2/h3 boundaries. Explicit IDs keep
      global duplicate-heading anchors stable after each section becomes a page.
      Fenced examples and indented code must never create guide pages. */ -}}
+{{- $source := . -}}
+{{- $sourcePath := .sourcePath -}}
 {{- $sections := slice -}}
 {{- $anchors := dict -}}
+{{- $sources := dict .sourcePath "/docs/user-guide/" -}}
 {{- $used := dict -}}
 {{- $group := "" -}}
 {{- $current := dict "id" "" "title" "User guide" "level" 1 "group" "" "path" "user-guide" "url" "/docs/user-guide/" -}}
@@ -57,12 +60,18 @@
     {{- end -}}
     {{- $used = merge $used (dict $id true) -}}
     {{- if le $level 3 -}}
-      {{- $sections = $sections | append (merge $current (dict "body" (delimit $lines "\n"))) -}}
+      {{- $sections = $sections | append (merge $current (dict "body" (delimit $lines "\n") "sourcePath" $sourcePath)) -}}
       {{- $lines = slice -}}
-      {{- if eq $level 2 }}{{ $group = $id }}{{ end -}}
+      {{- if eq $level 2 -}}
+        {{- $group = $id -}}
+        {{- with index $source.sourcePaths $text }}{{ $sourcePath = . }}{{ end -}}
+      {{- end -}}
       {{- $route := printf "user-guide/%s" $id -}}
       {{- if and (eq $level 3) $group }}{{ $route = printf "user-guide/%s/%s" $group $id }}{{ end -}}
       {{- $current = dict "id" $id "title" $text "level" $level "group" $group "path" $route "url" (printf "/docs/%s/" $route) -}}
+      {{- if and (eq $level 2) $source.sourcePaths -}}
+        {{- $sources = merge $sources (dict $sourcePath $current.url) -}}
+      {{- end -}}
     {{- else -}}
       {{- $lines = $lines | append (printf "%s %s {#%s}" (index $match 1) $text $id) -}}
     {{- end -}}
@@ -77,5 +86,5 @@
   {{- end -}}
   {{- $lines = $lines | append $line -}}
 {{- end -}}
-{{- $sections = $sections | append (merge $current (dict "body" (delimit $lines "\n"))) -}}
-{{- return (dict "sections" $sections "anchors" $anchors "references" (delimit $references "\n")) -}}
+{{- $sections = $sections | append (merge $current (dict "body" (delimit $lines "\n") "sourcePath" $sourcePath)) -}}
+{{- return (dict "sections" $sections "anchors" $anchors "sources" $sources "references" (delimit $references "\n")) -}}
