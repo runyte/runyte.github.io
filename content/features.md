@@ -1,7 +1,7 @@
 ---
 seoTitle: "Modal Editing, Terminals, Git and Project Search | Runyte"
 title: Features
-description: Edit text, find files, switch terminals, and review changes. Ten short demonstrations from Runyte.
+description: Edit text, find files, switch terminals, and review changes. Eleven short demonstrations from Runyte.
 ---
 
 # Features
@@ -9,7 +9,7 @@ description: Edit text, find files, switch terminals, and review changes. Ten sh
 One binary. Files, terminals, and consistent keys.
 
 [Editing](#modal-editing) · [Key hints](#discover-keys) · [Markdown](#markdown) ·
-[Finder](#finder) · [Navigator](#navigator) · [Directory tree](#directory-tree) · [Files](#file-management) · [Git](#git) · [Sessions](#session-management) · [Desktop](#desktop)
+[Finder](#finder) · [Navigator](#navigator) · [Directory tree](#directory-tree) · [Files](#file-management) · [Git](#git) · [Sessions](#session-management) · [Pane arrangement](#pane-arrangement) · [MCP server](#mcp-server)
 
 ## Modal editing
 
@@ -67,15 +67,21 @@ Each session keeps its layout and theme.
 
 {{< feature-video src="videos/features/session-management.mp4" poster="videos/features/session-management-poster.webp" duration="22.07" caption="Open the session manager. Switch between API in terafox and Website in ember-dark." >}}
 
-## Desktop
+## Pane arrangement
 
-Launch the desktop edition with `runyte --window`. It runs in its own native window.
-Open images and PDFs beside source code. Alt-drag swaps or rearranges panes;
-Shift-Alt-drag expands a pane into its neighbours.
+Alt-drag swaps or rearranges panes. Shift-Alt-drag extends a pane into its neighbours.
 
-{{< feature-video src="videos/features/desktop.mp4" poster="videos/features/desktop-poster.webp" duration="9.7" caption="Rearrange six panes with Alt-drag and Shift-Alt-drag. Covered files and terminals stay open." >}}
+{{< feature-video src="videos/features/desktop.mp4" poster="videos/features/desktop-poster.webp" duration="9.3" caption="Rearrange six panes with Alt-drag and Shift-Alt-drag. Covered files and terminals stay open." >}}
 
-Desktop recorded from 0.4.3; directory tree in 0.3.4,
+## MCP server for AI agents {#mcp-server}
+
+Runyte's MCP server gives AI agents optional access to your panes. You grant it.
+Agents also get `:agent-channel`, a chat where they write public or private
+messages to each other.
+
+{{< feature-video src="videos/features/agents.mp4" poster="videos/features/agents-poster.webp" duration="23" caption="Claude Code and Codex review a retry bug through the agent channel. Waiting time is shortened." >}}
+
+Pane arrangement and the MCP server recorded from 0.4.3; directory tree in 0.3.4,
 and other clips in 0.3.3. Each clip uses a different view or theme.
 
 ## More tools
@@ -87,6 +93,7 @@ and other clips in 0.3.3. Each clip uses a different view or theme.
 | Persistent sessions | Detach and return to running terminals and unsaved buffers. |
 | Completion | Complete words from open buffers and paths from your project. |
 | Images and links | Paste images with `Ctrl-v` or `Alt-v`. Follow links with `gf`. |
+| Desktop edition | Run in its own native window with `runyte --window`. Open images and PDFs. |
 | Plugins | Add tools written in any language. |
 
 [Install Runyte](/installation/) · [Set your editor](/installation/#set-your-editor) ·

@@ -8,7 +8,7 @@ for name in ['native','output']:
 args=ap.parse_args()
 out=args.output.resolve();out.mkdir(parents=True,exist_ok=False)
 native=str(args.native.resolve())
-DURATION,PANES_START,PANES_SECONDS=23.0,6.3,9.7
+DURATION,PANES_START,PANES_SECONDS=23.0,6.3,9.3
 base=['ffmpeg','-hide_banner','-loglevel','error','-y']
 encode=['-an','-c:v','libx264','-preset','slow','-crf','20','-pix_fmt','yuv420p','-movflags','+faststart']
 subprocess.run(base+['-i',native,'-t',str(DURATION)]+encode+[str(out/'runyte-demo.mp4')],check=True)

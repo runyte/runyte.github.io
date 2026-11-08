@@ -58,9 +58,9 @@ workflow recipe records its URL and replacement procedure.
 The original [20-second matrix video and recipe](demos/editor-workflow/README.md)
 remain available alongside the longer version.
 
-The Features page has ten dedicated recordings in `static/videos/features/`.
+The Features page has eleven dedicated recordings in `static/videos/features/`.
 [demos/features/](demos/features/) contains their fixture, replay recipes, and
-version records. The desktop clip runs for 9.7 seconds; the other clips run for 10–22 seconds. Media URLs include content
+version records. The pane clip runs for 9.3 seconds and the MCP clip for about 23; the other clips run for 10–22 seconds. Media URLs include content
 hashes so replacing a recording also refreshes browser caches.
 
 Keep benchmark dates and measured source versions alongside their tables;
