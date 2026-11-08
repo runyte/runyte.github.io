@@ -2,7 +2,7 @@
 
 `static/videos/runyte-demo.mp4` is 23 seconds, 2560 × 1380, 30 fps,
 H.264/yuv420p, silent. The homepage hero, the demo overlay, and the editor README
-all use it. `static/videos/features/desktop.mp4` is its 9.7-second pane section.
+all use it. `static/videos/features/desktop.mp4` is its 9.3-second pane section.
 
 Everything is one uncut capture of the real native window on the `dark` theme,
 working in a private clone of the Runyte repository:
@@ -20,6 +20,13 @@ Recorded from Runyte 0.4.3 (`fad66590`) on Linux with the native embedded font a
 22 logical pixels. The display is an isolated Xvfb server with lavapipe. The
 configuration, cache, runtime storage, shell home, and workspace belong to the
 recording.
+
+## MCP server clip
+
+`static/videos/features/agents.mp4` is a real exchange between Claude Code and
+Codex through Runyte's MCP server and `:agent-channel`, on a one-file throwaway
+project, in `frappe`. The agents are read-only and limited to the channel tools.
+`--scene agents` records it, and `edit_agents.py` shortens the waits.
 
 ## Reproduce and review
 
