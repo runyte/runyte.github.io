@@ -61,6 +61,10 @@
     {{ $homeJS := resources.Get "js/home.js" | minify | fingerprint }}
     <script src="{{ $homeJS.RelPermalink }}" integrity="{{ $homeJS.Data.Integrity }}" defer></script>
   {{ end }}
+  {{ if .HasShortcode "edition-tabs" }}
+    {{ $tabsJS := resources.Get "js/edition-tabs.js" | minify | fingerprint }}
+    <script src="{{ $tabsJS.RelPermalink }}" integrity="{{ $tabsJS.Data.Integrity }}" defer></script>
+  {{ end }}
   {{ if .Params.guide }}
     {{ $guideJS := resources.Get "js/guide.js" | minify | fingerprint }}
     <script src="{{ $guideJS.RelPermalink }}" integrity="{{ $guideJS.Data.Integrity }}" defer></script>
