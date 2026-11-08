@@ -1,0 +1,5 @@
+{{- $id := .Get "id" -}}
+<section class="edition-panel" id="{{ $id }}" role="tabpanel" aria-labelledby="tab-{{ $id }}">
+  <h2 class="edition-panel__label">{{ .Get "title" }}</h2>
+  <div class="edition-panel__body">{{ .Page.RenderString (dict "display" "block") .Inner }}</div>
+</section>

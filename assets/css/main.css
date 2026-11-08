@@ -301,7 +301,7 @@ pre {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1rem 1.15rem;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
 }
 pre code {
   padding: 0;
@@ -632,6 +632,45 @@ summary {
 }
 .feature-index a {
   white-space: nowrap;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+.tabs button {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.tabs button[aria-selected="true"] {
+  background: var(--surface-2);
+  color: var(--heading);
+}
+.edition-tabs .tabs {
+  display: none;
+}
+.js .edition-tabs .tabs {
+  display: flex;
+  margin-top: 2rem;
+}
+.js .edition-panel__label {
+  display: none;
+}
+/* Links to a panel stop with the tabs above it still in view. */
+.js .edition-panel {
+  scroll-margin-top: 4rem;
+}
+.edition-panel + .edition-panel {
+  margin-top: 3.5rem;
+}
+.js .edition-panel + .edition-panel {
+  margin-top: 0;
+}
+.js .edition-panel__body > :first-child {
+  margin-top: 2.25rem;
 }
 
 /* The guide is a pair of independently scrollable panes under the header. */
