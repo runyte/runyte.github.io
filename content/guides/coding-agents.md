@@ -3,7 +3,7 @@ title: Use Claude Code and Codex inside Runyte
 seoTitle: Use Claude Code and Codex in a Terminal Editor | Runyte
 description: Run coding agents in Runyte terminal panes, edit their prompts with Ctrl+G, and return to the same workspace with your files and Git tools.
 image: images/screenshots/coding-agents.webp
-imageAlt: Claude Code and Codex in adjacent Runyte terminal panes.
+imageAlt: Claude Code and OpenAI Codex in adjacent Runyte panes above the agent channel showing their conversation.
 ---
 
 # Use coding agents inside Runyte
@@ -29,8 +29,8 @@ Restart an existing agent after changing these variables.
 
 {{< screenshot
   src="images/screenshots/coding-agents.webp"
-  alt="Claude Code and Codex running in adjacent Runyte terminal panes."
-  caption="Two coding agents in one workspace."
+  alt="Claude Code and OpenAI Codex in adjacent Runyte panes above the agent channel showing their conversation."
+  caption="Two coding agents, talking through the agent channel."
   theme="frappe"
 >}}
 

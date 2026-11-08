@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="site-footer__brand">
+    <img src="{{ "images/icon/runyte-64.png" | relURL }}" width="28" height="28" alt="">
+    <span>Runyte is pronounced “roon-ite”.</span>
+  </div>
+  <nav class="site-footer__links" aria-label="Footer">
+    {{ range hugo.Data.navigation }}
+      {{ if ne .menu false }}<a href="{{ .url | relURL }}">{{ .title }}</a>{{ end }}
+    {{ end }}
+    <a href="https://github.com/runyte/runyte/releases">Changelog ↗</a>
+    <a href="https://www.reddit.com/r/runyte/">r/runyte ↗</a>
+  </nav>
+  <div class="site-footer__meta">
+    <span>MPL-2.0</span>
+    <button class="nav-keyboard enhanced-only" data-action="help" type="button" aria-label="Website keyboard help"><kbd>Space ?</kbd> keyboard</button>
+  </div>
+  <span id="status-mode" hidden>NOR</span>
+</footer>

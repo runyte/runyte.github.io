@@ -2,7 +2,8 @@
   {
     "title": "About",
     "url": "/",
-    "description": "A fast modal terminal editor for focused work."
+    "description": "A fast modal terminal editor for focused work.",
+    "menu": false
   },
   {
     "title": "Features",

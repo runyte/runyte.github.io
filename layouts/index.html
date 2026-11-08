@@ -1,18 +1,122 @@
 {{ define "main" }}
-  <article class="about-page">
-    <pre class="logo" aria-hidden="true">{{ (resources.Get "ascii/logo.txt").Content }}</pre>
-    <h1 class="visually-hidden">Runyte</h1>
-    <p class="about-motto">A fast modal terminal editor for focused work.</p>
-    <h2>Getting around</h2>
-    <div class="getting-around">
-      <a href="{{ "docs/" | relURL }}#website" data-action="help"><kbd>Space ?</kbd><span>help for this page</span></a>
-      <a href="{{ "docs/" | relURL }}" data-action="navigator"><kbd>Space n</kbd><span>navigate the website</span></a>
-      <a href="{{ partialCached "media-url.html" .Site.Params.demoVideo .Site.Params.demoVideo }}" data-action="demo"><code>:demo</code><span>watch Runyte in action</span></a>
-      <a href="{{ "docs/" | relURL }}"><code>:help</code><span>open documentation</span></a>
-      <a href="{{ .Site.Home.RelPermalink }}"><code>:about</code><span>return to this page</span></a>
-      <a href="{{ "docs/" | relURL }}#website" data-action="command"><code>:</code><span>open the command palette</span></a>
+  {{ $demo := partialCached "media-url.html" .Site.Params.demoVideo .Site.Params.demoVideo }}
+  {{ $demoPoster := partialCached "media-url.html" .Site.Params.demoPoster .Site.Params.demoPoster }}
+
+  <section class="hero" data-hero aria-label="Runyte in a terminal and in its own native window">
+    <div class="hero__stick">
+      <div class="hero__copy" data-copy>
+        <h1><span class="hero__line"><span class="nowrap">Helix-style</span> modal text editor</span> <span class="hero__rest">with file management, persistent terminals, and MCP for AI agents to talk to each other</span></h1>
+        <div class="actions">
+          <a class="btn btn--solid" href="#install">Install</a>
+          <a class="btn" href="{{ $demo }}" data-action="demo">▶ Watch the demo</a>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="win" data-win>
+          <div class="win__bar">
+            <span class="win__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="win__title win__title--term">Terminal</span>
+            <span class="win__title win__title--app"><img src="{{ "images/icon/runyte-64.png" | relURL }}" width="16" height="16" alt="">Runyte</span>
+          </div>
+          <div class="win__screen">
+            <img class="win__term" src="{{ $demoPoster }}" width="2560" height="1380" alt="Runyte source code open in the editor.">
+            <video class="win__app" data-window-video muted loop playsinline preload="none" poster="{{ $demoPoster }}" src="{{ $demo }}" aria-label="Runyte in its own native window: a multi-cursor rename in real source code, six panes rearranged by dragging, and the Navigator bringing back a hidden terminal."></video>
+          </div>
+        </div>
+        <div class="strip" data-strip>
+          <code class="cmd" aria-hidden="true"><span class="cmd__prompt">$</span> runyte<span class="cmd__flag" data-flag> --window</span></code>
+          <p class="strip__note"><span data-note="term">In the terminal you already use.</span><span data-note="app">Its own native window. Images and PDFs included.</span></p>
+        </div>
+      </div>
     </div>
-    <p class="about-instruction enhanced-only">Press keys in sequence. Run commands with Enter.</p>
-    <p class="about-links"><a href="{{ "installation/" | relURL }}">Install Runyte</a><span aria-hidden="true">·</span><a href="{{ partialCached "media-url.html" .Site.Params.demoVideo .Site.Params.demoVideo }}" data-action="demo">▶ Watch the demo</a><span aria-hidden="true">·</span><a href="https://github.com/runyte/runyte">GitHub ↗</a></p>
-  </article>
+  </section>
+
+  <section class="section reveal">
+    <h2 class="center">One editor. Two places to run it.</h2>
+    <div class="editions">
+      <article class="edition">
+        <h3>Terminal edition</h3>
+        <p>Run Runyte in your terminal of choice.</p>
+        <code>runyte</code>
+      </article>
+      <article class="edition edition--lit">
+        <h3>Desktop edition</h3>
+        <p>Run Runyte in its own native window. No terminal emulator needed. Runyte owns it all.</p>
+        <code>runyte --window</code>
+      </article>
+    </div>
+  </section>
+
+  <section class="section reveal" id="modes">
+    <h2 class="center">Choose how much Runyte you want.</h2>
+    <p class="lede center">Just a text editor, or a replacement for many terminal apps.</p>
+    {{ $parts := slice "text editor" "file manager" "LSP" "terminals" "persistent sessions" }}
+    <ul class="modes">
+      {{ range slice (dict "name" "editor" "cmd" "runed" "on" 2) (dict "name" "ide" "cmd" "runyte" "on" 4) (dict "name" "mux" "cmd" "runyte --mux" "on" 5) }}
+        {{ $on := .on }}
+        <li class="mode">
+          <strong>{{ .name }}</strong>
+          <span class="mode__parts">{{ range $i, $p := $parts }}<span{{ if lt $i $on }} class="on"{{ end }}>{{ $p }}</span>{{ end }}</span>
+          <code>{{ .cmd }}</code>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section class="stack" aria-label="Screenshots">
+    {{ range slice
+      (dict "file" "rust-book-everforest" "alt" "Rust source beside The Rust Programming Language open as a PDF in the Runyte desktop edition, in the everforest-dark theme." "title" "Open images and PDFs next to your code." "text" "Zoom, jump to a page, select text." "formats" (slice "PNG" "JPEG" "GIF" "WebP" "BMP" "PDF"))
+      (dict "file" "rendered-markdown" "alt" "Runyte displaying a Markdown document as a formatted page." "title" "Read Markdown as a page." "text" "Return to source." "key" "?")
+      (dict "file" "navigator" "alt" "Runyte Navigator listing files and running terminals, with a live terminal preview." "title" "Jump between buffers and terminals." "text" "Type to narrow the list." "key" "Space n")
+      (dict "file" "side-by-side-diff" "alt" "Runyte comparing indexed and working-tree Rust source with highlighted changes." "title" "Compare changes side by side." "text" "Review and stage without leaving the editor." "key" "Space g")
+      (dict "file" "coding-agents" "alt" "Claude Code and OpenAI Codex in adjacent Runyte panes above the agent channel showing their conversation." "title" "Claude and Codex." "text" "Talking through the agent channel." "key" ":agent-channel")
+    }}
+      {{ $path := printf "images/screenshots/%s.webp" .file }}
+      <article class="card">
+        <div class="card__text">
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+          {{ with .formats }}<ul class="formats" aria-label="Supported formats">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ else }}<kbd>{{ .key }}</kbd>{{ end }}
+        </div>
+        <img src="{{ partialCached "media-url.html" $path $path }}" width="1920" height="1508" loading="lazy" decoding="async" alt="{{ .alt }}">
+      </article>
+    {{ end }}
+  </section>
+
+  <section class="section reveal">
+    <div class="trio">
+      <article>
+        <h3>Close it. Open it again.</h3>
+        <p>In <code>mux</code> mode you're back where you left off. All terminals and AI agents keep doing what they were.</p>
+      </article>
+      <article>
+        <h3>Agents, if you let them.</h3>
+        <p>The MCP server gives agents optional access to your panes. <code>:agent-channel</code> lets them talk to each other.</p>
+      </article>
+      <article>
+        <h3>Keys you already know.</h3>
+        <p>Many keybindings have aliases and will feel familiar to both Helix and Vim users.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section install reveal" id="install">
+    <h2 class="center">Install Runyte.</h2>
+    <div class="install__box" data-install>
+      <div class="tabs" role="tablist" aria-label="Edition">
+        <button type="button" role="tab" id="tab-desktop" aria-controls="pane-desktop" aria-selected="true">Desktop edition</button>
+        <button type="button" role="tab" id="tab-terminal" aria-controls="pane-terminal" aria-selected="false">Terminal edition</button>
+      </div>
+      <div class="pane" role="tabpanel" id="pane-desktop" aria-labelledby="tab-desktop">
+        <div class="copyline"><code>curl -fsSL https://raw.githubusercontent.com/runyte/runyte/main/install.sh | sh -s -- --desktop</code><button type="button" class="copy" data-copy-line>Copy</button></div>
+        <p class="muted">Linux and macOS. Then run <code>runyte --window</code>.</p>
+      </div>
+      <div class="pane" role="tabpanel" id="pane-terminal" aria-labelledby="tab-terminal">
+        <div class="copyline"><code>curl -fsSL https://raw.githubusercontent.com/runyte/runyte/main/install.sh | sh</code><button type="button" class="copy" data-copy-line>Copy</button></div>
+        <p class="muted">Linux and macOS. On Windows, use the <a href="{{ "installation/" | relURL }}#windows">x86-64 ZIP</a>.</p>
+      </div>
+    </div>
+    <p class="center install__more"><a href="{{ "installation/" | relURL }}">More ways to install</a><a href="{{ "docs/" | relURL }}">Read the docs</a><a href="https://github.com/runyte/runyte">GitHub ↗</a></p>
+  </section>
 {{ end }}

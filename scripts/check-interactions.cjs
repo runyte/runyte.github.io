@@ -300,7 +300,7 @@ const base = process.env.BASE_URL || "http://127.0.0.1:1313";
       await plain.locator("[data-action=quit]").first().isVisible(),
       false,
     );
-    await plain.locator(".about-links a", { hasText: "Install" }).click();
+    await plain.locator(".hero .actions a", { hasText: "Install" }).click();
     await plain.waitForURL("**/installation/");
     await plain.goto(`${base}/docs/user-guide/#windows-support`);
     const legacy = plain.locator("#windows-support.guide-legacy-anchor");
