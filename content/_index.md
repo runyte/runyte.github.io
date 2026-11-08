@@ -1,5 +1,5 @@
 ---
 seoTitle: "Runyte — Modal Terminal Editor for Focused Work"
 title: About
-description: A fast modal terminal editor for focused work. Editing, terminals, files, Git, and search in one binary. Linux, macOS, and Windows.
+description: Runyte is a Helix-style modal text editor living in your terminal or its own native window. Each pane shows a text file, a terminal, or a file manager.
 ---

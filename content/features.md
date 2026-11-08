@@ -69,13 +69,13 @@ Each session keeps its layout and theme.
 
 ## Desktop
 
-Launch the desktop edition with `runyte --window`. Open images, animated GIFs,
-and PDFs beside source code. Alt-drag swaps or rearranges panes;
+Launch the desktop edition with `runyte --window`. It runs in its own native window.
+Open images and PDFs beside source code. Alt-drag swaps or rearranges panes;
 Shift-Alt-drag expands a pane into its neighbours.
 
-{{< feature-video src="videos/features/desktop.mp4" poster="videos/features/desktop-poster.webp" duration="26" caption="Open an animated image and a PDF. Alt-drag to swap panes; Shift-Alt-drag to expand the PDF." >}}
+{{< feature-video src="videos/features/desktop.mp4" poster="videos/features/desktop-poster.webp" duration="9.7" caption="Rearrange six panes with Alt-drag and Shift-Alt-drag. Covered files and terminals stay open." >}}
 
-Desktop recorded from the 0.4.1 development candidate; directory tree in 0.3.4,
+Desktop recorded from 0.4.3; directory tree in 0.3.4,
 and other clips in 0.3.3. Each clip uses a different view or theme.
 
 ## More tools

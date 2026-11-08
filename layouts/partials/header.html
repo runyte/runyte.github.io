@@ -1,10 +1,9 @@
 <header class="site-header">
   <nav class="site-nav" aria-label="Main navigation">
-    <a class="site-name" href="{{ .Site.Home.RelPermalink }}">runyte</a>
+    <a class="site-name" href="{{ .Site.Home.RelPermalink }}"><img src="{{ "images/icon/runyte-64.png" | relURL }}" width="28" height="28" alt="">Runyte</a>
     {{ $current := .RelPermalink }}
     {{ range hugo.Data.navigation }}
       {{ if ne .menu false }}<a href="{{ .url | relURL }}"{{ if eq $current (.url | relURL) }} aria-current="page"{{ end }}>{{ .title }}</a>{{ end }}
     {{ end }}
-    <button class="nav-keyboard enhanced-only" data-action="help" type="button" aria-label="Website keyboard help">Space ?</button>
   </nav>
 </header>

@@ -57,8 +57,8 @@ Fonts follow your terminal settings.
 {{< screenshot
   src="images/screenshots/coding-agents.webp"
   theme="frappe"
-  alt="Claude Code and OpenAI Codex in adjacent Runyte 0.2.0 terminal panes in frappe."
-  caption="Claude and Codex. Two terminals, one workspace."
+  alt="Claude Code and OpenAI Codex in adjacent Runyte panes above the agent channel showing their conversation, in frappe."
+  caption="Claude and Codex, talking through the agent channel."
 >}}
 
 {{< screenshot

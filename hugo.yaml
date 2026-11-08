@@ -9,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 
 params:
-  description: "Runyte — A fast modal terminal editor for focused work."
+  description: "Runyte is a Helix-style modal text editor living in your terminal or its own native window."
   demoVideo: "videos/runyte-demo.mp4"
   demoPoster: "videos/runyte-demo-poster.webp"
   author: "Krzysztof Arendt"

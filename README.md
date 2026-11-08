@@ -19,9 +19,11 @@ The site introduces Runyte and includes documentation and workflow guides:
 - Workflow guides
 
 Content lives in `content/`, layouts in `layouts/`, and styles in
-`assets/css/main.css`. The homepage renders `assets/ascii/logo.txt` as plain text, matching Runyte’s
-`:about` page. The shared frame provides quiet top navigation, a status bar,
-and keyboard controls.
+`assets/css/main.css`. The homepage has its own `assets/css/home.css` and
+`assets/js/home.js`: a scroll sequence where the terminal edition becomes the
+native window. The shared frame provides top navigation, a footer, and keyboard
+controls. The app icon in `static/images/icon/` comes from
+`contrib/packaging/icons` in the editor repository.
 
 ```sh
 python3 scripts/import-docs.py ../runyte
@@ -31,10 +33,9 @@ python3 scripts/check-site.py public
 ```
 
 The theme is custom (no `theme` key in `hugo.yaml`); layouts live in
-`layouts/`, styles in `assets/css/main.css`. Its colors follow Runyte’s
-`ocean-dark` palette in `src/config/core_themes.rs`. Secondary text uses a brighter
-muted tone for browser readability. Selection backgrounds use the palette’s
-deeper blue so secondary text and links remain readable when highlighted.
+`layouts/`, styles in `assets/css/main.css`. The interface is strictly
+grayscale; only screenshots and videos carry color. Text uses Geist and code
+uses JetBrains Mono, both self-hosted from `static/fonts/` under the SIL OFL.
 
 Screenshots live in `static/images/screenshots/` and open in a shared dialog
 controlled by `assets/js/screenshot-viewer.js`. All eight gallery images were
@@ -46,11 +47,11 @@ its caption. Older assets remain available for existing external links.
 
 The About page opens the overview demo in an overlay with native controls.
 The video paths are configured in `hugo.yaml` (`demoVideo` and `demoPoster`).
-The overview is the [45-second terminal and desktop demo](demos/desktop-release/README.md):
-editing, files, terminals, Markdown, persistent sessions, animated images,
-PDFs, and pane dragging. It retains selected matrix/gruvbox scenes from the
-previous demo and adds a real ocean-dark desktop capture at 2560 × 1440.
-Its poster shows source, GIF, and PDF together.
+The overview is the [23-second desktop demo](demos/desktop-release/README.md),
+recorded on Runyte's own source code: a multi-cursor rename, six panes
+rearranged with Alt-drag and Shift-Alt-drag, and the Navigator. The homepage
+hero, the demo overlay, and the editor README all use this one video. The
+homepage still is its first frame, so replace both together.
 The editor README uses a separate GitHub attachment of the same video; the
 workflow recipe records its URL and replacement procedure.
 
@@ -59,7 +60,7 @@ remain available alongside the longer version.
 
 The Features page has ten dedicated recordings in `static/videos/features/`.
 [demos/features/](demos/features/) contains their fixture, replay recipes, and
-version records. The desktop clip runs for 26 seconds; the other clips run for 10–22 seconds. Media URLs include content
+version records. The desktop clip runs for 9.7 seconds; the other clips run for 10–22 seconds. Media URLs include content
 hashes so replacing a recording also refreshes browser caches.
 
 Keep benchmark dates and measured source versions alongside their tables;

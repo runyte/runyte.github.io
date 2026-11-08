@@ -11,7 +11,12 @@
   <meta name="description" content="{{ $description }}">
   <meta name="robots" content="index,follow,max-image-preview:large">
   {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/icon/runyte-32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="64x64" href="{{ "images/icon/runyte-64.png" | relURL }}">
+  <link rel="apple-touch-icon" href="{{ "images/icon/runyte-256.png" | relURL }}">
+  <link rel="preload" href="{{ "fonts/geist.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
   <meta property="og:title" content="{{ $title }}">
   <meta property="og:type" content="website">
@@ -36,29 +41,26 @@
 
   {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ if .IsHome }}
+    {{- $homeCSS := resources.Get "css/home.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $homeCSS.RelPermalink }}" integrity="{{ $homeCSS.Data.Integrity }}">
+    <script>if (matchMedia("(prefers-reduced-motion: no-preference)").matches) document.documentElement.classList.add("fx");</script>
+  {{ end }}
 </head>
 <body data-page="{{ if .IsHome }}About{{ else }}{{ .Title }}{{ end }}"{{ if .IsHome }} class="is-home"{{ else if .Params.guide }} class="is-guide"{{ end }}>
   <a class="skip-link" href="#main">Skip to content</a>
   {{ partial "header.html" . }}
-  <div class="site-shell">
-    <div class="workspace-frame">
-      <div class="pane-title" aria-hidden="true"><span>[{{ if .IsHome }}about{{ else }}{{ .Title | lower }}{{ end }}] [RO]</span></div>
-      <main id="main" class="content{{ if .Params.guide }} guide-content{{ end }}" tabindex="-1">
-        {{ block "main" . }}{{ end }}
-      </main>
-    </div>
-  </div>
-  <footer class="workspace-status">
-    <span class="status-mode" id="status-mode">NOR</span>
-    <span class="status-path">runyte.com{{ if not .IsHome }}{{ .RelPermalink }}{{ end }}</span>
-    <span class="status-readonly">[read-only]</span>
-    <button type="button" class="enhanced-only" data-action="navigator">Space n <span>navigate</span></button>
-    <button type="button" class="enhanced-only" data-action="command">: <span>command</span></button>
-    <a href="https://github.com/runyte/runyte" class="status-github">GitHub ↗</a>
-  </footer>
+  <main id="main" class="content{{ if .Params.guide }} guide-content{{ end }}" tabindex="-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
   {{ partial "editor-ui.html" . }}
   {{ $editorJS := resources.Get "js/editor.js" | minify | fingerprint }}
   <script src="{{ $editorJS.RelPermalink }}" integrity="{{ $editorJS.Data.Integrity }}" defer></script>
+  {{ if .IsHome }}
+    {{ $homeJS := resources.Get "js/home.js" | minify | fingerprint }}
+    <script src="{{ $homeJS.RelPermalink }}" integrity="{{ $homeJS.Data.Integrity }}" defer></script>
+  {{ end }}
   {{ if .Params.guide }}
     {{ $guideJS := resources.Get "js/guide.js" | minify | fingerprint }}
     <script src="{{ $guideJS.RelPermalink }}" integrity="{{ $guideJS.Data.Integrity }}" defer></script>
