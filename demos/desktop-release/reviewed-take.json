@@ -1,18 +1,80 @@
 {
-  "duration": 23.0,
-  "panes_start": 6.3,
-  "panes_seconds": 9.7,
+  "duration": 55.199,
+  "fade": 1.5,
+  "native_end": 36.0,
+  "agent_segments": [
+    [
+      0.6,
+      5.7,
+      4
+    ],
+    [
+      5.7,
+      15.9,
+      15
+    ],
+    [
+      15.9,
+      18.3,
+      1
+    ],
+    [
+      18.3,
+      22.9,
+      8
+    ],
+    [
+      22.9,
+      25.4,
+      1
+    ],
+    [
+      25.4,
+      49.9,
+      16
+    ],
+    [
+      49.9,
+      52.9,
+      1
+    ],
+    [
+      52.9,
+      54.1,
+      3
+    ],
+    [
+      54.1,
+      56.3,
+      1
+    ],
+    [
+      56.3,
+      61.4,
+      8
+    ],
+    [
+      61.4,
+      65.4,
+      1
+    ]
+  ],
   "geometry": [
     2560,
     1380
   ],
   "fps": 30,
-  "native_source_revision": "fad66590",
-  "native_version": "0.4.3",
+  "native_source_revision": "28a6e0d6",
+  "native_version": "0.4.5",
   "native_theme": "dark",
   "native_font_size": 22,
+  "editor_take_soft_wrap": false,
   "shown_repository": "runyte/runyte main at 51349bb2",
-  "recorded": "2026-11-08",
+  "agents": {
+    "claude": "Claude Code 2.1.322, Opus 5.5",
+    "codex": "Codex CLI 0.167.1"
+  },
+  "recorded": "2026-11-12",
   "native_checkpoints": [
     {
       "name": "Function",
@@ -24,66 +86,119 @@
     },
     {
       "name": "All matches",
-      "seconds": 3.504
+      "seconds": 3.503
     },
     {
       "name": "Renamed",
-      "seconds": 5.67
+      "seconds": 5.668
+    },
+    {
+      "name": "Explorer",
+      "seconds": 6.872
+    },
+    {
+      "name": "PDF selected",
+      "seconds": 8.306
+    },
+    {
+      "name": "PDF cover",
+      "seconds": 9.936
+    },
+    {
+      "name": "Page 43",
+      "seconds": 11.498
+    },
+    {
+      "name": "Page 45",
+      "seconds": 13.599
+    },
+    {
+      "name": "Zoomed",
+      "seconds": 15.716
+    },
+    {
+      "name": "Panned",
+      "seconds": 17.682
+    },
+    {
+      "name": "Fit",
+      "seconds": 18.687
     },
     {
       "name": "Grid",
-      "seconds": 6.805
+      "seconds": 19.647
     },
     {
       "name": "B extends down",
-      "seconds": 8.233
+      "seconds": 21.062
     },
     {
       "name": "F extends up",
-      "seconds": 9.628
+      "seconds": 22.456
     },
     {
       "name": "Alt drag swaps columns",
-      "seconds": 11.041
-    },
-    {
-      "name": "D extends right",
-      "seconds": 12.47
-    },
-    {
-      "name": "F extends left",
-      "seconds": 13.876
-    },
-    {
-      "name": "D extends up",
-      "seconds": 15.285
+      "seconds": 23.82
     },
     {
       "name": "Navigator",
-      "seconds": 17.16
+      "seconds": 25.671
     },
     {
       "name": "Browse",
-      "seconds": 19.142
+      "seconds": 27.646
     },
     {
       "name": "Filter",
-      "seconds": 20.829
+      "seconds": 29.319
     },
     {
       "name": "Terminal back",
-      "seconds": 22.835
+      "seconds": 30.623
+    },
+    {
+      "name": "Finder",
+      "seconds": 32.578
+    },
+    {
+      "name": "Finder filtered",
+      "seconds": 34.078
+    },
+    {
+      "name": "diff.rs",
+      "seconds": 35.878
     },
     {
       "name": "end",
-      "seconds": 23.02
+      "seconds": 36.058
+    }
+  ],
+  "agent_events": [
+    {
+      "name": "Claude asks Codex",
+      "seconds": 38.3
+    },
+    {
+      "name": "Wake-up line at Codex",
+      "seconds": 41.28
+    },
+    {
+      "name": "Codex answers",
+      "seconds": 45.31
+    },
+    {
+      "name": "Wake-up line at Claude",
+      "seconds": 48.76
+    },
+    {
+      "name": "Claude confirms",
+      "seconds": 51.55
     }
   ],
   "media": {
-    "runyte-demo.mp4": "c82d93e0ac553a16327e84f6718cc92c53eaea6d784b2fbd8a39deeaf7e8375e",
-    "runyte-desktop-demo.mp4": "4d31b76fcb708ae524c94db28f55097458bce240397e07d1f8afa2ecb3c3dcdd",
-    "runyte-demo-poster.webp": "febad05428da08f156bdfc55972c16edc568965d68eec8a3414c86d12635aa7b",
-    "runyte-desktop-demo-poster.webp": "54c504d8110d9939af4adf70e2e2994d5be9dc7ae2a049dc8c6111eb7246abaf"
+    "runyte-demo.mp4": "f4140189fda09fc05c93ad4a0e156fd44cd26de48ee1f86268f3767b4addde09",
+    "runyte-demo-poster.webp": "6695d9b180a4606645fe62a2502b3a7122983328f43ed82263ed7107da98305f"
   },
-  "review": "Full-resolution frames of the multi-cursor state, every pane gesture, the Navigator, and the final terminal inspected; FFprobe geometry and frame counts checked. No playback viewer inspection claimed."
+  "review": "Full-resolution frames of the opening against the previous overview, the explorer, PDF cover, page 45 at fit and zoomed, every pane gesture, the Navigator, the Finder, each channel message and wake-up line, and the fade inspected; FFprobe geometry, duration and frame count checked. The maintainer watched the full edit before publication.",
+  "readme_attachment": "https://github.com/user-attachments/assets/e45668b6-1f89-4057-8123-6e00edbc1269"
 }

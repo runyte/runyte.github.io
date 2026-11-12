@@ -47,13 +47,17 @@ its caption. Older assets remain available for existing external links.
 
 The About page opens the overview demo in an overlay with native controls.
 The video paths are configured in `hugo.yaml` (`demoVideo` and `demoPoster`).
-The overview is the [23-second desktop demo](demos/desktop-release/README.md),
-recorded on Runyte's own source code: a multi-cursor rename, six panes
-rearranged with Alt-drag and Shift-Alt-drag, and the Navigator. The homepage
+The overview is the [55-second desktop demo](demos/desktop-release/README.md),
+recorded on Runyte's own source code: a multi-cursor rename, the Rust Book PDF
+opened from the explorer, six panes rearranged with Alt-drag and Shift-Alt-drag,
+the Navigator, the Finder, and Claude Code and Codex waking each other through
+`:agent-channel`. The homepage
 hero, the demo overlay, and the editor README all use this one video. The
 homepage still is its first frame, so replace both together.
-The editor README uses a separate GitHub attachment of the same video; the
-workflow recipe records its URL and replacement procedure.
+The editor README uses a separate GitHub attachment of the same video;
+[LONG-DEMO.md](demos/editor-workflow/LONG-DEMO.md#website-and-editor-readme)
+describes the upload, and `demos/desktop-release/reviewed-take.json` records the
+current URL.
 
 The original [20-second matrix video and recipe](demos/editor-workflow/README.md)
 remain available alongside the longer version.
