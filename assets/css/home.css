@@ -14,6 +14,12 @@
   margin: 0 auto 3rem;
   text-align: center;
 }
+.hero__logo {
+  display: block;
+  width: clamp(9rem, 18vh, 12.6rem);
+  height: auto;
+  margin: 0 auto 1.5rem;
+}
 .hero h1 {
   margin: 0;
   font-weight: inherit;
@@ -178,7 +184,7 @@
   }
   .fx .hero__copy {
     position: absolute;
-    top: 18vh;
+    top: 7vh;
     left: 0;
     right: 0;
     margin: 0 auto;
