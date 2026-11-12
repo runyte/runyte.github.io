@@ -13,6 +13,21 @@ Fonts follow your terminal settings.
 {{< screenshot-gallery >}}
 
 {{< screenshot
+  src="images/screenshots/about.webp"
+  theme="gruvbox"
+  alt="Runyte 0.2.0 About screen with current getting-started shortcuts."
+  caption="Start here. Discover commands as you go."
+  eager="true"
+>}}
+
+{{< screenshot
+  src="images/screenshots/compact-grid.webp"
+  theme="rose-pine"
+  alt="Runyte 0.4.5 in a compact two-by-two pane grid: Rust code, a file manager, Git changes, and a terminal running btop."
+  caption="Code, files, Git changes, and btop in a compact grid."
+>}}
+
+{{< screenshot
   src="images/screenshots/session-strip.webp"
   theme="ocean-dark"
   alt="Runyte 0.2.0 with a clickable strip of running persistent sessions above the editor."
@@ -61,11 +76,5 @@ Fonts follow your terminal settings.
   caption="Claude and Codex, talking through the agent channel."
 >}}
 
-{{< screenshot
-  src="images/screenshots/about.webp"
-  theme="gruvbox"
-  alt="Runyte 0.2.0 About screen with current getting-started shortcuts."
-  caption="Start here. Discover commands as you go."
->}}
 
 {{< /screenshot-gallery >}}

@@ -45,6 +45,17 @@ Nerd Font Medium and its bold/italic variants. Claude Code and Codex are
 real terminal applications. Each image uses a different theme, identified in
 its caption. Older assets remain available for existing external links.
 
+`compact-grid.webp` captures Runyte 0.4.5 terminal output with `rose-pine`
+and `editor.pane_style: compact`, at 180×64 cells, rendered with JetBrainsMono
+Nerd Font Medium (20 px, 12×26 px cells) and real bold/italic variants.
+The four panes show Rust source, the source-directory explorer, the changed-file
+list opened with `Space g g`, and live btop CPU/memory panels. An isolated demo
+Git worktree provides four staged files, eight unstaged files and one untracked
+file. Captured with the editor repository's `runyte-screenshots` skill on
+2026-11-12; binary SHA-256:
+`915e60862187df9b0419cba0ca24b744de1cebbea6081fa37b0e1ecd97f46268`.
+
+
 The About page opens the overview demo in an overlay with native controls.
 The video paths are configured in `hugo.yaml` (`demoVideo` and `demoPoster`).
 The overview is the [55-second desktop demo](demos/desktop-release/README.md),
